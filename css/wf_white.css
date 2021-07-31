@@ -1,0 +1,69 @@
+@import url("/css/wf.css");
+
+:root {
+
+  --white1: #bfbfbf;
+  --white2: #C0C0C0;
+  
+  --black9: #000000;
+  --black7: #313131;
+  --black5: #5c5b5b;
+  --black3: #969696;
+}
+
+p {
+    color: var(--black5);
+}
+
+.chat-display-card {
+    box-shadow: 2px 2px 10px var(--blue1);
+    background: var(--white2);
+    color: var(--vdarkblue);
+}
+
+.chat-input-card {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: white;
+    color: var(--vdarkblue);
+}
+
+.main-text {
+    color: black;
+}
+
+.form-control {
+    background-color: grey;
+    color: white;
+}
+
+h1 {
+    color: var(--black2);
+}
+   
+h2 {
+    color: var(--black2);
+}
+ 
+h3 {
+    color: var(--black2);
+}
+
+h4 {
+    color: var(--black2);
+}
+ 
+h5 {
+    color: var(--white1);
+}
+ 
+h7 {
+    color: var(--black2);
+}
+
+h8 {
+    color: var(--black2);
+}
+
+
+
+

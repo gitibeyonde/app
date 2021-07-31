@@ -1,0 +1,225 @@
+:root {
+  --black1: #121212;
+  
+  --blue9: #0b161c;
+  --blue8: #1a2043b3;
+  --blue7: #0f4c75;
+  --blue6: #1c4575;
+  --blue5: #3282b8;
+  --blue4: #007bff9e;
+  --blue3: #00bcd452;
+  --blue2: #d5eeffd9;
+  --blue1: #dbfcffb8;
+  --blue0: #f4f6ff;
+  
+  --yellow1: #efee9dbd;
+  --yellow4: #fbfd8aab;
+  --yellow5: #f4d47c;
+  --yellow7: #fbd46d;
+  --yellow9: #eebb4d;
+  
+  --orange3: #ffe4b2;
+  --orange5: #f37121;
+  --orange7: #fb7813;
+  --orange8: #f37121;
+}
+
+
+/* Tab CSS */
+
+.tab {
+    overflow: hidden;
+    border-bottom: 2px solid var(--blue5);
+    background-color: var(--blue0);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: var(--blue4);
+    float: left;
+    border: none;
+    color: var(--blue0);
+    outline: none;
+    cursor: pointer;
+    padding: 8px 60px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: var(--blue2);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    border-bottom: 4px solid var(--blue3);
+    padding-bottom: 5px;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid var(--blue1);
+    border-top: none;
+    background-color: var(--blue0);
+}
+
+.box-shadow {
+    transition: 1s;
+    box-shadow: 4px 4px 10px 1px var(--blue2);
+}
+
+
+.flex-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+}
+
+.after1:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: linear-gradient(to right, #6f6f09, orange) !important;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.after2:after {
+    content: '';
+    display: block;
+    width: 54px;
+    height: 3px;
+    background: linear-gradient(to right, #6f6f09, orange) !important;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Buttons */
+
+.btn-sim1
+{
+background-image: linear-gradient(var(--blue1), var(--blue3));
+border-color:var(--blue2);
+color: var(--blue7);
+font-family: "Arial";
+font-weight: 500;
+font-size: 18px;
+}
+ 
+.btn-sim1:hover, .btn-sim1:focus, .btn-sim1:active, .btn-sim1.active, .open .dropdown-toggle.btn-sim1 {
+background-image: linear-gradient(var(--blue3), var(--blue1));
+border-color:var(--blue2);
+color: var(--blue7);
+}
+
+.btn-sim2
+{
+background-image: linear-gradient(var(--orange3), var(--yellow4));
+border-color:var(--orange3);
+color: red;
+font-family: "Arial";
+font-weight: 500;
+font-size: 18px;
+}
+ 
+.btn-sim2:hover, .btn-sim2:focus, .btn-sim2:active, .btn-sim2.active, .open .dropdown-toggle.btn-sim2 {
+background-image: linear-gradient(var(--yellow4), var(--orange3));
+border-color:var(--orange3);
+color: red;
+}
+
+
+.btn-sim3
+{
+border-color: var(--blue7);
+background: transparent;
+color: var(--blue6);
+font-family: "Arial";
+font-weight: 500;
+font-size: 16px;
+padding: 0px 10px;
+}
+ 
+.btn-sim3:hover, .btn-sim3:focus, .btn-sim3:active, .btn-sim3.active, .open .dropdown-toggle.btn-sim3 {
+background-image: linear-gradient(var(--blue6), var(--blue2));
+border-color:var(--blue2);
+color: var(--blue7);
+}
+
+.btn-sim4
+{
+background-image: linear-gradient(var(--blue0), var(--blue2));
+border-color:var(--blue0);
+color: var(--blue7);
+font-family: "Arial";
+font-weight: 500;
+font-size: 18px;
+}
+ 
+.btn-sim4:hover, .btn-sim4:focus, .btn-sim4:active, .btn-sim4.active, .open .dropdown-toggle.btn-sim4 {
+background-image: linear-gradient(var(--blue2), var(--blue0));
+border-color:var(--blue2);
+color: var(--blue7);
+}
+
+
+.btn-sim5
+{
+background: transparent;
+border-color: transparent;
+color: var(--blue6);
+font-family: "Arial";
+font-weight: 800;
+font-size: 20px;
+padding: 0px 10px;
+}
+ 
+.btn-sim5:hover, .btn-sim5:focus, .btn-sim5:active, .btn-sim5.active, .open .dropdown-toggle.btn-sim5 {
+background-color: var(--blue2);
+color: var(--blue7);
+}
+
+.figure {
+    box-shadow: 2px 2px 10px lightblue;
+    width: 80%;
+}
+
+
+.sel0 {
+    background: var(--blue0);
+}
+
+.sel1 {
+    background: var(--blue1);
+}
+
+.sel2 {
+    background: var(--blue2);
+}
+
+.sel3 {
+    background: var(--blue3);
+}
+
+.sel6 {
+    background: var(--orange3);
+}
+
+.nav-sel {
+    text-decoration: underline;
+}
+
+.btn-logout {
+	font-weight: 1000;
+	color: red;
+	font-size: 1.6rem;
+}
+
+.txt-name {
+	font-weight: 100;
+	color: grey;
+	font-size: 0.8rem;
+}

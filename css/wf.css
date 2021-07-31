@@ -1,0 +1,165 @@
+
+body {
+    font-family: "Arial";
+    background: transparent;
+    line-height: calc(1.5vh + 1.5vw);
+    font-size: max(2vh + 0.5vw, 12px);
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh)*100);
+    min-height: -webkit-fill-available;
+}
+
+.main-logo {
+    height: 7vh;
+}
+
+.main-logo2 {
+    height: 5vh;
+}
+
+p {
+    font-family: "Times";
+    font-size: min(2vh + 0.5vw, 14px);
+    text-align: center;
+    display: block;
+}
+
+.top-container {
+     background: transparent;
+     padding: 0px;
+}
+
+
+.chat-display-card {
+    padding: 0.25rem;
+    border-radius: 1rem;
+    height: 100vh;
+    height: calc(var(--vh, 1vh)*100);
+    width: inherit;
+}
+
+.chat-input-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: inherit;
+    height: calc(var(--vh, 1vh)*91);
+}
+
+
+.panel-group {
+    min-height: 8vh;
+    padding-top: 0px;
+}
+
+
+.app-list {
+	position: relative;
+    border-radius: 1rem;
+    width: inherit;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: white;
+    color: var(--vdarkblue);
+}
+
+
+.main-text {
+	margin-top: 4vh;
+    overflow: auto;
+    height: 82vh;
+    height: calc(var(--vh, 1vh)*82);
+    overflow-y: scroll;
+    box-sizing: content-box; /** So the width will be 100% + 17px */
+}
+
+@media screen and (max-width: 1200px) {
+    .main-text {
+        width: inherit;
+        padding-bottom: 30rem;
+        padding-right: 17px;  /**Increase/decrease this value for cross-browser compatibility */
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main-text {
+	   padding-left: 5vw;
+       padding-right: 5vw;
+       padding-bottom: 10vw;
+    }
+}
+
+
+.bottom {
+    position: absolute;
+    bottom: 0.5vh;
+    width: inherit;
+}
+
+.form-control {
+    height: max(5vh, 2.5rem);
+    font-size: max(2.5vh, 14px);
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: max(2vw + 3vh, 2.5rem);
+}
+    
+h1 {
+    font-family: "Arial";
+    font-size: max(3vh + 1vw, 15px);
+    text-align: center;
+}
+   
+h2 {
+    font-family: "Arial";
+    font-size: max(3vh + 0.5vw, 14px);
+    text-align: center;
+}
+ 
+h3 {
+    font-family: "Arial";
+    font-size: max(2vh + 1vw, 13px);
+    font-weight: 600;
+    text-align: center;
+}
+
+h4 {
+    font-family: "Times";
+    font-size: max(2vh + 0.5vw, 12px);
+    font-weight: 500;
+}
+ 
+h5 {
+    font-family: "Times";
+    font-size: max(1.5vh + 0.5vw, 11px);
+    font-weight: 500;
+}
+ 
+h7 {
+    font-family: "Times";
+    font-size: max(1.5vh + 0.5vw, 10px);
+    text-align: center;
+    display: block;
+}
+
+h8 {
+    font-family: "Times";
+    font-size: max(1.5vh, 9px);
+    text-align: center;
+    display: block;
+}
+
+.err {
+    color: red;
+}
+
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+}
+

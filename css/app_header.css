@@ -1,0 +1,291 @@
+   
+:root {
+  --tc1: #343d46;
+  --tc2: #4f5b66;
+  --tc3: #65737e;
+  --tc4: #a7adba;
+  
+  --tp1: #2e003e;
+  --tp2: #3d2352;
+  --tp3: #3d1e6d;
+  --tp4: #8874a3;
+  
+  --tb1: #ffe7c7;
+  --tb2: #fbeaea;
+  --tb3: #fff5ee;
+  --tb4: #fffafa;
+}
+
+body {
+    font-family: "Helvetica";
+    background-color: var(--tb4);
+    color: var(--tp3);
+}
+
+.navbar {
+    background: var(--tb3);
+}
+
+.nav-item {
+    padding-left: 10px;
+}
+
+main {
+    margin: 120px auto;
+}
+
+.sel {
+    border-bottom: 5px solid var(--tc4);
+    padding-bottom: 10px;
+}
+
+em {
+    font-weight: bold;
+}
+
+h1{
+    font-family: "Bookman";
+    font-size: 28px;
+    color: var(--tp3);
+    text-align: center;
+}
+h2{
+   font-family: "Times";
+   font-size: 32px;
+   color: var(--tc4);
+   text-align: center;
+}
+
+h3 {
+    font-family: "Times";
+    font-size: 32px;
+    color: var(--tc3);
+    text-align: center;
+}
+
+
+h4 {
+    font-size: 30px;
+    color:  var(--tp3);
+    text-align: center;
+}
+
+h5 {
+    font-size: 26px;
+    color: var(--tc2);
+    text-align: center;
+}
+
+h6 {
+    font-size: 22px;
+    color: var(--tp2);
+    text-align: center;
+}
+
+h7 {
+    font-size: 20px;
+    color: var(--tc1);
+    text-align: center;
+}
+
+h8 {
+    font-size: 14px;
+    color: var(--tp1);  
+    font-weight: bold;
+    text-align: center;
+}
+
+h9 {
+    font-size: 30px;
+    color:  orange;
+    text-align: center;
+}
+
+hr {
+    border-color: var(--tp3);
+    border-style: solid;
+    border-width: 2px;
+}
+
+p {
+    font-size: 23px;
+    text-indent: 30px;
+    padding-left: 20px;
+}
+
+.profile-card {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 11px;
+    background: white;
+    position: relative;
+    color: coral;
+    padding: 30px;
+    min-height: 500px;
+}
+
+.profile-card p {
+    text-align: left;
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.profile-card p img {
+    height: 80px;
+    width: 300px;
+}
+
+.profile-card p small {
+    position: absolute;
+    top: 85px;
+    right: 38%;
+}
+
+
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: var(--tb2);
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 10px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: var(--tb3);
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: var(--tb1);
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.box-shadow {
+    transition: 1s;
+    box-shadow: 4px 4px 10px 1px #ccc;
+}
+
+.card:hover {
+    box-shadow: 8px 8px 10px 1px #ccc;
+}
+
+.card .card-image {
+    overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.flex-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+}
+
+.after1:after {
+    content: '';
+    display: block;
+    width: 130px;
+    height: 3px;
+    background: linear-gradient(to right, #6f6f09, orange) !important;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.after2:after {
+    content: '';
+    display: block;
+    width: 54px;
+    height: 3px;
+    background: linear-gradient(to right, #6f6f09, orange) !important;
+    text-align: center;
+    margin-top: 5px;
+}
+
+img.shake:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+
+
+
+.btn-sim1
+{
+background-color: var(--tc4) !important;
+background-image: linear-gradient(var(--tc3), var(--tc4));
+border-color: var(--tc4);
+color: var(--tp1) !important;
+}
+ 
+.btn-sim1:hover, .btn-sim1:focus, .btn-sim1:active, .btn-sim1.active, .open .dropdown-toggle.btn-sim1 {
+background-color: var(--tc2) !important;
+background-image: linear-gradient(var(--tc1), var(--tc3));
+border-color:var(--tc4);
+color: var(--tp4) !important;
+}
+
+a {
+  color: var(--tp2);
+}
+
+.login-card {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 11px;
+    background: var(--tb1);
+    position: relative;
+    color: black;
+    padding: 30px;
+}
+
+.login-card p{
+    text-align: left;
+    position: relative;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+.login-card p img{
+    height:74px;
+    width: 150px;
+}
+
+.login-card p small{
+    position: absolute;
+    top: 85px;
+    right: 38%;
+}
+

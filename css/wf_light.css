@@ -1,0 +1,78 @@
+@import url("/css/wf.css");
+
+:root {
+  --vgreen: #4f95b5;
+  --vbrown: #b56f4f;
+  --vblue: #779ecb;
+  --vdarkblue: #355172;
+  --vred: #ff6961;
+  --vdarkred: #9b1d16;
+  --vorange: #ffb347;
+  
+  --green0: #cff0cc;
+  --green2: #cff0cc;
+  --green4: #9baf8e;
+  
+  --pink0: #caf1de;
+  --pink7: #ffe7c7;
+  
+  --blue9: #02234af0;
+  --blue7: #003879;
+  --blue6: #1c4575;
+  
+}
+  
+p {
+    color: var(--vdarkblue);
+}
+
+.chat-display-card {
+    box-shadow: 2px 2px 10px var(--blue1);
+    background: var(--pink0);
+    color: var(--green4);
+}
+
+.chat-input-card {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: var(--pink7);
+    color: var(--vdarkblue);
+}
+
+.main-text {
+    color: var(--vdarkblue);
+}
+
+.form-control {
+    background-color: var(--pink0);
+    color: var(--vdarkgreen);
+}
+    
+h1 {
+    color: var(--blue9);
+}
+   
+h2 {
+    color: var(--blue7);
+}
+ 
+h3 {
+    color: var(--blue6);
+}
+
+h4 {
+    color: var(--blue6);
+}
+ 
+h5 {
+    color: var(--blue6);
+}
+ 
+h7 {
+    color: var(--vbrown);
+}
+
+h8 {
+    color: var(--vdarkblue);
+}
+
+

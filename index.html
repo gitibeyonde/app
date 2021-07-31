@@ -1,0 +1,451 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="/img/favicons/favicon.ico" type="image/png">
+  
+  <title>DeltaCatalog - Online catalog maker</title>
+  <meta name="og:title" property="og:title" content="DeltaCatalog - Online catalog maker"> 
+  <meta property="og:image" content="https://deltacatalog.com/catalog-maker/img/home/about.png" />
+  <meta name="description" content="Delta-Catalog maker provides tools and utilities to create feature rich catalogs online. Authenticate users via OTP; validate and check-in users using an inbuilt QR-code badge." />
+  <meta property="og:description" content="Delta-Catalog maker provides tools and utilities to create feature rich catalogs online. Authenticate users via OTP; validate and check-in users using an inbuilt QR-code badge." />
+  
+<!--    Favicons-->
+<link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+<link rel="icon" href="/img/favicons/favicon.ico" type="image/png">
+<link rel="manifest" href="/img/favicons/manifest.json">
+<meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+  
+  <link rel="stylesheet" href="/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/vendors/bootstrap5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+    <style>
+	.hero-banner__img {
+	    padding-top: 4vh;
+    }
+    </style>
+    
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173989963-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-173989963-2');
+</script>
+
+
+<script>
+function pop_up(url){
+    window.open(url,'win2','status=no,toolbar=no,scrollbars=no,titlebar=no,menubar=no,resizable=yes,width=1060,height=700,directories=no,location=no');
+    return false;
+}
+</script>
+</head>
+<body>
+
+<!--================Header Menu Area =================-->
+  <header class="header_area">
+    <div class="main_menu">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <p class="navbar-brand"></p>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+            <ul class="nav navbar-nav menu_nav justify-content-end">
+              <li class="nav-item active"><a class="nav-link" href="/index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="/catalog-maker/catalog-features">Features</a></li> 
+              <li class="nav-item"><a class="nav-link" href="/catalog-maker/catalog-demos">Demos</a></li>
+              <li class="nav-item"><a class="nav-link" href="/login.php">Login</a></li>
+            </ul>
+
+            <ul class="navbar-right">
+              <li class="nav-item">
+                <a class="button button-header" href="/register.php">Sign up</a>
+              </li>
+            </ul>
+          </div> 
+        </div>
+      </nav>
+    </div>
+  </header>
+<!--================Header Menu Area =================-->
+
+
+  <main class="side-main">
+    <!--================ Hero sm Banner start =================-->      
+    <section class="hero-banner mb-30px">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7">
+            <div class="hero-banner__img">
+              <img class="img-fluid" src="/catalog-maker/img/hero-banner.png" alt="QR-code driven catalog app">
+            </div>
+          </div>
+          <div class="col-lg-5 align-items-center">
+            <div class="hero-banner__content">
+              <h1>Online catalog maker</h1>
+              <h4 class="typewriter" id="app"></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ Hero sm Banner end =================-->
+ <section class="section-padding--small bg-magnolia">
+      <div class="container"> 
+          <div class="row">
+           <div class="col-lg-12 align-items-center">
+              
+            <div class="owl-carousel owl-theme">
+                    <div class="item">
+                       <div class="card" style="width: 100%;background-color: #5A4FCF;">
+                          <div class="card-body"  style="height: 180px;">
+                           <a href="/catalog-maker/catalog-page">
+                            <h5 class="card-title">Online HTML 5 editor and tools</h5>
+                            <img class="img-fluid" src="/img/create-catalog.jpeg" alt="Online Tools" height="200px">
+                          </div>
+                          </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                       <div class="card" style="width: 100;background-color: #5A4FCF;">
+                        <a href="/catalog-maker/hosted-database-and-images">
+                          <div class="card-body"  style="height: 180px;">
+                            <h5 class="card-title">Hosted database and Image Store</h5>
+                            <img class="img-fluid" src="/img/hosted-database-and-image-store.png" alt="Fully Hosted RDS Database and Image Store" height="300px">
+                          </div>
+                         </a>
+                       </div>
+                    </div>
+                    <div class="item">
+                       <div class="card" style="width: 100;background-color: #5A4FCF;">
+                           <a href="/catalog-maker/catalog-publish">
+                          <div class="card-body"  style="height: 180px;">
+                            <h5 class="card-title">Publish using QR-code or minified links</h5>
+                            <img class="img-fluid" src="/img/catalog-publish.png" alt="Publish fully hosted micro-web pages of catalog" height="300px">
+                          </div>
+                          </a>
+                        </div>
+                    </div>
+                    <div class="item">
+                       <div class="card" style="width: 100;background-color: #5A4FCF;">
+                           <a href="/catalog-maker/catalog-social-media">
+                          <div class="card-body"  style="height: 180px;">
+                            <h5 class="card-title">Share on social media or link in SMS</h5>
+                            <img class="img-fluid" src="/img/social-media.jpeg" alt="Share on social media" height="300px">
+                          </div>
+                          </a>
+                        </div>
+                    </div>
+            </div>
+            <br/>
+            <p>The pages are optimized for mobile devices and are good for sharing on social media sites like WhatsApp, Facebook or LinkedIn. 
+            The catalogs allow you to capture user data, identify the users using OTP and communicate with them using in-app messages.
+            </p>  
+        </div>
+        
+      </div>
+    </div>
+</section>
+ 
+    
+    
+    <!--================ Feature section start =================
+    <section class="section-padding--small bg-magnolia">
+      <div class="container"> 
+          <div class="row">
+           <div class="col-lg-12 align-items-center">
+            <p>
+            The platform is an eco-system of tools and utilities to create and host online catalogs. 
+            It provides the storage for the catalog images and the data captured from the user. 
+            The WYSIWYG Html editor helps in keeping the catalog up to date.
+            <a href="https://1.do.in" target="_blank">https://1.do.in</a> is the App-console, and it book-marks all the catalogs accessed by the user. 
+            This App-console makes it easy for the user to revisit the catalog.
+            </p>
+            <p>The scanner app is a utility available to each catalog and is accessible by the catalog owner. 
+            The scanner app lets the owner pull out user information by scanning the catalog badge. 
+            The scanner app is handy for the verification of user data from a mobile phone. 
+            Check how useful it is for checking in <a href="/catalog-maker/apps/visitor-management">a visitor or registered participant</a>.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="card card-feature text-center text-lg-left mb-4 mb-lg-0">
+                <span class="card-feature__icon">
+                  <img class="img-fluid" src="/catalog-maker/img/icon1.png" alt="responsive html5 apps for mobile">
+                </span>
+                <h3 class="card-feature__title">Catalog Discovery</h3>
+                <p class="card-feature__subtitle">The user/customer scans the <a href="https://www.qr-code-generator.com/qr-code-marketing/qr-codes-basics/" target="_bank">QR code</a>,
+                 which is visible to him in the premises like reception or over the counter, or by clicking on the messaged 
+                 <a href="https://en.wikipedia.org/wiki/URL_shortening" target="_blank">minified link</a>.</p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-feature text-center text-lg-left mb-4 mb-lg-0">
+                <span class="card-feature__icon">
+                  <img class="img-fluid" src="/catalog-maker/img/icon2.png" alt="responsive html5 apps for mobile">
+                </span>
+                <h3 class="card-feature__title">Catalog activation</h3>
+                <p class="card-feature__subtitle">Scanning the QR-code or clicking on the minified link activates the catalog. 
+                The customer interacts with the catalog-App. The catalog-app gathers information from the user.</p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-feature text-center text-lg-left mb-4 mb-lg-0">
+                <span class="card-feature__icon">
+                  <img class="img-fluid" src="/catalog-maker/img/icon3.png" alt="responsive html5 apps for mobile">
+                </span>
+                <h3 class="card-feature__title">QR-Code badge</h3>
+                <p class="card-feature__subtitle">The user catalog displays a QR-code badge on demand. 
+                 The Scanner App scans this badge to validate the user and accesses user information.</p>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card card-feature text-center text-lg-left mb-4 mb-lg-0">
+                <span class="card-feature__icon">
+                  <img class="img-fluid" src="/catalog-maker/img/icon4.png" alt="responsive html5 apps for mobile">
+                </span>
+                <h3 class="card-feature__title">Badge Scanner App</h3>
+                <p class="card-feature__subtitle">The Scanner App scans the user badge and gives instant access to the user's data. 
+                You can thus validate, check-in or communicate with the user.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    -->
+    
+    <section class="section-padding--small">
+      <div class="container"> 
+        <div class="row align-items-center">
+          <div class="col-lg-3">
+            <a href="https://www.pagemight.com"><img class="img-fluid" src="/img/montblanc.png" width="40%" alt="responsive html5 apps for mobile"></a>
+          </div>
+          <div class="col-lg-9 img-box">
+              <p>
+              <br/>
+              Mobile users account for the majority of online traffic. 
+              Mobile usage is increasing day by day compared to desktop computers to access online content. 
+              Instant catalogs, with no dependency on AppStore and many nifty features, are the best way to reach and address your audience on smart-phones. 
+              The smart console <a href="https://1do.in" target="_blank">1do.in</a> lists all the catalogs that are accessed.</p>
+          <p>
+          <a  href="/catalog-maker/catalog-features">Explore</a> and check out the <a href="/catalog-maker/catalog-demos">demos</a>.
+          </p>
+            </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="section-padding--small bg-magnolia">
+      <div class="container">
+        <div class="row no-gutters align-items-center">
+         
+          <div class="carousel slide" id="carouselExampleControls" data-ride="carousel">
+            <div class="carousel-inner shadow-lg">
+              <div class="carousel-item active">
+                <div class="card border-0">
+                  <div class="row g-0">
+                    <div class="col-md-8"><img class="img-fluid" src="/catalog-maker/img/restaurant.jpg" alt="Contactless technology for restaurant menu" /></div>
+                    <div class="col-md-4">
+                      <div class="card-body text-center py-7 px-6 p-md-5 p-lg-7 p-xxl-8">
+                       <h4>Contactless Restaurant Menu</h4>
+                       <hr/>
+                        <p><a href="/catalog-maker/apps/contactless-menu">learn about contactless technology</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card border-0">
+                  <div class="row g-0">
+                    <div class="col-md-8"><img class="img-fluid" src="/catalog-maker/img/catalog.jpg" alt="Catalog maker for creating functional online catalogs" /></div>
+                    <div class="col-md-4">
+                      <div class="card-body text-center py-7 px-6 p-md-5 p-lg-7 p-xxl-8">
+                       <h4>Online catalogs</h4>
+                       <hr/>
+                        <p><a href="/catalog-maker/apps/digital-catalog-hosting">find out more</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="card border-0">
+                  <div class="row g-0">
+                    <div class="col-md-8"><img class="img-fluid" src="/catalog-maker/img/office.jpg" alt="Visitor management using Touchless technology" /></div>
+                    <div class="col-md-4">
+                      <div class="card-body text-center py-7 px-6 p-md-5 p-lg-7 p-xxl-8">
+                       <h4>Touchless Visitor Management</h4>
+                       <hr/>
+                        <p><a href="/catalog-maker/apps/visitor-management">goto visitor management</a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><a class="carousel-control-prev carousel-icon" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon rounded-pill bg-light hover-top-shadow" aria-hidden="true">
+              </span><span class="sr-only">Previous</span></a><a class="carousel-control-next carousel-icon" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon rounded-pill bg-light hover-top-shadow" aria-hidden="true"></span><span class="sr-only">Next</span></a>
+            </div>
+          </div>
+         
+        
+        </div>
+      </div>
+    </section>
+    
+    
+    <!--================ about section start =================
+    <section class="section-padding--small bg-magnolia">
+      <div class="container">
+        <div class="row no-gutters align-items-center">
+          <div class="col-md-3">
+            <div class="about__img">
+              <img class="img-fluid" src="/img/chatbot.png" alt="">
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-5 mb-5 mb-md-0">
+            <div class="about__content">
+              <h2>Messaging</h2>
+              <p>The Email and SMS messaging are integrated in the catalog app platform. 
+              The In-App messages are free of cost. The OTP messages are charged at reasonable rate.</p>
+              <p>
+              We also provide <a href="https://www.ibeyonde.com/sim800c-gsm-with-ups.html" target="_blank">SIM card hosting</a> for conversational SMS.
+              The platform tools help in putting together a conversational SMS chatbot, that is instrumented into your SIM hosting device on a click of a button.
+              </p>
+              <p>
+              Try this live number <a href="sms:+919440357190">+919440357190</a> to get instant response !
+              </p>
+            </div>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+-->      
+
+  <!-- ================ start footer Area ================= -->
+  <section class="section-margin text-center" id="contact">
+            <iframe src="/contact.php?page=deltacatalog" class="embed-responsive-item" 
+                   scrolling="no" frameborder="0" width="100%" height="500"></iframe>
+   </section>
+   
+    <footer class="footer-area section-gap">
+         <div class="container">
+            <div class="footer-bottom row align-items-center text-center text-lg-left">
+                <p class="footer-text m-0 col-lg-4 col-md-12">
+                DeltaCatalog Copyright &copy;2021
+                </p>
+                
+                <div class="footer-text col-lg-4 col-md-12 text-center text-lg-left">
+                    <a href="/catalog-maker/terms&conditions.html" class="footer-text">Terms</a>&emsp;& &emsp;
+                    <a href="/catalog-maker/privacy_policy.html" class="footer-text">Privacy</a>
+                </div>
+                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                    <a href="https://twitter.com/agneya2001"><i class="ti-twitter-alt"></i></a>
+                    <a href="https://fb.me/ibeyonde"><i class="ti-facebook"></i></a>
+                    <a href="https://github.com/gitibeyonde"><i class="ti-github"></i></a>
+                    <a href="https://www.linkedin.com/company/ibeyonde-cloud/"><i class="ti-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  <!-- ================ End footer Area ================= -->
+  <script src="/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="/vendors/bootstrap5/js/bootstrap.min.js"></script>    
+  <script src="https://unpkg.com/typewriter-effect@2.3.1/dist/core.js"></script>
+    <script>
+    var app = document.getElementById('app');
+
+    var typewriter = new Typewriter(app, {
+        loop: true
+    });
+
+    typewriter.typeString('Create online catalogs.')
+        .pauseFor(500)
+        .deleteAll()
+        .typeString('Publish using QR-code.')
+        .pauseFor(600)
+        .deleteChars(8)
+        .typeString('minified link.')
+        .pauseFor(600)
+        .deleteAll()
+        .typeString('Use it as a micro-website.')
+        .pauseFor(600)
+        .deleteChars(19)
+        .typeString('to share and collect information.')
+        .pauseFor(600)
+        .deleteAll()
+        .typeString('Authenticate users via mobile OTP.')
+        .pauseFor(600)
+        .deleteChars(11)
+        .typeString('email OTP.')
+        .pauseFor(400)
+        .deleteAll()
+        .typeString('Identify users by inbuilt QR-code badge.')
+        .pauseFor(600)
+        .deleteAll()
+        .typeString('Scanner app to check-in users.')
+        .pauseFor(600)
+        .deleteChars(15)
+        .typeString('validate users.')
+        .pauseFor(400)
+        .deleteChars(15)
+        .typeString('send in-app messages.')
+        .pauseFor(400)
+        .deleteAll()
+        .typeString('Trigger these using QR-code.')
+        .pauseFor(600)
+        .deleteAll()
+        .typeString('Send these as minified links in SMS.')
+        .pauseFor(700)
+        .deleteAll()
+        .start();
+    </script>
+  <script src="/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script>
+    $('.owl-carousel').owlCarousel({
+      loop:true,
+      margin:10,
+      responsiveClass:true,
+      responsive:{
+          0:{
+              items:1,
+              nav:true,
+              loop:false
+          },
+          600:{
+              items:2,
+              nav:false,
+              loop:false
+          },
+          1000:{
+              items:4,
+              nav:true,
+              loop:false
+          }
+      }
+  })
+  </script>
+</body>
+</html>

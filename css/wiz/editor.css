@@ -1,0 +1,74 @@
+
+/* Variables */
+:root {
+  --thumbnail-width: 400px;
+  --thumbnail-height: 600px;
+  --thumbnail-zoom: 0.50;
+}
+
+.intLink {
+    cursor: pointer;
+}
+
+img.intLink {
+    border: 0;
+    outline: 0;
+    height: 41px;
+}
+
+#toolBar1 select {
+    font-size: 18px;
+}
+
+#toolBar2 select {
+    font-size: 18px;
+}
+
+#htmlEditorPane {
+    position: relative;
+    height: 68vh;
+    width: 72vw;
+    padding-left: 5px;
+    padding-bottom: 18px;
+    padding-right: 18px;
+    border: 1px solid black;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+#textBox #sourceText {
+    padding: 0;
+    margin: 0;
+    white-space: pre-line;
+}
+
+#editMode label {
+    cursor: pointer;
+}
+
+
+#htmlEditorPane > *  {
+  border: 1px dotted grey;
+}
+
+
+#htmlEditorPane > * > * {
+  border: 1px dotted grey;
+}
+
+
+#htmlEditorPane > * > * > * {
+  border: 1px dotted grey;
+}
+
+
+#htmlEditorPane > * > * > * > * {
+  border: 1px dotted grey;
+}
+
+
+#htmlEditorPane > * > * > * > * > * {
+  border: 1px dotted grey;
+}

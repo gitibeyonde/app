@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://deltacatalog.com/</loc>
+  <lastmod>2021-01-05T08:31:14+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/index.html</loc>
+  <lastmod>2021-01-05T08:31:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-features</loc>
+  <lastmod>2021-01-03T05:52:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-demos</loc>
+  <lastmod>2021-01-03T05:52:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/docs/index.html</loc>
+  <lastmod>2021-01-05T10:14:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/docs/catalog-quick-start</loc>
+  <lastmod>2021-01-05T10:14:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/apps/contactless-menu</loc>
+  <lastmod>2021-01-03T07:42:15+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/apps/e-catalog</loc>
+  <lastmod>2021-01-03T04:12:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/apps/visitor-management</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/terms&amp;conditions.html</loc>
+  <lastmod>2021-01-03T04:12:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/privacy_policy.html</loc>
+  <lastmod>2021-01-03T04:12:12+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-app</loc>
+  <lastmod>2021-01-03T05:52:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-backend</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-scanner</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-graph</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-message</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-actions</loc>
+  <lastmod>2021-01-03T05:52:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-publish</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-payment</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/catalog-messaging</loc>
+  <lastmod>2021-01-03T05:52:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/apps/appointment-management</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/apps/party-invitations</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/apps/surveys-and-questionnaires</loc>
+  <lastmod>2021-01-03T04:15:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/docs/sql-manager-help</loc>
+  <lastmod>2021-01-05T10:14:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://deltacatalog.com/catalog-maker/docs/file-manager-help</loc>
+  <lastmod>2021-01-05T10:14:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+</urlset>

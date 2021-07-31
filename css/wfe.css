@@ -1,0 +1,163 @@
+:root {
+     --uvh: var(--uvh); 	
+     --uvw: var(--uvw);
+}
+
+
+body {
+    font-family: "Arial";
+    background: transparent;
+    line-height: calc(1.5var(--uvh) + 1.5vw);
+    font-size: max(var(--uvh)*2 + var(--uvw)*0,5, 12px);
+    min-height: var(--uvh)*100;
+    min-height: calc(var(--uvh)*100);
+    min-height: -webkit-fill-available;
+}
+
+.main-logo {
+    height: 7*var(--uvh);
+}
+
+.main-logo2 {
+    height: 5*var(--uvh);
+}
+
+p {
+    font-family: "Times";
+    font-size: min(var(--uvh)*2 + var(--uvw)*0.5, 14px);
+    text-align: center;
+    display: block;
+}
+
+.top-container {
+     background: transparent;
+     padding: 0px;
+}
+
+
+.chat-display-card {
+    padding: 0.25rem;
+    border-radius: 1rem;
+    height: 100vh;
+    height: calc(var(--uvh)*100);
+    width: inherit;
+}
+
+.chat-input-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    width: inherit;
+    height: calc(var(--uvh)*91);
+}
+
+
+.panel-group {
+    min-height: 8*var(--uvh) ;
+    padding-top: 0px;
+}
+
+
+.app-list {
+    position: relative;
+    border-radius: 1rem;
+    width: inherit;
+    padding-left: var(--uvw)*5;
+    padding-right: var(--uvw)*5;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: white;
+    color: var(--vdarkblue);
+}
+
+
+.main-text {
+    margin-top: 4*var(--uvh);
+    overflow: auto;
+    height: 8var(--uvh)*2;
+    height: calc(var(--uvh)*82);
+    overflow-y: scroll;
+    box-sizing: content-box; /** So the width will be 100% + 17px */
+}
+
+@media screen and (max-width: 1200px) {
+    .main-text {
+        width: inherit;
+        padding-bottom: 30rem;
+        padding-right: 17px;  /**Increase/decrease this value for cross-browser compatibility */
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main-text {
+       padding-left: var(--uvw)*5;
+       padding-right: var(--uvw)*5;
+       padding-bottom: var(--uvw)*10;
+    }
+}
+
+
+.bottom {
+    position: absolute;
+    bottom: var(--uvh)*0.5;
+    width: inherit;
+}
+
+.form-control {
+    height: max(var(--uvh)*5, 2.5rem);
+    font-size: max(var(--uvh)*2.5, 14px);
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: max(var(--uvw)*2  + var(--uvh)*3, 2.5rem);
+}
+    
+h1 {
+    font-family: "Arial";
+    font-size: max(var(--uvh)*3 + 1*var(--uvw), 15px);
+    text-align: center;
+}
+   
+h2 {
+    font-family: "Arial";
+    font-size: max(var(--uvh)*3 + var(--uvw)*0.5, 14px);
+    text-align: center;
+}
+ 
+h3 {
+    font-family: "Arial";
+    font-size: max(var(--uvh)*2 + 1*var(--uvw), 13px);
+    font-weight: 600;
+    text-align: center;
+}
+
+h4 {
+    font-family: "Times";
+    font-size: max(var(--uvh)*2 + var(--uvw)*0.5, 12px);
+    font-weight: 500;
+}
+ 
+h5 {
+    font-family: "Times";
+    font-size: max(var(--uvh)*1.5 + var(--uvw)*0.5, 11px);
+    font-weight: 500;
+}
+ 
+h7 {
+    font-family: "Times";
+    font-size: max(var(--uvh)*1.5 + var(--uvw)*0.5, 10px);
+    text-align: center;
+    display: block;
+}
+
+h8 {
+    font-family: "Times";
+    font-size: max(var(--uvh)*1.5, 9px);
+    text-align: center;
+    display: block;
+}
+
+.err {
+    color: red;
+}
+
+

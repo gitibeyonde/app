@@ -1,0 +1,129 @@
+
+body {
+    font-family: "Arial";
+    background: transparent;
+    line-height: 2vh;
+    font-size: min(2vh, 12px);
+    overflow-x: hidden;
+}
+
+.main-logo {
+    height: 7vh;
+}
+
+.main-logo2 {
+    height: 5vh;
+}
+
+p {
+    font-family: "Times";
+    font-size: min(1vh + 1.5vw, 18px);
+    text-align: center;
+    display: block;
+}
+
+.top-container {
+     background: transparent;
+     max-width: max(60vw, 800px);
+     padding: 0px;
+     overflow-x: hidden;
+}
+
+
+.chat-display-card {
+    padding-top: 0.25rem;
+    padding-left: 0.25rem;
+    border-radius: 1rem;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.chat-input-card {
+	width: 100%;
+	padding: 0.3rem;
+    position: absolute;
+    bottom: 0.5vh;
+}
+
+.chat-table-div {
+	height: 80vh;
+	overflow-x: auto;
+}
+
+.panel-group {
+    min-height: 8vh;
+    padding-top: 0px;
+    background-color: aliceblue;
+}
+
+.form-control {
+    height: max(4vh, 1.5rem);
+    font-size: max(1.5vh, 0.6rem);
+}
+
+select.form-control:not([size]):not([multiple]) {
+    height: max(2vw + 2vh, 2rem);
+}
+   
+
+.input-text {
+	width: 28rem;
+    height: 2rem;
+}
+
+.send-button{
+	width: 5rem;
+    font-size: 16px;
+}
+
+h1 {
+	font-family: "Arial";
+	font-size: 16px;
+	text-align: left;
+}
+
+h2 {
+	font-family: "Arial";
+	font-size: 15px;
+	text-align: left;
+}
+
+h3 {
+	font-family: "Arial";
+	font-size: 14px;
+	font-weight: 600;
+	text-align: left;
+}
+
+h4 {
+	font-family: "Times";
+	font-size: 14px;
+	font-weight: 500;
+}
+
+h5 {
+	font-family: "Times";
+	font-size: 14px;
+	font-weight: 500;
+}
+
+h7 {
+	font-family: "Times";
+	font-size: 14px;
+	text-align: center;
+	display: block;
+}
+
+h8 {
+	font-family: "Times";
+	font-size: 14px;
+	text-align: center;
+	display: block;
+}
+
+img {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+	max-width: 100px !important;
+}

@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /index.html
+Allow: /catalog-maker/
+
+User-agent: * 
+Disallow: /views/
+Disallow: /classes/
+Disallow: /common/
+Disallow: /data/
+Disallow: /libraries/
+Disallow: /udp/
+Disallow: /css/
+Disallow: /scss/
+Disallow: /libraries/
+Disallow: /data/
+Disallow: /config/
+Disallow: /cron/
+Disallow: /ibeyonde/
