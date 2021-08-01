@@ -1,6 +1,7 @@
 <?php
 if (!defined('__ROOT__')) define ( '__ROOT__', dirname ( __FILE__ ) ) ;
 include (__ROOT__ . '/views/_header.php');
+include (__ROOT__ . '/config/config.php');
 ?>
 <div class="container top">
     <div class="row">
@@ -39,15 +40,7 @@ include (__ROOT__ . '/views/_header.php');
         </div>
         <div class="col-lg-2 col-md-2 d-lg-block d-md-block d-sm-none d-none"></div>
         <div class="col-lg-4 col-md-4 d-lg-block d-md-block d-sm-none d-none">
-         	<?php
-         	if ($_SERVER['SERVER_NAME']=="app.ibeyonde.com"){
-               echo '<img src="/img/ibeyonde.jpg" class="img-fluid" width="400px">';
-            }
-            else {
-                echo '<img src="/img/deltacatalog.png" class="img-fluid" width="400px">';
-            }
-            ?>
-
+         	<img src="/img/ibeyonde.jpg" class="img-fluid" width="400px">
         </div>
         <div class="col-lg-1 col-md-1 d-lg-block d-md-block d-sm-none d-none"></div>
     </div>

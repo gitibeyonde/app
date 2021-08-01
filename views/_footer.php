@@ -9,29 +9,7 @@ if ($_SESSION["mobile"]){
   bottom: 0;
   width: 100%;
   text-align: center;
-   <?php if ($_SERVER['SERVER_NAME']=="app.ibeyonde.com"){
-       echo 'background-color: var(--tb3);;';
-    }
-    else {
-        echo 'background-color: #4e3db6;';
-    }
-    ?>
-}
-<?php } else { ?>
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-   <?php if ($_SERVER['SERVER_NAME']=="app.ibeyonde.com"){
-       echo 'background-color: var(--tb3);;';
-    }
-    else {
-        echo 'background-color: #4e3db6;';
-    }
-    ?>
+  background-color: var(--tb3);
 }
 <?php } ?>
 </style>
@@ -97,13 +75,7 @@ if (isset ( $_SESSION ['message'] ) && $_SESSION ['message'] != "") {
     <footer class="footer section-gap">
          <div class="container">
            <div class="footer-bottom row align-items-center text-center text-lg-left">
-            <?php if ($_SERVER['SERVER_NAME']=="app.ibeyonde.com"){
-                echo '<p class="footer-text m-0 col-lg-4 col-md-12">ibeyonde &copy;2021</p>';
-            }
-            else {
-                echo '<p class="footer-text m-0 col-lg-4 col-md-12">DeltaCatalog Copyright &copy;2021 </p>';
-            }
-            ?>
+           <p class="footer-text m-0 col-lg-4 col-md-12">ibeyonde &copy;2021</p>
             <div class="footer-text col-lg-4 col-md-12 text-center text-lg-left">
                 <a href="/catalog-maker/terms&conditions.html" class="footer-text">Terms</a>&emsp;& &emsp;
                 <a href="/catalog-maker/privacy_policy.html" class="footer-text">Privacy</a>
