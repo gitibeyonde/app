@@ -33,12 +33,7 @@ else if (isset($_GET['view'])) {
 
 if  ($login->getView() == MAIN_VIEW){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        if ($_SERVER['SERVER_NAME']=="app.ibeyonde.com"){
-            include("views/main_view.php");
-        }
-        else {
-            include("views/sms/main_view.php");
-        }
+        include("views/main_view.php");
     }
     else {
         include("login.php");

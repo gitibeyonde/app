@@ -90,6 +90,4 @@ if (isset ( $_SESSION ['message'] ) && $_SESSION ['message'] != "") {
     </div>
 </footer>
 <!-- ================ End footer Area ================= -->
-<script type="text/javascript" src="/js/popper.min.js"></script>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script src="/js/mail-script.js"></script>
