@@ -165,9 +165,11 @@ define("COOKIE_SECRET_KEY", "1gp@TMPS{+$78sfpMJFe-92s");
  * Configuration for: S3
  */
 define("S3_VERSION", "latest");
-define("S3_KEY", "AKIAIDLKQ2PEKIKAVKBA");
-define("S3_SECRET", "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");
+define("S3_KEY", "AKIAYLP7ZL2EH5UYVH6M");
+define("S3_SECRET", "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");
 define("S3_REGION", "us-west-2");
+
+
 
 /**
  * Configuration for: Email server credentials
