@@ -41,9 +41,9 @@ if (count ( $devices ) == 0) {
 else if (! isset($_SESSION['capability'])) {
     foreach ( $devices as $device ) {
         error_log("Cap=".$device->capabilities);
-        if (strpos($device->capabilities, "CAMERA") !== false) { 
+        if (strpos($device->capabilities, "CAMERA") !== false) {
             $cap = $cap." CAMERA";
-        } 
+        }
         if (strpos($device->capabilities, "MIC") !== false) {
             $cap = $cap." MIC";
         }
@@ -61,7 +61,7 @@ else if (! isset($_SESSION['capability'])) {
         }
         if (strpos($device->capabilities, "SIM") !== false) {
             $cap = $cap." SIM";
-        } 
+        }
     }
     $_SESSION['capability'] = $cap;
 }
@@ -71,7 +71,7 @@ else {
 
 include('_header.php');
 
-$remoteip = urldecode($_SERVER['REMOTE_ADDR']); 
+$remoteip = urldecode($_SERVER['REMOTE_ADDR']);
 $loc=MAIN_VIEW;
 $profile = new CamProfile();
 ?>
@@ -87,27 +87,27 @@ if (strpos($cap, 'CAMERA') !== false) {
     var ifrNo<?php echo $device->uuid;  ?> = 0;
     var ifrHidden<?php echo $device->uuid;  ?>;
     var ifr<?php echo $device->uuid;  ?>;
-        
+
     function swap<?php echo $device->uuid;  ?>() {
-    
+
        ifr<?php echo $device->uuid;  ?> = document.getElementById('<?php echo $device->uuid; ?>' + ifrNo<?php echo $device->uuid;  ?>);
        ifrNo<?php echo $device->uuid;  ?> = 1 - ifrNo<?php echo $device->uuid;  ?>;
        ifrHidden<?php echo $device->uuid;  ?> = document.getElementById('<?php echo $device->uuid; ?>' + ifrNo<?php echo $device->uuid;  ?>);
-    
+
        ifr<?php echo $device->uuid;  ?>.onload = null;
        ifrHidden<?php echo $device->uuid;  ?>.onload = function() {
-    
+
            ifr<?php echo $device->uuid;  ?>.style.display = 'none';
            ifrHidden<?php echo $device->uuid;  ?>.style.display = 'block';
-    
+
        }
        ifrHidden<?php echo $device->uuid;  ?>.src ="views/motion.php?muted=false&timezone=<?php echo $device->timezone; ?>&uuid=<?php echo $device->uuid; ?>&animate=<?php echo $animate; ?>";
     }
     <?php } ?>
-  
+
     setInterval(function () {
         <?php
-    
+
     foreach ( $devices as $device ) {
         if (strcmp ( $device->box_name, $thisbox ) !== 0) {
             continue;
@@ -122,7 +122,7 @@ if (strpos($cap, 'CAMERA') !== false) {
 </script>
 
 <body>
-		<div class="container-fluid" style="padding-top: 100px;">
+		<div class="container-fluid top">
 
 			<div class="row">
                  <?php
@@ -136,24 +136,24 @@ if (strpos($cap, 'CAMERA') !== false) {
                         $gsm = new GsmDevice();
                         $phone = $gsm->getGsmDeviceFromUuid($device->uuid)['my_number'];
                 ?>
-                
+
                 <div class="col-md-4 col-sm-6 col-12 col-lg-4">
-                <div class="card mb-4 box-shadow">
+                <div class="card mb-4 box-shadow main-card">
                     <div class="card-image">
                         <div class="embed-responsive embed-responsive-4by3">
                                 <iframe class="embed-responsive-item" scrolling="no" frameborder="0" width="432" height="324" id="<?php echo $device->uuid; ?>0" style="display: block"
                                     src="views/graph/gsm_health.php?timezone=<?php echo $device->timezone; ?>&uuid=<?php echo $device->uuid; ?>"> </iframe>
                         </div>
                      </div>
-                     
+
                       <div class="card-body">
                         <div class="flex-container">
                           <small style="cursor: pointer;" class="after1 text-muted"><?php echo $device->device_name; ?>( <?php echo $phone; ?> )</small>
-                          <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; 
-                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox; 
+                          <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
                                     ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                                            echo $device->deviceip; } else { echo "None"; 
+                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                            echo $device->deviceip; } else { echo "None";
                                         }
                                     ?>">
                                     <img src="/img/settings.png" width="20"/></a>
@@ -164,8 +164,8 @@ if (strpos($cap, 'CAMERA') !== false) {
                   </div>
                 <?php } else { ?>
 				<div class="col-md-4 col-sm-6 col-12 col-lg-4">
-                   
-					<div class="card mb-4 box-shadow">
+
+					<div class="card mb-4 box-shadow main-card">
                        <div class="card-image">
 
                             <div class="embed-responsive embed-responsive-4by3">
@@ -174,15 +174,15 @@ if (strpos($cap, 'CAMERA') !== false) {
                             <iframe class="embed-responsive-item" scrolling="no" frameborder="0" width="432" height="324" id="<?php echo $device->uuid; ?>1" style="display: none"></iframe>
                             </div>
                         </div>
-                      
+
                           <div class="card-body">
                             <div class="flex-container">
                             <small style="cursor: pointer;" class="after1 text-muted"><?php echo $device->device_name; ?>( <?php echo $device->uuid; ?> )</small>
-                            <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; 
-                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox; 
+                            <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
                                     ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                                            echo $device->deviceip; } else { echo "None"; 
+                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                            echo $device->deviceip; } else { echo "None";
                                         }
                                     ?>">
                                     <img src="/img/settings.png" width="20"/></a>
@@ -190,12 +190,12 @@ if (strpos($cap, 'CAMERA') !== false) {
                             <span class="mr-auto"></span>
                                     <a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>"><small class="after2 text-muted mr-3">History</small>
                                     </a>
-                                    
+
                                 <?php if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) != "none" ){ ?>
-                                    <a style="cursor: pointer;text-decoration:none;" href="index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW 
+                                    <a style="cursor: pointer;text-decoration:none;" href="index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW
                                      ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                                            echo $device->deviceip; } else { echo "None"; 
+                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                            echo $device->deviceip; } else { echo "None";
                                         }
                                     ?>"><small class="after2 text-muted mr-3">Live(HD)</small>
                                 <?php } ?>
@@ -207,8 +207,8 @@ if (strpos($cap, 'CAMERA') !== false) {
      			<?php } } ?>
             </div>
     </div>
-       
-    
+
+
 <?php include('_footer.php'); ?>
 
 </body>

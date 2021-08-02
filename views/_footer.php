@@ -72,21 +72,23 @@ if (isset ( $_SESSION ['message'] ) && $_SESSION ['message'] != "") {
 }
 // error_reporting(E_ERROR | E_PARSE);
 ?>
-    <footer class="footer section-gap">
-         <div class="container">
-           <div class="footer-bottom row align-items-center text-center text-lg-left">
-           <p class="footer-text m-0 col-lg-4 col-md-12">ibeyonde &copy;2021</p>
-            <div class="footer-text col-lg-4 col-md-12 text-center text-lg-left">
-                <a href="/catalog-maker/terms&conditions.html" class="footer-text">Terms</a>&emsp;& &emsp;
-                <a href="/catalog-maker/privacy_policy.html" class="footer-text">Privacy</a>
-            </div>
-            <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
-                <a href="https://twitter.com/agneya2001"><i class="ti-twitter-alt"></i></a>
-                <a href="https://fb.me/ibeyonde"><i class="ti-facebook"></i></a>
-                <a href="https://github.com/gitibeyonde"><i class="ti-github"></i></a>
-                <a href="https://www.linkedin.com/company/ibeyonde-cloud/"><i class="ti-linkedin"></i></a>
-            </div>
+  <footer class="fixed-bottom">
+    <div class="row">
+        <div class="col-md-4 col-6">
+            <a href="/terms&conditions.html" class="footer-text text-orange">Terms</a>&emsp;|&emsp;
+            <a href="/privacy_policy.html" class="footer-text text-orange">Privacy</a>
         </div>
+        <div class="col-md-1 d-md-block d-sm-none d-none">
+        </div>
+        <div class="col-md-3 d-md-block d-sm-none d-none">
+        </div>
+        <div class="col-md-4 col-6 footer-social">
+            <a href="https://twitter.com/agneya2001"><span class="material-icons md-24 orange">tap_and_play</span></a>
+            <a href="https://fb.me/ibeyonde"><span class="material-icons md-24 orange">facebook</span></a>
+            <a href="https://www.linkedin.com/company/ibeyonde-cloud/"><span class="material-icons md-24 orange">workspace_premium</span></a>
+            <a href="https://github.com/gitibeyonde"><span class="material-icons md-24 orange">folder</span></a>
+        </div>
+    </div>
     </div>
 </footer>
 <!-- ================ End footer Area ================= -->

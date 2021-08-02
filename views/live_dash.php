@@ -43,16 +43,13 @@ if (count ( $devices ) == 0) {
 
 $stream_id = mt_rand();
 $context = new DeviceContext();
-$remoteip = urldecode($_SERVER['REMOTE_ADDR']); 
+$remoteip = urldecode($_SERVER['REMOTE_ADDR']);
 
 $loc=LIVE_DASH;
 $profile = new CamProfile();
 
 ?>
-
-<main>
-    <div class="album py-5 bg-none">
-    <div class="container-fluid top"> 
+<div class="container-fluid top">
             <div class="row">
         <?php
         foreach ( $devices as $device ) {
@@ -62,14 +59,14 @@ $profile = new CamProfile();
             $context->updateDeviceContext($device->uuid, "live", $stream_id);
             $today = Utils::dateNow ( $device->timezone );
             list($ip, $port) = $pr->getIpAndPort($device->uuid);
-            
+
             $dev = new Device();
             $device =  $dev->loadDevice ( $device->uuid );
             $settings = (array)json_decode($device->setting);
             $video_mode = 0;
-            
+
             $settings = (array)json_decode($device->setting);
-            
+
             if(isset( $settings['version'])){
                 $version = $settings['version'];
             }
@@ -77,7 +74,7 @@ $profile = new CamProfile();
                 $version = "1.0.0";
             }
             error_log("Version =".$version);
-            
+
             if(isset( $settings['video_mode'])){
                 $video_mode = $settings['video_mode'];
             }
@@ -91,7 +88,7 @@ $profile = new CamProfile();
                 if ($video_mode == 1){
                     /*if (strcmp($device->visibleip, $remoteip) == 0 ) {
                         $mute_str = $muted == true ? "&muted=true" : "";
-                        $url = "//".$device->deviceip."/video.php?". $mute_str ."&quality=".$quality."&rand=".mt_rand(); 
+                        $url = "//".$device->deviceip."/video.php?". $mute_str ."&quality=".$quality."&rand=".mt_rand();
                         $elem = '<a href="'.$url.'" target=_top> <img width="100%" height="380" src="/img/play_video.png"></a>';
                         $loc_conn = true;
                     }
@@ -127,50 +124,50 @@ $profile = new CamProfile();
                      <div class="embed-responsive embed-responsive-4by3">
                        <?php echo $elem; ?>
                      </div>
-                
-             
-               
+
+
+
                 <div class="card-body ">
                     <div class="flex-container justify-content-space-around">
                         <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $device->uuid; ?>").src="<?php echo $url; ?>&reload=true"'><small class="text-muted after1"><?php echo $device->device_name; ?>(<?php echo $device->uuid; ?>)</small>
                         </a>
-                         <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; 
-                                  ?>&uuid=<?php echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox; 
+                         <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                  ?>&uuid=<?php echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
                                   ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                                            echo $device->deviceip; } else { echo "None"; 
+                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                            echo $device->deviceip; } else { echo "None";
                                         }
                                     ?>">
                             <img src="/img/settings.png" width="20"/></a>
                             </small>
-                   
+
 
                         <span class="mr-auto"></span>
-                        
-                        
-                        <a style="cursor: pointer;text-decoration:none;" href="//app.ibeyonde.com/index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo LIVE_DASH; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW; 
+
+
+                        <a style="cursor: pointer;text-decoration:none;" href="//app.ibeyonde.com/index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo LIVE_DASH; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW;
                          ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
-                         if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                             echo $device->deviceip; } else { echo "None"; 
+                         if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                             echo $device->deviceip; } else { echo "None";
                          }
                          ?>"><small class="text-muted after2 mr-3">Live(HD)</small>
                          </a>
-                        
+
                         <form id="default1" name=deviceSnapAction method=GET action="//<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>"/>
-                            <input type=hidden name=view value="<?php echo LIVE_DASH; ?>" /> 
-                            <input type=hidden name=action value="Snap" /> 
+                            <input type=hidden name=view value="<?php echo LIVE_DASH; ?>" />
+                            <input type=hidden name=action value="Snap" />
                             <input type=hidden name=box value="<?php echo $thisbox; ?>" />
-                            <input type=hidden name=uuid value="<?php echo $device->uuid; ?>" /> 
-                            <input type=hidden name=device_name value="<?php echo $device->device_name; ?>" /> 
+                            <input type=hidden name=uuid value="<?php echo $device->uuid; ?>" />
+                            <input type=hidden name=device_name value="<?php echo $device->device_name; ?>" />
                             <input type=hidden name=port value="<?php echo $port; ?>" />
                             <input type=hidden name=tk value="<?php echo $device->token; ?>" />
                             <input type=hidden name=local value="<?php
-                             if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                                 echo $device->deviceip; } else { echo "None"; 
+                             if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                 echo $device->deviceip; } else { echo "None";
                              }
-                             ?>" /> 
-                            <input type=hidden name=loc value="<?php echo LIVE_DASH; ?>" /> 
-                            <input type=hidden name=timezone value="<?php echo $device->timezone; ?>" /> 
+                             ?>" />
+                            <input type=hidden name=loc value="<?php echo LIVE_DASH; ?>" />
+                            <input type=hidden name=timezone value="<?php echo $device->timezone; ?>" />
                             <input type=hidden name=user_id value="<?php echo $user_id; ?>" />
                             <input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                             <input type=hidden name=role value="<?php echo $role; ?>" />
@@ -180,19 +177,13 @@ $profile = new CamProfile();
                  </div>
                  </div>
                  </div>
-                 
-  
-        <?php }?>
-      </div>    
-    
-        </div>
-        </div>
-    </div>
-        
-   
-  
-</main>
 
+
+        <?php }?>
+      </div>
+
+     </div>
+</div>
 
 <?php include('common/box_bar.php'); ?>
 
@@ -201,7 +192,7 @@ $profile = new CamProfile();
 <?php include('common/add_space.php'); ?>
 
 <script type="text/javascript">
-<!-- 
+<!--
 
 <?php
 $count = 1;
@@ -210,10 +201,10 @@ foreach ( $devices as $device ) {
     if (strcmp ( $device->box_name, $thisbox ) !== 0) {
         continue;
     }
-    
+
     $settings = (array)json_decode($device->setting);
     $video_mode = 0;
-    
+
     if(isset( $settings['video_mode'])){
         $video_mode = $settings['video_mode'];
     }
@@ -235,10 +226,10 @@ foreach ( $devices as $device ) {
         $elem = '<img  width="100%" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
     }
     $timeInterval = 300000 + 10000 * $count;
-    
+
     if ($video_mode != 1){
 ?>
-    setInterval(function(){  
+    setInterval(function(){
         document.getElementById("live<?php echo $device->uuid; ?>").src = '<?php echo $url; ?>' + new Date().getTime();
     }, <?php echo $timeInterval; ?>);
 
@@ -250,7 +241,7 @@ foreach ( $devices as $device ) {
             });
         //Gecko + IE,Webkit, Safari, Chrome
       });
-    <?php } else { ?> 
+    <?php } else { ?>
 
    window.addEventListener("beforeunload", function () {
             $.ajax({
@@ -260,7 +251,7 @@ foreach ( $devices as $device ) {
             });
         //Gecko + IE,Webkit, Safari, Chrome
       });
-<?php 
+<?php
      }
     $count = $count + 1;
 }
@@ -272,6 +263,6 @@ if (!$all_local){
 
 <?php } ?>
 //-->
-</script>  
+</script>
 
 <?php include('_footer.php'); ?>
