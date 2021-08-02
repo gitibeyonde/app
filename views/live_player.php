@@ -1,6 +1,6 @@
 <?php include('_header.php'); ?>
 
-<?php 
+<?php
 require_once(__ROOT__.'/classes/RegistryPort.php');
 require_once(__ROOT__.'/classes/DeviceContext.php');
 require_once (__ROOT__ . '/classes/Device.php');
@@ -71,23 +71,23 @@ $profile = new CamProfile();
 $url = null;
 $elem = null;
 if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) == "none" ){
-    $elem = '<img class="embed-responsive-item" width="100%" src="/img/disabled.png"></div>';
+    $elem = '<img class="embed-responsive-item"  width="864" height="648" src="/img/disabled.png"></div>';
 }
 else {
     if ($video_mode == 1){
-        /*if (strcmp($local, "None")==0 ) 
+        /*if (strcmp($local, "None")==0 )
         {
             $url = "https://app.ibeyonde.com/index.php?timezone=".$device->timezone."&uuid=".$device->uuid."&quality=".VQuality::K."&view=video_view&device_name=".
                 $device->device_name."&rand=".mt_rand()."&tk=".$device->token."&box=default";
         }
         else {
             $mute_str = $muted == true ? "&muted=true" : "";
-            $url = "//".$device->deviceip."/video.php?quality=HINI".$mute_str ."&rand=".mt_rand();       
+            $url = "//".$device->deviceip."/video.php?quality=HINI".$mute_str ."&rand=".mt_rand();
         }*/
         $url = "https://app.ibeyonde.com/index.php?timezone=".$device->timezone."&uuid=".$device->uuid."&quality=".VQuality::K."&view=video_view&device_name=".
             $device->device_name."&rand=".mt_rand()."&tk=".$device->token."&box=default";
         $elem = '<div class="embed-responsive embed-responsive-4by3">'.
-           '<iframe  class="embed-responsive-item" scrolling="no" frameborder="0" style="display: block;" width="100%" id="live'.$device->uuid.'" src="'.$url.'"> </iframe></div>';
+           '<iframe  class="embed-responsive-item" scrolling="no" frameborder="0" style="display: block;"  width="864" height="648" id="live'.$device->uuid.'" src="'.$url.'"> </iframe></div>';
     }
     else {
         /*if (strcmp($local, "None")==0 ) {
@@ -99,7 +99,7 @@ else {
         }*/
         $url = "https://".$ip."/udp/live_n.php?timezone=".$device->timezone."&user_name=".$user_name."&quality=".$quality."&user_id=".$user_id."&uuid=".$device->uuid.
             "&port=".$port."&sid=".$stream_id."&tk=".$device->token."&rand=".mt_rand();
-        $elem = '<img  width="100%" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
+        $elem = '<img   width="864" height="648" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
     }
 }
 
@@ -116,18 +116,18 @@ function getRecordingState($uuid, $video_mode){
 <style>
 
 .box-shadow {
-            
+
             transition: 1s;
-    box-shadow: 4px 4px 10px 1px #ccc;   
-    
+    box-shadow: 4px 4px 10px 1px #ccc;
+
         }
 
-        
+
 .card:hover{
-            
+
     box-shadow: 8px 8px 10px 1px #ccc;
         }
-    
+
 .card .card-image{
     overflow: hidden;
     -webkit-transform-style: preserve-3d;
@@ -147,13 +147,13 @@ function getRecordingState($uuid, $video_mode){
         box-shadow: 8px 8px 10px 1px #ccc;
         margin: 1px;
     }
-    
+
     .remote-button1:hover{
         color: white;
         transition: 1s;
         box-shadow: 4px 4px 10px 1px #ccc;
         margin: 1px;
-         
+
     }
 
     .link-button2{
@@ -196,7 +196,7 @@ function getRecordingState($uuid, $video_mode){
   display: flex;           /* 1 */
   flex-flow: row wrap;
   justify-content: center;
-  
+
 }
 
 .up, .down {
@@ -219,33 +219,30 @@ function getRecordingState($uuid, $video_mode){
 
 </style>
 
-
-<main class="mt-5" role="main">
-    <div class="album py-5 bg-none">
-    <div class="container-fluid">
+<div class="container-fluid top">
 
 <div class="row">
 
     <div class="col-md-2 col-sm-0 col-0 col-lg-3">
     </div>
     <div class="col-md-8 col-sm-12 col-12 col-lg-6">
-                   
+
 					<div class="card mb-4 box-shadow">
                        <div style="cursor: pointer;" class="card-image" data-toggle="collapse" data-target="#zoom">
                            <iframe name="donothing" style="display:none;"></iframe>
                            <?php echo $elem; ?>
                         </div>
-                        
+
                         <div class="card-body">
-                            
+
                             <div class="flex-container">
-                                
+
                                 <small class="mb-2 after1" style="cursor: pointer;" class="text-muted"><?php echo $device_name; ?> : <?php echo $uuid; ?></small>
-                                 <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; 
-                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox; 
+                                 <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
                                     ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) { 
-                                            echo $device->deviceip; } else { echo "None"; 
+                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                            echo $device->deviceip; } else { echo "None";
                                         }
                                     ?>">
                                     <img src="/img/settings.png" width="20"/></a>
@@ -256,17 +253,17 @@ function getRecordingState($uuid, $video_mode){
                         <small style="cursor: pointer;" class="text-muted fa fa-arrows fa-1x" data-toggle="collapse" data-target="#zoom"></small>
 
                             </div>
-                                
+
                         <div class="flex-container1">
                             <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $uuid; ?>").src="<?php echo $url; ?>&reload=true"'><small class="after2 text-muted mr-3">Reload</small>
                             </a>
                             <form id="recordform" name=RecordToggleAction method=GET action="https://<?php echo $ip; ?>/udp/device_action.php"  target="donothing">
-                        <input type=hidden name=action value="RecordToggle" /> 
+                        <input type=hidden name=action value="RecordToggle" />
                         <?php include('common/live_player_input.php'); ?>
                                 <a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("recordform").submit(); recordToggle();'><small id="RecordToggleSpan" class="text-muted after2 mr-3"><?php echo getRecordingState($uuid, $video_mode); ?></small></a>
-                            
+
                         </form>
-                                
+
                        <a style="cursor: pointer;text-decoration:none;" href="index.php?view=<?php echo RECORD_MANAGE; ?>&uuid=<?php echo $uuid; ?>&video_mode=<?php echo $video_mode;?>&device_name=<?php $device_name; ?>"><small class="after1 text-muted mr-3">Manage Recording</small>
                         </a>
                     </div>
@@ -278,8 +275,8 @@ function getRecordingState($uuid, $video_mode){
 
                             <div class="grid collapse" id="zoom">
                                          <form style="margin-bottom: 0px;" class="up" name=moveUp method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" /> 
-                                            <input type=hidden name=area value="moveUp" /> 
+                                            <input type=hidden name=action value="Zoom" />
+                                            <input type=hidden name=area value="moveUp" />
                                             <?php include('common/live_player_input.php'); ?>
                                             <button type="submit" class="btn btn-sm remote-button1" name="moveUp" value="moveUp"><span class="fa fa-arrow-up"></span>
                                             </button>
@@ -288,8 +285,8 @@ function getRecordingState($uuid, $video_mode){
 
 
                                          <form style="margin-bottom: 0px;" class="left" name="moveLeft" method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" /> 
-                                            <input type=hidden name=area value="moveLeft" /> 
+                                            <input type=hidden name=action value="Zoom" />
+                                            <input type=hidden name=area value="moveLeft" />
                                             <?php include('common/live_player_input.php'); ?>
                                             <button type="submit" class="btn btn-sm remote-button1" name="moveLeft" value="moveLeft"><span class="fa fa-arrow-left"></span>
                                             </button>
@@ -298,7 +295,7 @@ function getRecordingState($uuid, $video_mode){
 
 
                                          <form style="margin-bottom: 0px;" class="plus" name=zoomIn method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" /> 
+                                            <input type=hidden name=action value="Zoom" />
                                             <input type=hidden name=area value="zoomIn" />
                                             <?php include('common/live_player_input.php'); ?>
                                             <button type="submit" class="btn btn-sm remote-button1" name="zoomIn" value="zoomIn"><span style="font-weight: 2" class="fa fa-plus"></span>
@@ -306,23 +303,23 @@ function getRecordingState($uuid, $video_mode){
                                         </form>
 
                                         <form style="margin-bottom: 0px;" class="minus" name=zoomOut method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                                <input type=hidden name=action value="Zoom" /> 
-                                                <input type=hidden name=area value="zoomOut" /> 
+                                                <input type=hidden name=action value="Zoom" />
+                                                <input type=hidden name=area value="zoomOut" />
                                                 <?php include('common/live_player_input.php'); ?>
                                                 <button type="submit" class="btn btn-sm remote-button1" name="zoomOut" value="zoomOut"><span class="fa fa-minus"></span>
                                                 </button>
                                             </form>
                                         <form style="margin-bottom: 0px;" class="right" name=moveRight method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" /> 
-                                            <input type=hidden name=area value="moveRight" /> 
+                                            <input type=hidden name=action value="Zoom" />
+                                            <input type=hidden name=area value="moveRight" />
                                             <?php include('common/live_player_input.php'); ?>
                                             <button type="submit" class="btn btn-sm remote-button1" name="moveRight" value="moveRight"><span class="fa fa-arrow-right"></span>
                                             </button>
                                         </form>
 
                                          <form style="margin-bottom: 0px;" class="down" name=moveDown method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" /> 
-                                            <input type=hidden name=area value="moveDown" /> 
+                                            <input type=hidden name=action value="Zoom" />
+                                            <input type=hidden name=area value="moveDown" />
                                             <?php include('common/live_player_input.php'); ?>
                                             <button type="submit" class="btn btn-sm remote-button1" name="moveDown" value="moveDown"><span class="fa fa-arrow-down"></span>
                                             </button>
@@ -330,21 +327,19 @@ function getRecordingState($uuid, $video_mode){
                                     </div>
                         </div>
         </div>
-    </div>
-        </div>  
-    
-    <?php } 
-    else { ?>
-    
-      <p> Zoom is available in version 1.0.6 and above, please update your device from Settings</p>
-    
+
     <?php }
-    ?> 
-    
+    else { ?>
+
+      <p> Zoom is available in version 1.0.6 and above, please update your device from Settings</p>
+
+    <?php }
+    ?>
+
 
     <?php if (strpos($device->capabilities, "SPEAKER") !== false) { ?>
-            
-    
+
+
 <script src="js/audiodisplay.js"></script>
 <script src="js/recorder.js"></script>
 <script src="js/recordMain.js"></script>
@@ -366,7 +361,7 @@ function announceToggle(context) {
         document.getElementById("AnnounceToggleSpan").style.color = "red";
         recordTimer = setInterval(function(){
             startRecording(context);
-        }, 2000); 
+        }, 2000);
     }
     else {
         document.getElementById("AnnounceToggleSpan").innerHTML = "&nbsp;Mic Off";
@@ -378,9 +373,9 @@ function announceToggle(context) {
 
 </script>
 
-     <div class="row">    
-       <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">      
-          <div class="row">  
+     <div class="row">
+       <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-sm-offset-1 col-md-offset-2 col-lg-offset-3">
+          <div class="row">
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                    <canvas id="analyser" height="44" style="background: lightgrey;"></canvas>
               </div>
@@ -388,7 +383,7 @@ function announceToggle(context) {
                 	 <form name="AnnounceToggleAction" method=GET action="https://<?php echo $ip; ?>/udp/device_action.php"  target="donothing">
                     <input type=hidden name=action value="AnnounceToggle" />
                     <?php include('common/live_player_input.php'); ?>
-                        <button type="submit" class="btn btn-block btn-lg"  style="background-color: #bed4ff;" type=submit 
+                        <button type="submit" class="btn btn-block btn-lg"  style="background-color: #bed4ff;" type=submit
                             name="AnnounceToggle" value="AnnounceToggle" onClick="announceToggle(this)"
                             >
                                 <span class="glyphicon  glyphicon-record"  id="AnnounceToggleSpan" style="color: black;">&nbsp;Mic Off</span>
@@ -399,16 +394,16 @@ function announceToggle(context) {
        </div>
      </div>
     <?php } ?>
-    
-    
+
+
     <div class="row">
         <br /> <br />
         <br /> <br />
     </div>
-    
-   
+
+
 <?php include('common/add_space.php'); ?>
- 
+
 <script type="text/javascript">
 
 function recordToggle() {
@@ -417,7 +412,7 @@ function recordToggle() {
         document.getElementById("RecordToggleSpan").innerHTML = "&nbsp;Stop";
         document.getElementById("RecordToggleSpan").classList.remove("text-muted");
         document.getElementById("RecordToggleSpan").classList.add("text-danger");
-        
+
     }
     else {
         document.getElementById("RecordToggleSpan").innerHTML = "&nbsp;Record";
@@ -484,10 +479,10 @@ function shutdownRecord(){
     setInterval(function(){
         console.log("reloading ...");
         document.getElementById("live<?php echo $uuid; ?>").src = "<?php echo $url; ?>&reload=true&t="+ new Date().getTime();
-   }, 30000);      
-       
+   }, 30000);
+
     <?php } else { ?>
-    
+
     unloadLive(1);
     setTimeout(function(){
             shutdownLive(1);
@@ -498,8 +493,8 @@ function shutdownRecord(){
  <?php } ?>
 
 
-</script>  
+</script>
         </div></div></main>
-    
+
 <?php include('_footer.php'); ?>
 </html>

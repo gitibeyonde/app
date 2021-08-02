@@ -82,14 +82,14 @@ $profile = new CamProfile();
             $elem = null;
             $loc_conn = false;
             if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) == "none" ){
-                $elem = '<img class="embed-responsive-item" width="100%" src="/img/disabled.png"></div>';
+                $elem = '<img class="embed-responsive-item"  width="432" height="324" src="/img/disabled.png"></div>';
             }
             else {
                 if ($video_mode == 1){
                     /*if (strcmp($device->visibleip, $remoteip) == 0 ) {
                         $mute_str = $muted == true ? "&muted=true" : "";
                         $url = "//".$device->deviceip."/video.php?". $mute_str ."&quality=".$quality."&rand=".mt_rand();
-                        $elem = '<a href="'.$url.'" target=_top> <img width="100%" height="380" src="/img/play_video.png"></a>';
+                        $elem = '<a href="'.$url.'" target=_top> <img  width="432" height="324" height="380" src="/img/play_video.png"></a>';
                         $loc_conn = true;
                     }
                     else {
@@ -98,7 +98,7 @@ $profile = new CamProfile();
                     }*/
                     $url = "//app.ibeyonde.com/index.php?timezone=".$device->timezone."&uuid=".$device->uuid."&tk=".$device->token.
                     "&quality=".VQuality::K."&view=video_view&device_name="."&sid=".$stream_id.$device->device_name."&box=default&muted=true";
-                    $elem = '<iframe class="embed-responsive-item" width="100%" scrolling="no" frameborder="0" style="display: block;" id="live'.
+                    $elem = '<iframe class="embed-responsive-item"  width="432" height="324" scrolling="no" frameborder="0" style="display: block;" id="live'.
                         $device->uuid.'" src="'.$url.'"> </iframe></div>';
                 }
                 else {
@@ -114,7 +114,7 @@ $profile = new CamProfile();
                     $url = "https://".$ip."/udp/live_n.php?timezone=".$device->timezone."&user_name=".$user_name."&quality=".$quality.
                     "&user_id=".$user_id."&uuid=".$device->uuid.
                     "&port=".$port."&sid=".$stream_id."&tk=".$device->token."&rand=".mt_rand();
-                    $elem ='<img class="embed-responsive-item" width="100%" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'"></div>';
+                    $elem ='<img class="embed-responsive-item"  width="432" height="324" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'"></div>';
                 }
             }
             ?>
@@ -223,7 +223,7 @@ foreach ( $devices as $device ) {
         $url = "//".$ip."/udp/live_n.php?timezone=".$device->timezone."&user_name=".$user_name."&quality=".$quality.
                 "&user_id=".$user_id."&uuid=".$device->uuid.
                 "&port=".$port."&sid=".$stream_id."&tk=".$device->token."&rand=".mt_rand();
-        $elem = '<img  width="100%" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
+        $elem = '<img   width="432" height="324" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
     }
     $timeInterval = 300000 + 10000 * $count;
 
