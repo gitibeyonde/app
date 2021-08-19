@@ -132,43 +132,43 @@ if (strpos($cap, 'CAMERA') !== false) {
             }
         ?>
 			<div class="col-md-4 col-sm-6 col-12 col-lg-4">
-				<div class="row">
-                       <div class="col-12" style="align-content: center;">
-                            <iframe class="embed-responsive-item" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>0" style="display: block"
-                                        src="views/motion.php?muted=false&timezone=<?php echo $device->timezone; ?>&uuid=<?php echo $device->uuid; ?>&animate=<?php echo $animate; ?>"> </iframe>
-                            <iframe class="embed-responsive-item" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>1" style="display: none"></iframe>
-                        </div>
+                <div class="card mx-auto mb-4 box-shadow">
+                    <div class="card-image">
+                        <iframe class="embed-responsive-item" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>0" style="display: block"
+                                    src="views/motion.php?muted=false&timezone=<?php echo $device->timezone; ?>&uuid=<?php echo $device->uuid; ?>&animate=<?php echo $animate; ?>"> </iframe>
+                        <iframe class="embed-responsive-item" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>1" style="display: none"></iframe>
+                    </div>
 
-                      	<div class="row">
-                          <div class="flex-container">
-                              	<small style="cursor: pointer;" class="after1 text-muted"><?php echo $device->device_name; ?>(<?php echo $device->uuid; ?>)</small>
-                              	&nbsp;&nbsp;&nbsp;&nbsp;
-                              	<small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
-                                        ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token;
-                                        ?>&box=<?php echo $thisbox; ?>&local=<?php
-                                            if (strcmp($device->visibleip, $remoteip) == 0 ) {
-                                                echo $device->deviceip; } else { echo "None";
-                                            }
-                                        ?>">
-                                        <img src="/img/settings.png" width="20"/></a>
-                                 </small>
-
-
-                                 &nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>">
-                                        <small class="after2 text-muted mr-3">History</small>
-                                 </a>
-
-                                <?php if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) != "none" ){ ?>
-                                   &nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor: pointer;text-decoration:none;" href="index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW
-                                     ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
+                    <div class="card-body ">
+                      <div class="flex-container">
+                          	<small style="cursor: pointer;" class="after1 text-muted"><?php echo $device->device_name; ?>(<?php echo $device->uuid; ?>)</small>
+                          	&nbsp;&nbsp;&nbsp;&nbsp;
+                          	<small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token;
+                                    ?>&box=<?php echo $thisbox; ?>&local=<?php
                                         if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                             echo $device->deviceip; } else { echo "None";
                                         }
-                                    ?>"><small class="after2 text-muted mr-3">Live(HD)</small>
-                                   </a>
-                                <?php } ?>
-                         </div>
+                                    ?>">
+                                    <img src="/img/settings.png" width="20"/></a>
+                             </small>
+
+
+                             &nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>">
+                                    <small class="after2 text-muted mr-3">History</small>
+                             </a>
+
+                            <?php if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) != "none" ){ ?>
+                               &nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor: pointer;text-decoration:none;" href="index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW
+                                 ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
+                                    if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                        echo $device->deviceip; } else { echo "None";
+                                    }
+                                ?>"><small class="after2 text-muted mr-3">Live(HD)</small>
+                               </a>
+                            <?php } ?>
                      </div>
+                  </div>
                 </div>
             </div>
 		<?php }  ?>

@@ -131,7 +131,7 @@ $profile = new CamProfile();
                     <div class="flex-container justify-content-space-around">
                         <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $device->uuid; ?>").src="<?php echo $url; ?>&reload=true"'><small class="text-muted after1"><?php echo $device->device_name; ?>(<?php echo $device->uuid; ?>)</small>
                         </a>
-                         <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                         &nbsp;&nbsp;&nbsp;&nbsp;<small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
                                   ?>&uuid=<?php echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
                                   ?>&local=<?php
                                         if (strcmp($device->visibleip, $remoteip) == 0 ) {
@@ -142,7 +142,7 @@ $profile = new CamProfile();
                             </small>
 
 
-                        <span class="mr-auto"></span>
+                        <span class="mr-auto">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 
 
                         <a style="cursor: pointer;text-decoration:none;" href="//app.ibeyonde.com/index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo LIVE_DASH; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW;
@@ -152,7 +152,7 @@ $profile = new CamProfile();
                          }
                          ?>"><small class="text-muted after2 mr-3">Live(HD)</small>
                          </a>
-
+						&nbsp;&nbsp;&nbsp;&nbsp;
                         <form id="default1" name=deviceSnapAction method=GET action="//<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>"/>
                             <input type=hidden name=view value="<?php echo LIVE_DASH; ?>" />
                             <input type=hidden name=action value="Snap" />

@@ -41,17 +41,10 @@ error_log("Date= $date Time=$time");
 ?>
 <div class="container-fluid top">
 
-<div class="row">
-<div class="col-md-3 col-lg-4 col-xl-4">
-<br/>
-<br/>
-<br/>
-</div>
-</div>
 <div class="row align-items-center">
-    <div class="col-md-3 col-lg-4 col-xl-4">
+    <div class="col-md-2 col-lg-3 col-xl-4">
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
     <form action="index.php" method=GET>
       <label>&nbsp;Camera:</label><select name="uuid">
         <?php foreach ( $devices as $dev ) { ?>\
@@ -87,9 +80,9 @@ if (count($motions) > 0) {
                 $ismp4 = strpos($furl, '.mp4') !== false;
            ?>
 <div class="row align-items-center">
-    <div class="col-md-3 col-lg-4 col-xl-4">
+    <div class="col-md-2 col-lg-3 col-xl-4">
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
                      <?php if ($ismp4) { ?>
                                <video
                                   width="100%"
@@ -101,12 +94,13 @@ if (count($motions) > 0) {
                         <?php } else { ?>
                               <form class="form-horizontal" name=tagPicture<?php echo $count; ?> method=GET action="index.php?view=<?php echo HISTORY_TAG; ?>" target="_blank" >
                                   <button class="btn btn-default" style="border: none; background: none; padding: 0; outline: none;">
-                                    <img id="#himage" src="<?php echo $furl; ?>" alt="Loading..." class="img-responsive" width="100%"/>
+                                    <img id="#himage" src="<?php echo $furl; ?>" alt="Loading..." class="img-fluid" width="100%"/>
+                                    <?php echo $motion->datetime; ?>
                                   </button>
-                                  <input type=hidden name=time value="<?php echo $motion->datetime ?>" />
-                                  <input type=hidden name=date value="<?php echo $date ?>" />
-                                  <input type=hidden name=uuid value="<?php echo $uuid ?>" />
-                                  <input type=hidden name=furl value="<?php echo $motion->image ?>" />
+                                  <input type=hidden name=time value="<?php echo $motion->datetime; ?>" />
+                                  <input type=hidden name=date value="<?php echo $date; ?>" />
+                                  <input type=hidden name=uuid value="<?php echo $uuid; ?>" />
+                                  <input type=hidden name=furl value="<?php echo $motion->image; ?>" />
                             </form>
                          <?php } ?>
            </div>
