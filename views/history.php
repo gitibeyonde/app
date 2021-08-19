@@ -39,7 +39,7 @@ $hr_of_day = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
 
 error_log("Date= $date Time=$time");
 ?>
-<div class="container"  style="padding-top: 100px;">
+<div class="container-fluid top">
 
 <div class="row">
 <div class="col-md-3 col-lg-4 col-xl-4">
@@ -91,7 +91,7 @@ if (count($motions) > 0) {
     </div>
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
                      <?php if ($ismp4) { ?>
-                               <video 
+                               <video
                                   width="100%"
                                   style="display: block;"
                                   controls
@@ -102,11 +102,11 @@ if (count($motions) > 0) {
                               <form class="form-horizontal" name=tagPicture<?php echo $count; ?> method=GET action="index.php?view=<?php echo HISTORY_TAG; ?>" target="_blank" >
                                   <button class="btn btn-default" style="border: none; background: none; padding: 0; outline: none;">
                                     <img id="#himage" src="<?php echo $furl; ?>" alt="Loading..." class="img-responsive" width="100%"/>
-                                  </button> 
-                                  <input type=hidden name=time value="<?php echo $motion->datetime ?>" /> 
-                                  <input type=hidden name=date value="<?php echo $date ?>" /> 
-                                  <input type=hidden name=uuid value="<?php echo $uuid ?>" /> 
-                                  <input type=hidden name=furl value="<?php echo $motion->image ?>" /> 
+                                  </button>
+                                  <input type=hidden name=time value="<?php echo $motion->datetime ?>" />
+                                  <input type=hidden name=date value="<?php echo $date ?>" />
+                                  <input type=hidden name=uuid value="<?php echo $uuid ?>" />
+                                  <input type=hidden name=furl value="<?php echo $motion->image ?>" />
                             </form>
                          <?php } ?>
            </div>

@@ -1,19 +1,3 @@
-<style>
-
-<?php
-if ($_SESSION["mobile"]){
-?>
-.footer {
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  background-color: var(--tb3);
-}
-<?php } ?>
-</style>
-
 <div class="row">
 
  <br/>

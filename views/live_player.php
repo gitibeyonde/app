@@ -71,7 +71,7 @@ $profile = new CamProfile();
 $url = null;
 $elem = null;
 if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) == "none" ){
-    $elem = '<img class="embed-responsive-item"  width="864" height="648" src="/img/disabled.png"></div>';
+    $elem = '<img class="img-fluid" width="100%" src="/img/disabled.png"></div>';
 }
 else {
     if ($video_mode == 1){
@@ -99,7 +99,7 @@ else {
         }*/
         $url = "https://".$ip."/udp/live_n.php?timezone=".$device->timezone."&user_name=".$user_name."&quality=".$quality."&user_id=".$user_id."&uuid=".$device->uuid.
             "&port=".$port."&sid=".$stream_id."&tk=".$device->token."&rand=".mt_rand();
-        $elem = '<img   width="864" height="648" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
+        $elem = '<img  class="img-fluid" width="100%" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'">';
     }
 }
 

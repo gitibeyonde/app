@@ -50,7 +50,7 @@ $profile = new CamProfile();
 
 ?>
 <div class="container-fluid top">
-            <div class="row">
+    <div class="row">
         <?php
         foreach ( $devices as $device ) {
             if (strcmp ( $device->box_name, $thisbox ) !== 0) {
@@ -114,7 +114,7 @@ $profile = new CamProfile();
                     $url = "https://".$ip."/udp/live_n.php?timezone=".$device->timezone."&user_name=".$user_name."&quality=".$quality.
                     "&user_id=".$user_id."&uuid=".$device->uuid.
                     "&port=".$port."&sid=".$stream_id."&tk=".$device->token."&rand=".mt_rand();
-                    $elem ='<img class="embed-responsive-item"  width="432" height="324" alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'"></div>';
+                    $elem ='<img class="img-fluid" width="100%"  alt="Please, reload or wait for auto-reload" id="live'.$device->uuid.'" src="'.$url.'"></div>';
                 }
             }
             ?>
