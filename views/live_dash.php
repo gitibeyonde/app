@@ -1,4 +1,3 @@
-<?php include('_header.php'); ?>
 <?php
 require_once (__ROOT__ . '/classes/UserFactory.php');
 require_once (__ROOT__ . '/classes/User.php');
@@ -47,8 +46,39 @@ $remoteip = urldecode($_SERVER['REMOTE_ADDR']);
 
 $loc=LIVE_DASH;
 $profile = new CamProfile();
+if (! isset($_SESSION['capability'])) {
+    foreach ( $devices as $device ) {
+        error_log("Cap=".$device->capabilities);
+        if (strpos($device->capabilities, "CAMERA") !== false) {
+            $cap = $cap." CAMERA";
+        }
+        if (strpos($device->capabilities, "MIC") !== false) {
+            $cap = $cap." MIC";
+        }
+        if (strpos($device->capabilities, "SPEAKER") !== false) {
+            $cap = $cap." SPEAKER";
+        }
+        if (strpos($device->capabilities, "MOTION") !== false) {
+            $cap = $cap." MOTION";
+        }
+        if (strpos($device->capabilities, "MOTION") !== false) {
+            $cap = $cap." MOTION";
+        }
+        if (strpos($device->capabilities, "TEMPERATURE") !== false) {
+            $cap = $cap." TEMPERATURE";
+        }
+        if (strpos($device->capabilities, "SIM") !== false) {
+            $cap = $cap." SIM";
+        }
+    }
+    $_SESSION['capability'] = $cap;
+}
+else {
+    $cap = $_SESSION['capability'];
+}
 
 ?>
+<?php include('_header.php'); ?>
 <div class="container-fluid top">
     <div class="row">
         <?php
