@@ -1,7 +1,4 @@
 <?php
-require_once (__ROOT__ . '/classes/sms/SmsUtils.php');
-require_once (__ROOT__ . '/classes/sms/SmsMessage.php');
-require_once (__ROOT__ . '/classes/sms/EmailLog.php');
 require_once(__ROOT__.'/libraries/aws.phar');
 use Aws\Common\Enum\Region;
 use Aws\Ses\SesClient;
@@ -16,7 +13,7 @@ class EmailUtils
     private $client                   = null;
 
     public function __construct()
-    { 
+    {
         $this->client = SesClient::factory(array(
                 'version' => SES_VERSION,
                 'region' => SES_REGION,
@@ -26,7 +23,7 @@ class EmailUtils
                 ]
         ));
     }
-    
+
     private function databaseConnection()
     {
         // connection already opened
@@ -60,10 +57,10 @@ class EmailUtils
             $msg_id = $result->get('MessageId');
          } catch (Exception $e) {
             error_log($e->getMessage());
-         } 
+         }
          return $msg_id;
     }
-    
+
     public function sendOtp($user_id, $bot_id, $app_name, $there_email)
     {
         $otp6 = mt_rand(100000, 999999);
@@ -84,16 +81,16 @@ class EmailUtils
         $log->logEmail("", $user_id, $bot_id, $app_name, $msg_id, "", $there_email, 1,  $msg['Message']['Body']['Html']['Data'], time());
         return $otp6;
     }
-    
+
     public function sendTemplateToPerson($user_id, $type, $email_message_id, $Lperson) {
         $SU = new SmsUtils ();
         $SM = new SmsMessage ();
-        
+
         $email = $SM->getEmailMessage ( $user_id, $email_message_id );
         error_log ( "messaging id is=" . $email_message_id );
         error_log ( "Template=" . print_r ( $email, true ) );
         error_log ( "Person=" . print_r ( $Lperson, true ) );
-        
+
         $otp6 = mt_rand ( 100000, 999999 );
         $Lperson ['otp'] = $otp6;
         $subject = $SU->templateReplace ( $email['subject'], $Lperson );
@@ -101,7 +98,7 @@ class EmailUtils
         $there_email = $Lperson ['email'];
         error_log ( "EMail=body=" . print_r ( $body, true ) ." subject=" . print_r ( $subject, true ) );
         error_log ( "email id=" . $there_email );
-        
+
         $msg_id=0;
         $msg = array();
         $msg['Source'] = "app@1do.in";
@@ -117,10 +114,10 @@ class EmailUtils
         $log->logEmail("", $user_id, $type, "email", $msg_id, "", $there_email, 1,  $msg['Message']['Body']['Html']['Data'], time());
         return $there_email;
     }
-    
+
     public static function sendMicroAppToPerson($user_id, $bot_id, $text, $Lperson) {
         $SU = new SmsUtils ();
-        
+
         $otp6 = mt_rand ( 100000, 999999 );
         $Lperson ['otp'] = $otp6;
         $subject = $SU->templateReplace ( $email['subject'], $Lperson );
@@ -128,7 +125,7 @@ class EmailUtils
         $there_email = $Lperson ['email'];
         error_log ( "EMail=body=" . print_r ( $body, true ) ." subject=" . print_r ( $subject, true ) );
         error_log ( "email id=" . $there_email );
-        
+
         $msg_id=0;
         $msg = array();
         $msg['Source'] = "app@1do.in";
@@ -144,6 +141,6 @@ class EmailUtils
         $log->logEmail("", $user_id, $type, "email", $msg_id, "", $there_email, 1,  $msg['Message']['Body']['Html']['Data'], time());
         return $there_email;
     }
-    
+
 }
 ?>

@@ -48,18 +48,15 @@ else {
     <header>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
      <div class="container-fluid">
-        <a class="navbar-brand" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><img src="<?php echo $logo_img;?>" width="230"></a>
+        <a class="navbar-brand" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><img src="<?php echo $logo_img;?>" width="200"></a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-top: 30px;padding-left: 50px;">
             <?php if (isset($_SESSION['user_name'])) {
                 $login = new Login();
                 ?>
-              <ul class="navbar-nav leftul">
-                 <?php if (isset($_SESSION['capability'])) {
-                     if( strpos($_SESSION['capability'], 'CAMERA') !== false) {
-                    ?>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><?php if ($view == MAIN_VIEW ) { echo "<h1 class='sel'>Motion</h1>";} else { echo "<h1>Motion</h1>"; }?></a>
                     </li>
@@ -75,59 +72,27 @@ else {
                                 <a class="nav-link" href="/index.php?view=<?php echo ALERT_DASH ?>"><?php if ($view == ALERT_DASH ) { echo "<h1 class='sel'>Alerts</h1>";} else { echo "<h1>Alerts</h1>"; }?></a>
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="/index.php?view=<?php echo ANALYTICS ?>"><?php if ($view == ANALYTICS ) { echo "<h1 class='sel'>Events</h1>";} else { echo "<h1>Events</h1>"; }?></a>
-                            </li>
-
                         <?php } else { ?>
                         <li class="nav-item">
                             <a class="nav-link" href="/index.php?view=<?php echo ALERT_DASH ?>"><?php if ($view == ALERT_DASH ) { echo "<h1 class='sel'>Alerts</h1>";} else { echo "<h1>Alerts</strike></h1>"; }?></a>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="/index.php?view=<?php echo ANALYTICS ?>"><?php if ($view == ANALYTICS ) { echo "<h1 class='sel'>Events</h1>";} else { echo "<h1>Events</h1>"; }?></a>
-                        </li>
+
                         <?php } ?>
-                    <?php }
-                    if( strpos($_SESSION['capability'], 'SIM') !== false && $_SERVER['SERVER_NAME'] == "app.ibeyonde.com") {
-                    ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><?php if ($view == MAIN_VIEW ) { echo "<h1 class='sel'>GSM</h1>";} else { echo "<h1>GSM</h1>"; }?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.php?view=<?php echo ADMIN_INTENT ?>&box=default"><?php if ($view == ADMIN_INTENT ) { echo "<h1 class='sel'>Intents</h1>";} else { echo "<h1>Intents</h1>"; }?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.php?view=<?php echo ADMIN_WORKFLOW ?>&box=default"><?php if ($view == ADMIN_WORKFLOW ) { echo "<h1 class='sel'>Workflow</h1>";} else { echo "<h1>Workflow</h1>"; }?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.php?view=<?php echo ADMIN_CHATDB ?>&box=default"><?php if ($view == ADMIN_CHATDB ) { echo "<h1 class='sel'>ChatDB</h1>";} else { echo "<h1>ChatDB</h1>"; }?></a>
-                    </li>
-                    <?php }
-                    if( strpos($_SESSION['capability'], 'TEMPERATURE') !== false) {
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.php?view=<?php echo TEMP_DASH ?>&box=default"><?php if ($view == TEMP_DASH ) { echo "<h1 class='sel'>Temp</h1>";} else { echo "<h1>Temp</h1>"; }?></a>
-                    </li>
-                    <?php } ?>
-                <li class="nav-item"><a class="nav-link" href="/edit.php?view="><h1><span class="material-icons md-32 blue">person</span> &nbsp;<?php echo $_SESSION['user_name'] ?></h1></a></li>
-                <?php }?>
+
             </ul>
 
             <!-- div class="hidden-xs" -->
-            <ul class="nav navbar-nav menu_nav justify-content-end">
+            <ul class="d-flex" style="list-style-type: none;">
                 <li class="nav-item">
                     <a class="nav-link" href="/index.php?view=<?php echo USAGE_DASH ?>"><?php if ($view == USAGE_DASH ) { echo "<h1 class='sel'>Usage</h1>";} else { echo "<h1>Usage</h1>"; }?></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/index.php?view=<?php echo LOGOUT_VIEW ?>"><h1><span class="material-icons md-48 red">logout</span></h1></a></li>
             </ul>
-            <?php } ?>
+         <?php } ?>
           </div>
         </div>
    </nav>
  </header>
-
-
-
-
 
 

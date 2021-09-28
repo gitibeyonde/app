@@ -59,12 +59,11 @@ if (isset ( $_SESSION ['message'] ) && $_SESSION ['message'] != "") {
   <footer class="fixed-bottom">
     <div class="row">
         <div class="col-md-4 col-6">
+            Ibeyonde@2021
+        </div>
+        <div class="col-md-4 col-6">
             <a href="/terms.html" class="footer-text text-orange">Terms</a>&emsp;|&emsp;
             <a href="/privacy_policy.html" class="footer-text text-orange">Privacy</a>
-        </div>
-        <div class="col-md-1 d-md-block d-sm-none d-none">
-        </div>
-        <div class="col-md-3 d-md-block d-sm-none d-none">
         </div>
         <div class="col-md-4 col-6 footer-social">
             <a href="https://twitter.com/agneya2001"><span class="material-icons md-24 orange">tap_and_play</span></a>

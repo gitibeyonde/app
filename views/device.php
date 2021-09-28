@@ -37,8 +37,6 @@ $pr = new RegistryPort();
 
 set_time_limit ( 5 );
 $client = new Aws ();
-$sip = new Sip ();
-$sips = $sip->loadAllSipForDevice ( $uuid );
 $timezone = $device->timezone ;
 $today = Utils::dateNow ( $timezone);
 list ( $furl, $datetime ) = $client->latestMotionDataUrl ( $device->uuid, $today );
@@ -46,19 +44,19 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
 ?>
 
 <div class="container"  style="padding-top: 100px;">
-    
+
      <div class="row" style="background-color: lightblue;">
-        <div class="col-sm-12 col-md-6"> 
+        <div class="col-sm-12 col-md-6">
             <form class="form-horizontal" name=changeDeviceName method=GET action="sql_action.php">
-                <label> Capabilities : 
-                
-                            
+                <label> Capabilities :
+
+
                     &nbsp;&nbsp;
                     <?php if (strpos($device->capabilities, "CAMERA") !== false) { ?>
                         <span class="glyphicon glyphicon-camera"> </span>
                     <?php } ?>
                     <?php if (strpos($device->capabilities, "SIP") !== false) { ?>
-                        <span class="glyphicon glyphicon-phone-alt"> </span> 
+                        <span class="glyphicon glyphicon-phone-alt"> </span>
                     <?php } ?>
                     <?php if (strpos($device->capabilities, "TEMPERATURE") !== false) { ?>
                         <span class="glyphicon glyphicon-scale"> </span>
@@ -69,12 +67,12 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                     <?php if (strpos($device->capabilities, "BELL") !== false) { ?>
                         <span class="glyphicon glyphicon-bell"> </span>
                     <?php } ?>
-                  
+
                   &nbsp;&nbsp;
-                    Name: 
+                    Name:
                 </label>
-                
-                <input type="text" name="device_name" value="<?php echo $device_name; ?>" style="width: 6em; height: 2em;"/> 
+
+                <input type="text" name="device_name" value="<?php echo $device_name; ?>" style="width: 6em; height: 2em;"/>
                 <input type=hidden name=view value="<?php echo DEVICE_VIEW ?>" /> <input type=hidden name=action value="ChangeDeviceName" /> <input type=hidden name=uuid
                     value="<?php echo $device->uuid ?>" />  <input type="hidden" name="box" value="<?php echo $device->box_name;?>" /><input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                     <input type=hidden name=user_email value="<?php echo $user_email; ?>" />
@@ -86,19 +84,19 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
             <tr>
                 <td><b>Device is in <code><?php echo $device->box_name; ?></code> box.</b>
                 </td>
-                <td><b>&nbsp;&nbsp; Move to</td> 
+                <td><b>&nbsp;&nbsp; Move to</td>
                 <?php
-                
+
                 foreach ( $boxes as $box ) {
                     if (strcmp ( $device->box_name, $box ) == 0) {
                         continue;
                     }
                     ?>
                     </b>
-                <td> 
+                <td>
                     <form class="form-horizontal" name=moveToBox method=GET action="sql_action.php">
                         <input type=hidden name=view value="<?php echo DEVICE_VIEW ?>" /> <input type=hidden name=action value="MoveToBox" /> <input type=hidden name=uuid
-                            value="<?php echo $device->uuid ?>" /> <input type=hidden name=device_name value="<?php echo $device_name; ?>" /> 
+                            value="<?php echo $device->uuid ?>" /> <input type=hidden name=device_name value="<?php echo $device_name; ?>" />
                             <input type="hidden" name="box" value="<?php echo $box;?>" />
                             <input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                                 <input type=hidden name=user_email value="<?php echo $user_email; ?>" />
@@ -107,29 +105,29 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                 </td>
                 <?php } ?>
             </tr>
-            
+
         </table>
       </div>
     </div>
-    
+
      <div class="row">
         <div class="col-sm-12 col-md-6">
             <b>Version : <?php echo $device->version ?></b><br/>
             <b>Local Url : <a href="http://<?php echo $device->deviceip; ?>" target="top"><?php echo $device->deviceip; ?></a></b> <br/>
             <b>External Ip : <?php echo $device->visibleip; ?></b><br/>
-            <b>Uuid : <?php echo $device->uuid; ?></b><br/>   
-            <b>Updated : <?php echo $device->updated; ?></b><br/>  
+            <b>Uuid : <?php echo $device->uuid; ?></b><br/>
+            <b>Updated : <?php echo $device->updated; ?></b><br/>
         </div>
-        
+
         <div class="col-sm-12 col-md-6">
-            <small>Settings : <i><?php echo $device->setting; ?></i></small> 
+            <small>Settings : <i><?php echo $device->setting; ?></i></small>
         </div>
     </div>
-    
+
     <div class="row" style="background-color: lightgrey;">
      <br/>
     </div>
-    
+
      <div class="row">
         <div class="col-sm-12 col-md-6">
             <a href="index.php?uuid=<?php echo $uuid; ?>&view=<?php echo TEMP_VIEW; ?>&timezone=<?php echo $timezone; ?>"> <b>Temperature &nbsp; &nbsp;<span class="glyphicon glyphicon-scale"></span></b>
@@ -148,42 +146,42 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
             </div>
         </div>
    </div>
-    
-     
+
+
      <div class="row" style="background-color: lightgrey;">
-        <div class="col-sm-12 col-md-6" style="float: left;"> 
+        <div class="col-sm-12 col-md-6" style="float: left;">
             <br/>
             <?php $share_name= $utils->getShareName($uuid); ?>
             <form class="form-horizontal" name=shareMotion method=GET action="sql_action.php">
-                <label> Share Name : </label><input type="text" name="share_name" value="<?php echo $share_name; ?>" style="width: 6em; height: 2em;"/> 
+                <label> Share Name : </label><input type="text" name="share_name" value="<?php echo $share_name; ?>" style="width: 6em; height: 2em;"/>
                 <input type="hidden" name="device_name" value="<?php echo $device_name; ?>"/>
-                <input type=hidden name=view value="<?php echo DEVICE_VIEW ?>" /> 
-                <input type=hidden name=action value="ShareMotion" /> 
-                <input type=hidden name=uuid value="<?php echo $device->uuid ?>" />  
+                <input type=hidden name=view value="<?php echo DEVICE_VIEW ?>" />
+                <input type=hidden name=action value="ShareMotion" />
+                <input type=hidden name=uuid value="<?php echo $device->uuid ?>" />
                 <input type="hidden" name="box" value="<?php echo $device->box_name;?>" />
                 <input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                 <input type=hidden name=user_email value="<?php echo $user_email; ?>" />
                 <input class="btn btn-sm btn-link" type="submit" type=submit name="submit" value="Share Motion" />
             </form>
-            <?php if (strlen($share_name) > 1 ) { 
+            <?php if (strlen($share_name) > 1 ) {
                 echo '<p> Share is https://app.ibeyonde.com/share.php?animate=true&id='.base64_encode($share_name."@".$uuid).'<br/>';
                 echo '<br/><i>Share the above url to share the correspnding feed with your friends or on your website. You can change it anytime.</i>';
             }
             else {
-                echo 'Not shared.<br/>'; 
+                echo 'Not shared.<br/>';
                 echo '</br><i>To start sharing fill in a share name in above form. Share name should have only characters and digits.</i>';
             }?>
         </div>
-        <div class="col-sm-12 col-md-6" style="float: right;"> 
+        <div class="col-sm-12 col-md-6" style="float: right;">
           <iframe class="embed-responsive-item" scrolling="no" frameborder="0" width="216" height="162" id="<?php echo $device->uuid; ?>0" style="display: block; float:right"
                 src="../views/motion.php?&timezone=<?php echo $device->timezone; ?>&uuid=<?php echo $device->uuid; ?>&animate=true"> </iframe>
         </div>
      </div>
-    
-    
+
+
     <?php
     $row_count = count ( $utils->action ['left'] );
-    
+
     for($i = 0; $i < $row_count; $i ++) {
         $action_name_left = $utils->action ['left'] [$i];
         $action_name_right = $utils->action ['right'] [$i];
@@ -193,7 +191,7 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
         $action_icon_right = $utils->action_icon [$action_name_right];
         $action_popup_left = $utils->action_popup_message [$action_name_left];
         $action_popup_right = $utils->action_popup_message [$action_name_right];
-        ?>  
+        ?>
      <div class="row">
         <div class="col-sm-12 col-md-6">
             <form name="<?php echo $action_name_left; ?>" method=GET action="https://<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>" />
@@ -202,7 +200,7 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                     type=hidden name=user_id value="<?php echo $user_id; ?>" /><input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                     <input type=hidden name=box value="<?php echo $device->box_name; ?>" /> <input type=hidden name=tk value="<?php echo $device->token; ?>" />
                     <input type=hidden name=timezone value="<?php echo $timezone; ?>" />
-                    
+
                         <?php if ($action_popup_left != 'None') { ?>
                         <div class="modal fade" id="<?php echo $action_name_left."Modal"; ?>" tabindex="-1" role="dialog" aria-labelledby="<?php echo $action_name_left."ModalLabel"; ?>">
                     <div class="modal-dialog" role="document">
@@ -230,7 +228,7 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                        <?php } ?>
                         <span class="glyphicon <?php echo $action_icon_left; ?>">&nbsp;<?php echo $action_message_left; ?></span>
                     </button>
-            
+
             </form>
         </div>
         <div class="col-sm-12 col-md-6">
@@ -240,8 +238,8 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                     type=hidden name=user_id value="<?php echo $user_id; ?>" /><input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                     <input type=hidden name=box value="<?php echo $device->box_name; ?>" /><input type=hidden name=tk value="<?php echo $device->token; ?>" />
                     <input type=hidden name=timezone value="<?php echo $timezone; ?>" />
-                    
-                    
+
+
                         <?php if ($action_popup_left != 'None') { ?>
                         <div class="modal fade" id='<?php echo $action_name_right."Modal"; ?>' tabindex="-1" role="dialog" aria-labelledby='<?php echo $action_name_right."ModalLabel"; ?>'>
                     <div class="modal-dialog" role="document">
@@ -269,20 +267,20 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                         <?php } ?>
                         <span class="glyphicon <?php echo $action_icon_right; ?> ">&nbsp;<?php echo $action_message_right; ?></span>
                     </button>
-            
+
             </form>
         </div>
-    </div>      
+    </div>
     <?php
     }
     ?>
-    
-                
+
+
     <?php
     if (strpos ( $device->capabilities, "SIP" ) !== false) {
         if (count ( $sips ) == 0) {
             ?>
-    
+
     <div class="row">
         <form name=deviceEnableVoiceAction method=GET action="https://<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>" />
             <input type=hidden name=view value="<?php echo DEVICE_VIEW ?>" /> <input type=hidden name=action value="EnableVoice" /> <input type=hidden name=uuid value="<?php echo $device->uuid ?>" /> <input
@@ -290,12 +288,12 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                 value="<?php echo $user_id; ?>" /><input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                 <input type=hidden name=box value="<?php echo $device->box_name; ?>" /><input type=hidden name=tk value="<?php echo $device->token; ?>" />
             <button type="submit" class="btn btn-default btn-sm btn-block btn-info" type=submit name="submit" value="EnableVoice">
-                <span class="glyphicon glyphicon glyphicon-refresh">&nbsp;Enable Voice 
-            
+                <span class="glyphicon glyphicon glyphicon-refresh">&nbsp;Enable Voice
+
             </button>
         </form>
     </div>
-    
+
     <?php
         } else {
             ?>
@@ -306,17 +304,17 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                 value="<?php echo $user_id; ?>" /><input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                 <input type=hidden name=box value="<?php echo $device->box_name; ?>" /><input type=hidden name=tk value="<?php echo $device->token; ?>" />
             <button type="submit" class="btn btn-default btn-sm btn-block  btn-info" type=submit name="submit" value="ManageVoice">
-                <span class="glyphicon glyphicon glyphicon-refresh">&nbsp;Manage Voice 
-            
+                <span class="glyphicon glyphicon glyphicon-refresh">&nbsp;Manage Voice
+
             </button>
         </form>
     </div>
     <?php
         }
     }
-    ?> 
-    
-    <div class="row"> 
+    ?>
+
+    <div class="row">
         <?php
         if ($user_name == "aprateek"){
             $dcert = new DeviceCert ();
@@ -338,8 +336,8 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
                     <input type=hidden name=port value="<?php echo $port; ?>" /><input type=hidden name=user_id value="<?php echo $user_id; ?>" /><input type=hidden name=user_name value="<?php echo $user_name; ?>" />
                         <input type=hidden name=box value="<?php echo $device->box_name; ?>" /><input type=hidden name=tk value="<?php echo $device->token; ?>" />
                     <button type="submit" class="btn btn-default btn-sm btn-block  btn-info" type=submit name="submit" value="PubKey">
-                        <span class="glyphicon glyphicon glyphicon-refresh">&nbsp;Enable Public Key 
-                    
+                        <span class="glyphicon glyphicon glyphicon-refresh">&nbsp;Enable Public Key
+
                     </button>
                 </form>
             </div>
@@ -349,15 +347,15 @@ list($ip, $port) = $pr->getIpAndPort($device->uuid);
             </div>
             <?php } ?>
     </div>
-    
+
     <div class="row" style="background-color: lightgrey;">
      <br/>
     </div>
-    
+
     <div class="row">
         <br /> <br />
         <br /> <br /> <br /> <br />
     </div>
- 
+
 </div>
 <?php include('_footer.php'); ?>

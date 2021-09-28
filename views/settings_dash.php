@@ -77,34 +77,6 @@ $share_name= $utils->getShareName($uuid);
 $boxes = $user->getBoxes ();
 $phone=$_SESSION['user_phone'];
 
-
-$cap="";
-
- if (strpos($device->capabilities, "CAMERA") !== false) { 
-     $cap .= " CAMERA";
- }
- if (strpos($device->capabilities, "AUDIO") !== false) {
-     $cap .= " AUDIO";
- } 
- if (strpos($device->capabilities, "TEMPERATURE") !== false) {
-     $cap .= " TEMPERATURE";
- }
- if (strpos($device->capabilities, "MOTION") !== false) {
-     $cap .= " MOTION";
- } 
- if (strpos($device->capabilities, "BELL") !== false) {
-     $cap .= " BELL";
- }  
- if (strpos($device->capabilities, "MIC") !== false) {
-     $cap .= " MIC";
- } 
- if (strpos($device->capabilities, "SPEAKER") !== false) {
-     $cap .= " SPEAKER";
- } 
- if (strpos($device->capabilities, "SIM") !== false) {
-     $cap .= " SIM";
-     $tab="gprs";
- } 
 ?>
 <main>
 <div class="container">
@@ -113,7 +85,7 @@ $cap="";
 	</div>
 	<div class="col-md-8 col-sm-10 col-sx-12 col-lg-6">
            		<h3> <?php echo substr($device->device_name, 0 , 12) ?> - [<?php echo $device->profile; ?> ] - <?php echo substr($device->uuid, 0 , 12) ?></h3>
-           		<h4><?php echo $cap;?></h4> 
+           		<h4><?php echo $cap;?></h4>
             <hr/>
     </div>
     <div class="col-md-2 col-sm-1 col-sx-0 col-lg-3">
@@ -122,19 +94,19 @@ $cap="";
     <div class="row">
         <div class="nav nav-pills mb-3" id="v-pills-tab" role="tablist" >
              <?php  if (strpos($cap, 'SIM') !== false) { ?>
-                <a class="nav-link <?php echo ($tab == "gprs" ? "active": ""); ?>" id="v-pills-gprs-tab" data-toggle="pill" href="#v-pills-gprs" 
+                <a class="nav-link <?php echo ($tab == "gprs" ? "active": ""); ?>" id="v-pills-gprs-tab" data-toggle="pill" href="#v-pills-gprs"
                                 role="tab" aria-controls="v-pills-gprs" aria-selected="<?php echo ($tab == "gprs" ? "true": "false"); ?>">GPRS Functions</a>
              <?php } ?>
             <?php  if (strpos($cap, 'MOTION') !== false) { ?>
-            	<a class="nav-link <?php echo ($tab == "device" ? "active": ""); ?>" id="v-pills-device-tab" data-toggle="pill" href="#v-pills-device" 
+            	<a class="nav-link <?php echo ($tab == "device" ? "active": ""); ?>" id="v-pills-device-tab" data-toggle="pill" href="#v-pills-device"
                             role="tab" aria-controls="v-pills-device" aria-selected="<?php echo ($tab == "device" ? "true": "false"); ?>">Device Setup</a>
-                <a class="nav-link <?php echo ($tab == "motion" ? "active": ""); ?>" id="v-pills-motion-tab" data-toggle="pill" href="#v-pills-motion" 
+                <a class="nav-link <?php echo ($tab == "motion" ? "active": ""); ?>" id="v-pills-motion-tab" data-toggle="pill" href="#v-pills-motion"
                                 role="tab" aria-controls="v-pills-motion" aria-selected="<?php echo ($tab == "motion" ? "true": "false"); ?>">Motion Setup</a>
-                <a class="nav-link <?php echo ($tab == "alert" ? "active": ""); ?>" id="v-pills-alert-tab" data-toggle="pill" href="#v-pills-alert" 
+                <a class="nav-link <?php echo ($tab == "alert" ? "active": ""); ?>" id="v-pills-alert-tab" data-toggle="pill" href="#v-pills-alert"
                                 role="tab" aria-controls="v-pills-alert" aria-selected="<?php echo ($tab == "alert" ? "true": "false"); ?>">Alert Config</a>
-                <a class="nav-link <?php echo ($tab == "boxing" ? "active": ""); ?>" id="v-pills-boxing-tab" data-toggle="pill" href="#v-pills-boxing" 
+                <a class="nav-link <?php echo ($tab == "boxing" ? "active": ""); ?>" id="v-pills-boxing-tab" data-toggle="pill" href="#v-pills-boxing"
                                 role="tab" aria-controls="v-pills-boxing" aria-selected="<?php echo ($tab == "boxing" ? "true": "false"); ?>">Boxing</a>
-                <a class="nav-link <?php echo ($tab == "sharing" ? "active": ""); ?>" id="v-pills-sharing-tab" data-toggle="pill" href="#v-pills-sharing" 
+                <a class="nav-link <?php echo ($tab == "sharing" ? "active": ""); ?>" id="v-pills-sharing-tab" data-toggle="pill" href="#v-pills-sharing"
                                 role="tab" aria-controls="v-pills-sharing" aria-selected="<?php echo ($tab == "sharing" ? "true": "false"); ?>">Sharing</a>
             <?php } ?>
         </div>
@@ -162,13 +134,13 @@ $cap="";
                 <?php include('common/share_settings.php'); ?>
         </div>
     <?php } ?>
-</div> 
+</div>
 
     <?php include('common/add_space.php'); ?>
     <?php include('common/add_space.php'); ?>
     <?php include('common/add_space.php'); ?>
-       
-    </div> 
+
+    </div>
 </main>
-  
+
 <?php include('_footer.php'); ?>

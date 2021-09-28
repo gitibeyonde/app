@@ -5,12 +5,11 @@
 
 <div id="tempchart" width="400" height="300"></div>
 
-<?php 
+<?php
 define ( '__ROOT__', dirname(dirname ( dirname ( __FILE__ ))));
 require_once(__ROOT__.'/classes/Utils.php');
 require_once(__ROOT__.'/classes/UserFactory.php');
 
-session_start();
 $uuid = $_GET ['uuid'];
 $timezone = $_GET['timezone'];
 $user = UserFactory::getUser($_SESSION['user_name'], $_SESSION['user_email']);
@@ -33,7 +32,6 @@ else {
     echo "<b><br/><br/><br/><br/><br/>No temperature reading found for today</b>";
     die;
 }
-//echo json_encode($data);
 ?>
 
 <script type="text/javascript">
@@ -52,7 +50,7 @@ new Morris.Line({
   behaveLikeLine: true,
   resize: true,
   lineColors:['orange', 'lightblue']
-  
+
 });
 
 //-->
