@@ -146,7 +146,9 @@ if (strpos($cap, 'CAMERA') !== false) {
 
      </div>
 </div>
+<?php include('common/add_space.php'); ?>
 
+<?php include('common/add_space.php'); ?>
 
 <?php include('_footer.php'); ?>
 

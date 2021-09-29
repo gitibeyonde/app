@@ -44,13 +44,11 @@ if (isset ( $_SESSION ['message'] ) && $_SESSION ['message'] != "") {
 // error_reporting(E_ERROR | E_PARSE);
 ?>
          <div class="row">
-            <div class="col-2">
-            </div>
-            <div class="col-4">
+            <div class="col-6">
                 <a href="/terms.html" class="footer-text">Terms</a>&emsp;|&emsp;
                 <a href="/privacy_policy.html" class="footer-text">Privacy</a>
             </div>
-            <div class="col-4 footer-social">
+            <div class="col-6 footer-social">
                 <a href="https://twitter.com/agneya2001"><span class="material-icons md-24 blue">tap_and_play</span></a>
                 <a href="https://fb.me/ibeyonde"><span class="material-icons md-24 blue">facebook</span></a>
                 <a href="https://www.linkedin.com/company/ibeyonde-cloud/"><span class="material-icons md-24 blue">workspace_premium</span></a>
