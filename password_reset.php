@@ -26,7 +26,7 @@ $login = new Login();
 // the user has just successfully entered a new password
 // so we show the index page = the login page
 if ($login->passwordResetWasSuccessful() == true && $login->passwordResetLinkIsValid() != true) {
-    
+
     include("login.php");
 
 } else {

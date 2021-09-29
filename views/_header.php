@@ -42,7 +42,7 @@ if (isset($_GET['view'])){
     $view = $_GET['view'];
 }
 else {
-    $view = MAIN_VIEW;
+    $view = "main_view";
 }
 ?>
     <header>

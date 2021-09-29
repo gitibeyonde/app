@@ -102,10 +102,6 @@ p {
 	font-weight: bold;
 }
 
-.text-orange {
-	color: var(--bs-orange) ! important;
-}
-
 /* Sticky footer styles
 -------------------------------------------------- */
 

@@ -58,6 +58,9 @@ include (__ROOT__ . '/config/config.php');
                 </div>
             </div>
         </div>
+		<div class="footer">
+			Copyright &copy; 2021 &mdash; Ibeyonde
+		</div>
     </div>
 </section>
 </div>
