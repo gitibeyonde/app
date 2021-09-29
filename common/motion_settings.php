@@ -14,22 +14,22 @@
     $(document).ready(function(){
        var message = getUrlParameter('message');
         console.log(message);
-        
+
         if(message !== "" && message !== undefined){
             showalert(message, "alert-success");
         }
-        
+
         function showalert(message,alerttype) {
     $('#alert_placeholder_motion').append('<div id="alertdiv" class="alert ' +  alerttype + '"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
 
-    setTimeout(function() { 
+    setTimeout(function() {
       $("#alertdiv").remove();
 
     }, 5000);
   }
-        
+
     });
-    
+
 </script>
 
 
@@ -44,7 +44,7 @@
                                         <div class="col-md-4 col-sm-6 col-12 col-lg-4">
                                             <font size=2>Face Detect : <?php echo $settings['face_detect']; ?></font>
                                         </div>
-                                        
+
                                         <div class="col-md-4 col-sm-6 col-12 col-lg-4">
                                             <font size=2>Motion Quality : <?php echo $settings['motion_quality']; ?></font>
                                         </div>
@@ -59,7 +59,7 @@
                                         </div>
                                      </div>
                                      </div>
-                                     
+
                                      <div class="row">
                                         <div class="col-md-4 col-sm-6 col-12 col-lg-4">
                                             <?php echo getButton($utils->incmotionq, $ip, $device->uuid, $device->device_name, $port, $user_id, $user_name, $box, $timezone, $device->token, $role, $local, "motion"); ?>
@@ -101,12 +101,12 @@
                                             <?php echo getButton($utils->dsgrd, $ip, $device->uuid, $device->device_name, $port, $user_id, $user_name, $box, $timezone, $device->token, $role, $local, "motion"); ?>
                                       </div>
                                    </div>
-                                   
+
                                     <br/>
-                                   
+
                                     <b>Snapshots</b>
                                     <div class="well">
-                                    
+
                                      <div class="card bg-faded">
                                      <div class="row">
                                         <div class="col-md-4 col-sm-6 col-12 col-lg-4">
@@ -138,5 +138,3 @@
                                             <?php echo getButton($utils->recordtoggle, $ip, $device->uuid, $device->device_name, $port, $user_id, $user_name, $box, $timezone, $device->token, $role, $local, "motion"); ?>
                                         </div>
                                    </div>
-                         
-<?php include('common/add_space.php'); ?>      

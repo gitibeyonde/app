@@ -77,6 +77,38 @@ $share_name= $utils->getShareName($uuid);
 $boxes = $user->getBoxes ();
 $phone=$_SESSION['user_phone'];
 
+$cap = null;
+if (! isset($_SESSION['capability'])) {
+    foreach ( $devices as $device ) {
+        error_log("Cap=".$device->capabilities);
+        if (strpos($device->capabilities, "CAMERA") !== false) {
+            $cap = $cap." CAMERA";
+        }
+        if (strpos($device->capabilities, "MIC") !== false) {
+            $cap = $cap." MIC";
+        }
+        if (strpos($device->capabilities, "SPEAKER") !== false) {
+            $cap = $cap." SPEAKER";
+        }
+        if (strpos($device->capabilities, "MOTION") !== false) {
+            $cap = $cap." MOTION";
+        }
+        if (strpos($device->capabilities, "MOTION") !== false) {
+            $cap = $cap." MOTION";
+        }
+        if (strpos($device->capabilities, "TEMPERATURE") !== false) {
+            $cap = $cap." TEMPERATURE";
+        }
+        if (strpos($device->capabilities, "SIM") !== false) {
+            $cap = $cap." SIM";
+        }
+    }
+    $_SESSION['capability'] = $cap;
+}
+else {
+    $cap = $_SESSION['capability'];
+}
+
 ?>
 <main>
 <div class="container">
@@ -91,50 +123,79 @@ $phone=$_SESSION['user_phone'];
     <div class="col-md-2 col-sm-1 col-sx-0 col-lg-3">
     </div>
  </div>
-    <div class="row">
-        <div class="nav nav-pills mb-3" id="v-pills-tab" role="tablist" >
-             <?php  if (strpos($cap, 'SIM') !== false) { ?>
-                <a class="nav-link <?php echo ($tab == "gprs" ? "active": ""); ?>" id="v-pills-gprs-tab" data-toggle="pill" href="#v-pills-gprs"
-                                role="tab" aria-controls="v-pills-gprs" aria-selected="<?php echo ($tab == "gprs" ? "true": "false"); ?>">GPRS Functions</a>
-             <?php } ?>
-            <?php  if (strpos($cap, 'MOTION') !== false) { ?>
-            	<a class="nav-link <?php echo ($tab == "device" ? "active": ""); ?>" id="v-pills-device-tab" data-toggle="pill" href="#v-pills-device"
-                            role="tab" aria-controls="v-pills-device" aria-selected="<?php echo ($tab == "device" ? "true": "false"); ?>">Device Setup</a>
-                <a class="nav-link <?php echo ($tab == "motion" ? "active": ""); ?>" id="v-pills-motion-tab" data-toggle="pill" href="#v-pills-motion"
-                                role="tab" aria-controls="v-pills-motion" aria-selected="<?php echo ($tab == "motion" ? "true": "false"); ?>">Motion Setup</a>
-                <a class="nav-link <?php echo ($tab == "alert" ? "active": ""); ?>" id="v-pills-alert-tab" data-toggle="pill" href="#v-pills-alert"
-                                role="tab" aria-controls="v-pills-alert" aria-selected="<?php echo ($tab == "alert" ? "true": "false"); ?>">Alert Config</a>
-                <a class="nav-link <?php echo ($tab == "boxing" ? "active": ""); ?>" id="v-pills-boxing-tab" data-toggle="pill" href="#v-pills-boxing"
-                                role="tab" aria-controls="v-pills-boxing" aria-selected="<?php echo ($tab == "boxing" ? "true": "false"); ?>">Boxing</a>
-                <a class="nav-link <?php echo ($tab == "sharing" ? "active": ""); ?>" id="v-pills-sharing-tab" data-toggle="pill" href="#v-pills-sharing"
-                                role="tab" aria-controls="v-pills-sharing" aria-selected="<?php echo ($tab == "sharing" ? "true": "false"); ?>">Sharing</a>
-            <?php } ?>
+<?php  if (strpos($cap, 'SIM') !== false) { ?>
+<div class="row">
+        <a class="col-2 btn btn-primary" data-bs-target="#v-pills-gprs-tab" data-bs-toggle="collapse"  aria-expanded="false"
+        		  type="button" aria-controls="v-pills-gprs">GPRS Functions</a>
+      <div class="col-10">
+        <div class="collapse multi-collapse" id="v-pills-gprs-tab">
+          <div class="card card-body">
+             <?php include('common/sms_function.php'); ?>
+          </div>
         </div>
-    </div>
-    <div class="tab-content" id="v-pills-tabContent">
-     <?php  if (strpos($cap, 'SIM') !== false) { ?>
-        <div class="tab-pane fade <?php echo ($tab == "gprs" ? "show active": ""); ?>" id="v-pills-gprs" role="tabpanel" aria-labelledby="v-pills-gprs-tab">
-            <?php include('common/sms_function.php'); ?>
-        </div>
-	 <?php } ?>
-     <?php  if (strpos($cap, 'MOTION') !== false) { ?>
-        <div class="tab-pane fade <?php echo ($tab == "device" ? "show active": ""); ?>" id="v-pills-device" role="tabpanel" aria-labelledby="v-pills-device-tab">
-            <?php include('common/device_settings.php'); ?>
-        </div>
-        <div class="tab-pane fade <?php echo ($tab == "motion" ? "show active": ""); ?>" id="v-pills-motion" role="tabpanel" aria-labelledby="v-pills-motion-tab">
-               <?php include('common/motion_settings.php'); ?>
-        </div>
-        <div class="tab-pane fade <?php echo ($tab == "alert" ? "show active": ""); ?>" id="v-pills-alert" role="tabpanel" aria-labelledby="v-pills-alert-tab">
-               <?php include('common/alert_settings.php'); ?>
-        </div>
-        <div class="tab-pane fade <?php echo ($tab == "boxing" ? "show active": ""); ?>" id="v-pills-boxing" role="tabpanel" aria-labelledby="v-pills-boxing-tab">
-               <?php include('common/box_settings.php'); ?>
-        </div>
-        <div class="tab-pane fade <?php echo ($tab == "sharing" ? "show active": ""); ?>" id="v-pills-sharing" role="tabpanel" aria-labelledby="v-pills-sharing-tab">
-                <?php include('common/share_settings.php'); ?>
-        </div>
-    <?php } ?>
+      </div>
 </div>
+<?php } ?>
+<?php  if (strpos($cap, 'MOTION') !== false) { ?>
+<div class="row">
+<a class="col btn btn-primary" data-bs-target="#v-pills-sharing" data-bs-toggle="collapse"  aria-expanded="true"
+            type="button" aria-controls="v-pills-sharing">Sharing</a>
+      <div class="col-10">
+        <div class="collapse show multi-collapse" id="v-pills-sharing">
+          <div class="card card-body">
+            <?php include('common/share_settings.php'); ?>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="row">
+    	<a class="col-2 btn btn-primary" data-bs-target="#v-pills-device" data-bs-toggle="collapse"  aria-expanded="false"
+                    type="button" aria-controls="v-pills-device">Device Setup</a>
+      <div class="col-10">
+        <div class="collapse multi-collapse" id="v-pills-device">
+          <div class="card card-body">
+            <?php include('common/device_settings.php'); ?>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="row">
+
+        <a class="col-2 btn btn-primary" data-bs-target="#v-pills-motion" data-bs-toggle="collapse"  aria-expanded="false"
+                    type="button" aria-controls="v-pills-motion">Motion Setup</a>
+      <div class="col-10">
+        <div class="collapse multi-collapse" id="v-pills-motion">
+          <div class="card card-body">
+             <?php include('common/motion_settings.php'); ?>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="row">
+        <a class="col-2 btn btn-primary" data-bs-target="#v-pills-alert" data-bs-toggle="collapse"  aria-expanded="false"
+                    type="button" aria-controls="v-pills-alert">Alert Config</a>
+      <div class="col-10">
+        <div class="collapse multi-collapse" id="v-pills-alert">
+          <div class="card card-body">
+             <?php include('common/alert_settings.php'); ?>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="row">
+        <a class="col-2 btn btn-primary" data-bs-target="#v-pills-boxing" data-bs-toggle="collapse"  aria-expanded="false"
+                    type="button" aria-controls="v-pills-boxing">Boxing</a>
+      <div class="col-10">
+        <div class="collapse multi-collapse" id="v-pills-boxing">
+          <div class="card card-body">
+            <?php include('common/box_settings.php'); ?>
+          </div>
+        </div>
+      </div>
+</div>
+<?php } ?>
+
+
 
     <?php include('common/add_space.php'); ?>
     <?php include('common/add_space.php'); ?>

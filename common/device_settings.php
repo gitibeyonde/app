@@ -14,25 +14,25 @@
     $(document).ready(function(){
        var message = getUrlParameter('message');
         console.log(message);
-        
+
         if(message !== "" && message !== undefined){
             showalert(message, "alert-success");
         }
-        
+
         function showalert(message,alerttype) {
     $('#alert_placeholder').append('<div id="alertdiv" class="alert ' +  alerttype + '"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>')
 
-    setTimeout(function() { 
+    setTimeout(function() {
       $("#alertdiv").remove();
 
     }, 5000);
   }
-        
-    });
-    
-    
 
-    
+    });
+
+
+
+
 </script>
 
 <b>Device Management</b>
@@ -74,8 +74,8 @@
             </div>
             <div class="col-md-4 col-sm-6 col-12 col-lg-4">
                 <?php if (strpos($device->capabilities, "BELL") !== false) { ?>
-                <a href="index.php?timezone=<?php echo $timezone; ?>&uuid=<?php echo $uuid; ?>&device_name=<?php echo $device_name; 
-                         ?>&view=<?php echo SIP_VIEW; ?>&box=<?php echo $box; ?>&tk=<?php echo $token; 
+                <a href="index.php?timezone=<?php echo $timezone; ?>&uuid=<?php echo $uuid; ?>&device_name=<?php echo $device_name;
+                         ?>&view=<?php echo SIP_VIEW; ?>&box=<?php echo $box; ?>&tk=<?php echo $token;
                          ?>&local=<?php if (strcmp($device->visibleip, $remoteip) == 0 ) {
                              echo $device->deviceip; } else { echo "None";
                                                             }?>&loc=<?php echo DEVICE_SETTING; ?>">
@@ -107,7 +107,7 @@
         <?php echo getButton($utils->buzz, $ip, $device->uuid, $device->device_name, $port, $user_id, $user_name, $box, $timezone, $device->token, $role, $local, "device"); ?>
     </div>
 </div>
-                                
+
 <br/>
 <b>Camera Tuning</b>
 <div class="card bg-faded">
@@ -149,8 +149,3 @@
         <?php echo getButton($utils->snap, $ip, $device->uuid, $device->device_name, $port, $user_id, $user_name, $box, $timezone, $device->token, $role, $local, "device"); ?>
     </div>
 </div>
-
-
-<?php include('common/add_space.php'); ?>
-                           
-                                        
