@@ -14,8 +14,16 @@ if (!isset($_SESSION['user_id'])){
 $aws = new Aws ();
 $uuid = $_GET ['uuid'];
 $dev = new Device ();
+
+if (isset ( $_GET ["action"] )) {
+    $action = $_GET ["action"];
+    if ($action == "delete"){
+        $dev->deleteHistory($uuid);
+    }
+}
+
+
 $device = $dev->loadDevice ( $uuid );
-$devices = $dev->loadUserDevices($_SESSION ['user_name']);
 $date = null;
 if (isset ( $_GET ["date"] )) {
     $date = $_GET ["date"];
@@ -43,14 +51,12 @@ error_log("Date= $date Time=$time");
 
 <div class="row align-items-center">
     <div class="col-md-2 col-lg-3 col-xl-4">
+       <a class="nav-link" href="/index.php?view=<?php echo HISTORY_VIEW ?>&uuid=<?php echo $device->uuid; ?>&action=delete"><h1><span class="material-icons md-48 red">delete_forever</span></h1></a>
     </div>
     <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
     <form action="index.php" method=GET>
-      <label>&nbsp;Camera:</label><select name="uuid">
-        <?php foreach ( $devices as $dev ) { ?>\
-         <option value="<?php echo $dev->uuid; ?>" <?php echo ($dev == $device ? "selected=selected" : ""); ?>"><?php echo $dev->device_name; ?></option>
-        <?php } ?>
-      </select>
+      <label>&nbsp;Camera:</label>
+       <input type="text" name="uuid" value="<?php echo $device->uuid; ?>" readonly><?php echo $dev->device_name; ?>
       <label>&nbsp;Date:</label><select name="date">
         <?php foreach ( $last_90_days as $day ) { ?>\
        	 <option value="<?php echo $day; ?>" <?php echo ($day == $date ? "selected=selected" : ""); ?>"><?php echo $day; ?></option>

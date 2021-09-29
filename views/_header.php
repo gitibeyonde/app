@@ -87,7 +87,7 @@ else {
                     <a class="nav-link" href="/index.php?view=<?php echo USAGE_DASH ?>"><?php if ($view == USAGE_DASH ) { echo "<h1 class='sel'>Usage</h1>";} else { echo "<h1>Usage</h1>"; }?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php?view=<?php echo LOGOUT_VIEW ?>"><h1><span class="material-icons md-48 red">logout</span></h1></a></li>
+                    <a class="nav-link" href="/index.php?view=<?php echo LOGOUT_VIEW ?>"><span class="material-icons md-48 red">logout</span></a></li>
             </ul>
          <?php } ?>
           </div>

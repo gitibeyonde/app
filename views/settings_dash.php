@@ -79,29 +79,27 @@ $phone=$_SESSION['user_phone'];
 
 $cap = null;
 if (! isset($_SESSION['capability'])) {
-    foreach ( $devices as $device ) {
-        error_log("Cap=".$device->capabilities);
-        if (strpos($device->capabilities, "CAMERA") !== false) {
-            $cap = $cap." CAMERA";
-        }
-        if (strpos($device->capabilities, "MIC") !== false) {
-            $cap = $cap." MIC";
-        }
-        if (strpos($device->capabilities, "SPEAKER") !== false) {
-            $cap = $cap." SPEAKER";
-        }
-        if (strpos($device->capabilities, "MOTION") !== false) {
-            $cap = $cap." MOTION";
-        }
-        if (strpos($device->capabilities, "MOTION") !== false) {
-            $cap = $cap." MOTION";
-        }
-        if (strpos($device->capabilities, "TEMPERATURE") !== false) {
-            $cap = $cap." TEMPERATURE";
-        }
-        if (strpos($device->capabilities, "SIM") !== false) {
-            $cap = $cap." SIM";
-        }
+    error_log("Cap=".$device->capabilities);
+    if (strpos($device->capabilities, "CAMERA") !== false) {
+        $cap = $cap." CAMERA";
+    }
+    if (strpos($device->capabilities, "MIC") !== false) {
+        $cap = $cap." MIC";
+    }
+    if (strpos($device->capabilities, "SPEAKER") !== false) {
+        $cap = $cap." SPEAKER";
+    }
+    if (strpos($device->capabilities, "MOTION") !== false) {
+        $cap = $cap." MOTION";
+    }
+    if (strpos($device->capabilities, "MOTION") !== false) {
+        $cap = $cap." MOTION";
+    }
+    if (strpos($device->capabilities, "TEMPERATURE") !== false) {
+        $cap = $cap." TEMPERATURE";
+    }
+    if (strpos($device->capabilities, "SIM") !== false) {
+        $cap = $cap." SIM";
     }
     $_SESSION['capability'] = $cap;
 }
@@ -117,12 +115,37 @@ else {
 	</div>
 	<div class="col-md-8 col-sm-10 col-sx-12 col-lg-6">
            		<h3> <?php echo substr($device->device_name, 0 , 12) ?> - [<?php echo $device->profile; ?> ] - <?php echo substr($device->uuid, 0 , 12) ?></h3>
-           		<h4><?php echo $cap;?></h4>
+           		<h4><?php echo $device->capabilities;?></h4>
             <hr/>
     </div>
     <div class="col-md-2 col-sm-1 col-sx-0 col-lg-3">
     </div>
  </div>
+ <div class="row">
+    <div class="col">
+        <font size=2>Uuid : <?php echo $device->uuid; ?></font>
+    </div>
+    <div class="col">
+        <font size=2>Version : <?php echo $device->version ?></font>
+    </div>
+    <div class="col">
+        <font size=2>Local Url : <a href="http://<?php echo $device->deviceip; ?>" target="top"><?php echo $device->deviceip; ?></a></font>
+    </div>
+    <div class="col">
+        <font size=2>External Ip : <?php echo $device->visibleip; ?></font>
+    </div>
+</div>
+ <div class="row">
+    <div class="col">
+        <font size=2>Timezone : <?php echo $device->timezone ?></font>
+    </div>
+    <div class="col">
+         <font size=2>Created : <?php echo $device->created; ?></font>
+    </div>
+    <div class="col">
+        <font size=2>Updated : <?php echo $device->updated; ?></font>
+    </div>
+</div>
 <?php  if (strpos($cap, 'SIM') !== false) { ?>
 <div class="row">
         <a class="col-2 btn btn-primary" data-bs-target="#v-pills-gprs-tab" data-bs-toggle="collapse"  aria-expanded="false"
