@@ -17,16 +17,17 @@ class AlertRaised
     public $value = null;
     public $comment = null;
     public $created = null;
-    public $subcategory = null; 
+    public $subcategory = null;
     private $db_connection = null;
     public  $errors = array();
     public  $messages = array();
-    
-    
+
+
     const FACE_RECOGNIZED="fr";
     const FACE_DETECTED="fd";
     const GRID_DETECTED="gd";
     const MOTION="mt";
+    const BELLPRESS="bp";
     const TEMP_HIGH="th";
     const TEMP_LOW="tl";
     const HUMID_HIGH="hh";
@@ -35,14 +36,14 @@ class AlertRaised
     const PEOPLE_COUNT = "pc";
     const CLASSIFY = "cf";
     const DEVICE_OFFLINE = "do";
-    
+
     const DATE_FORMAT =  "Y/m/d H:i:s";
-    
+
     private $em = null;
     private $sns = null;
     private $ac = null;
     private $aws = null;
-    
+
     public function __construct()
     {
         $this->em = new EmailUtils();
@@ -98,12 +99,15 @@ class AlertRaised
         else if ($alert == AlertRaised::LICENSE){
             return Device::getDeviceName($uuid) . " is offline for ".$value." minutes";
         }
+        else if ($alert == AlertRaised::BELLPRESS){
+            return "Bell button press on ". Device::getDeviceName($uuid);
+        }
         else {
             return $alert;
         }
-        
+
     }
-    
+
     public function loadDeviceAlerts($uuid)
     {
         // if database connection opened
@@ -120,14 +124,14 @@ class AlertRaised
                 }
                 //error_log("Error=".implode(",", $query_user->errorInfo()));
             }
-            
+
         }
         catch (PDOException $e) {
             $this->errors[] = MESSAGE_DATABASE_ERROR;
         }
         return $alerts;
     }
-    
+
     public function loadDeviceAlertsOfType($uuid, $type, $limit)
     {
         // if database connection opened
@@ -145,14 +149,14 @@ class AlertRaised
                 }
                 //error_log("Error=".implode(",", $query_user->errorInfo()));
             }
-            
+
         }
         catch (PDOException $e) {
             $this->errors[] = MESSAGE_DATABASE_ERROR;
         }
         return $alerts;
     }
-    
+
     public function loadAllDeviceAlerts($uuid)
     {
         // if database connection opened
@@ -167,7 +171,7 @@ class AlertRaised
                 while($obj = $query_user->fetch()){
                     $alerts[]=$obj;
                 }
-                
+
                 //error_log("Error=".implode(",", $query_user->errorInfo()));
             }
         }
@@ -185,7 +189,7 @@ class AlertRaised
             $query_device->execute();
         }
     }
-    
+
 
     public function addAlert($uuid, $alert_type, $image, $value, $comment, $datetime)
     {
@@ -206,9 +210,9 @@ class AlertRaised
         }
         return 1;
     }
-    
+
     public function getLastAlert($uuid, $type){
-        
+
     }
     public function checkNoRepeatAlert($uuid, $type, $current_date, $delta, $value, $comment){
         if ($delta == 0){
@@ -225,12 +229,12 @@ class AlertRaised
             $created_date = DateTime::createFromFormat("Y-m-d H:i:s", $ar[0]->created);
             $current_date_str = date_format($current_date, $this::DATE_FORMAT);
             $current_date =  DateTime::createFromFormat($this::DATE_FORMAT, $current_date_str);
-            $time_passed = $current_date->getTimestamp() - $created_date->getTimestamp();  
+            $time_passed = $current_date->getTimestamp() - $created_date->getTimestamp();
             //error_log("checkNoRepeatAlert time_passed " . intval($time_passed)."  and delta sec ".intval($delta_sec));
             if ( intval($delta_sec) > intval($time_passed)){
                 if (
-                        ( ($type == AlertRaised::TEMP_HIGH || $type == AlertRaised::HUMID_HIGH) && (intval($value) > intval($ar[0]->value)) ) 
-                       || ( ($type == AlertRaised::TEMP_LOW || $type == AlertRaised::HUMID_LOW) && (intval($value) < intval($ar[0]->value)) ) 
+                        ( ($type == AlertRaised::TEMP_HIGH || $type == AlertRaised::HUMID_HIGH) && (intval($value) > intval($ar[0]->value)) )
+                       || ( ($type == AlertRaised::TEMP_LOW || $type == AlertRaised::HUMID_LOW) && (intval($value) < intval($ar[0]->value)) )
                         || ( ($type == AlertRaised::FACE_RECOGNIZED) && ($comment != $ar[0]->comment) )
                         || ( $type == AlertRaised::FACE_DETECTED )
                         || ( $type == AlertRaised::GRID_DETECTED )
@@ -250,7 +254,7 @@ class AlertRaised
             }
         }
     }
-   
+
     public function notifyTempAndHumidity($uuid, $temp, $humid, $datetime){
         $ac = AlertConfig::loadDeviceAlertConfig($uuid);
         if ($ac == null) return;
@@ -297,7 +301,7 @@ class AlertRaised
                 }
             }
     }
-    
+
     public function notifyMotion($uuid, $type, $target_file, $grid, $datetime){
         // ALERTS
         $ac = AlertConfig::loadDeviceAlertConfig($uuid);
@@ -305,7 +309,7 @@ class AlertRaised
         $timestamp_str = date_format($datetime, $this::DATE_FORMAT);
         // check if similar alert was raised in no_repeat_delta time
         //error_log("$uuid notifyMotion $timestamp_str ");
-        
+
         $user_name = Device::getDeviceOwner($uuid);
             // check face
             if ($type=="FACE" && ($ac->recog == 1 || $ac->unrecog == 1 )) {
@@ -334,7 +338,7 @@ class AlertRaised
                     }
                 }
             }
-            
+
             if ($type=="MOTION" || $type=="MOTIOND") {
                 //error_log("Grids ".$ac->grid . " grid ".$grid);
                 if ($ac->grid != "00000000000000000000000000") {
@@ -352,7 +356,7 @@ class AlertRaised
                         }
                     }
                 }
-                
+
                 if ($ac->isMotionAlertEnabled()) {
                     if ($this->checkNoRepeatAlert($uuid,  AlertRaised::MOTION, $datetime, $ac->noRepeatTime(), 0, "")) return;
                     $id = $this->addAlert($uuid, AlertRaised::MOTION, $target_file, 0, "", $datetime);
@@ -363,7 +367,7 @@ class AlertRaised
                         $this->sns->publishToEndpoint($id, $uuid, AlertRaised::MOTION, $this->aws->getSignedFileUrl($target_file), 0, "", $timestamp_str);
                     }
                 }
-                
+
                 if ($ac->isPeopleCountEnabled()){
                     if ($this->checkNoRepeatAlert($uuid,  AlertRaised::PEOPLE_COUNT, $datetime, $ac->noRepeatTime(), 0, "")) return;
                     $output = Utils::getSSLPage("https://bingo.ibeyonde.com:5081/?cmd=new_count&image=".$target_file);
@@ -376,22 +380,22 @@ class AlertRaised
                     //{
                     //    $id = $this->addAlert($uuid, AlertRaised::PEOPLE_COUNT, $target_file, $output["no_of_people"],"people", $datetime);
                     //}
-                    
+
                 }
-                
+
                 if ($ac->isClassifyEnabled()){
-                    
+
                     #$query_user = $this->db_connection->prepare('SELECT category FROM camera_manual WHERE uuid = :uuid ');
                     #$query_user->bindValue(':uuid', $uuid, PDO::PARAM_STR);
-                    
+
                     #$query_user->execute();
-                    
-                    
+
+
                     #while($obj = $query_user->fetch()){
                      #   array_push($subcategory,$obj['category']);
                     #}
-                    
-                    
+
+
                     $output = Utils::getSSLPage("https://bingo.ibeyonde.com:5081/?cmd=Aclassify&image=".$target_file."&uuid=".$uuid);
                     error_log($output);
                     $output = json_decode($output, true);
@@ -403,9 +407,9 @@ class AlertRaised
                     //    $id = $this->addAlert($uuid, AlertRaised::CLASSIFY, $target_file, $output["label"],"classify", $datetime);
                     //}
                 }
-            
+
             // Unusual motion
-            
+
             /**$da = new DeviceActivity();
              $change = $da->checkActivity($uuid, $grid);
              error_log($uuid."Alert status for $grid = ".$change);
@@ -415,7 +419,7 @@ class AlertRaised
              }**/
         }
     }
-    
+
     public function notifyDeviceOffline($uuid, $time_delta, $datetime){
         // ALERTS
         $ac = AlertConfig::loadDeviceAlertConfig($uuid);
