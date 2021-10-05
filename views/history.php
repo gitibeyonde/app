@@ -19,6 +19,8 @@ if (isset ( $_GET ["action"] )) {
     $action = $_GET ["action"];
     if ($action == "delete"){
         $dev->deleteHistory($uuid);
+        $A = new Aws();
+        $A->deleteMotionData($uuid);
     }
 }
 
