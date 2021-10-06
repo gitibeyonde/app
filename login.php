@@ -2,7 +2,7 @@
 <?php
 if (!defined('__ROOT__')) define ( '__ROOT__', dirname ( __FILE__ ) ) ;
 include (__ROOT__ . '/views/_header.php');
-include (__ROOT__ . '/config/config.php');
+require_once(__ROOT__ . '/config/config.php');
 ?>
 <script src="js/login.js"></script>
 <div class="container top">

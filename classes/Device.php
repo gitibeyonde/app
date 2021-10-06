@@ -95,13 +95,13 @@ class Device
 
     public function deleteDevice($uuid)
     {
-        //error_log("Deleteing device =".$uuid);
+        error_log("Deleteing device =".$uuid);
         if ($this->databaseConnection()) {
             $query_device = $this->db_connection->prepare('delete FROM device WHERE uuid = :uuid');
             $query_device->bindValue(':uuid', $uuid, PDO::PARAM_STR);
-            //error_log("Error=".implode(",", $query_device->errorInfo()));
+            $query_device->execute();
+            error_log("Error=".implode(",", $query_device->errorInfo()));
         }
-        $this->deleteDevice($uuid);
     }
 
     public function alert($state)

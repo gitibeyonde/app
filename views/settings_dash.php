@@ -49,9 +49,24 @@ if ($check_uuid != $uuid) {
 
 $user = UserFactory::getUser ( $user_name, $user_email );
 $device = $user->getDevice ( $uuid );
-$devices = $user->getDevices ( $uuid );
-//error_log("Device Settings = ".print_r($device->setting, true));
 
+
+if (isset ( $_GET ["action"] )) {
+    $action = $_GET ["action"];
+    if ($action == "delete"){
+        $device->deleteHistory($uuid);
+        $device->deleteDevice($uuid);
+	try {
+	   $A = new Aws();
+           $A->deleteMotionData($uuid);
+	}
+	catch (Exception $e){
+	   $_SESSION["message"] = "Failed to delete all history, please contact Admin " . $e->getMessage();
+	}
+    }
+}
+//error_log("Device Settings = ".print_r($device->setting, true));
+$devices = $user->getDevices ( $uuid );
 $pr = new RegistryPort();
 list($ip, $port) = $pr->getIpAndPort($device->uuid);
 $remoteip = urldecode($_SERVER['REMOTE_ADDR']);
@@ -145,6 +160,9 @@ else {
     <div class="col">
         <font size=2>Updated : <?php echo $device->updated; ?></font>
     </div>
+    <div class="col-md-2 col-lg-3 col-xl-4">
+       <a class="nav-link" href="/index.php?view=<?php echo SETTINGS_DASH ?>&uuid=<?php echo $device->uuid; ?>&action=delete"><h1><span class="material-icons md-48 red">delete_forever</span>Delete Device</h1></a>
+    </div>
 </div>
 <?php  if (strpos($cap, 'SIM') !== false) { ?>
 <div class="row">
@@ -159,7 +177,6 @@ else {
       </div>
 </div>
 <?php } ?>
-<?php  if (strpos($cap, 'MOTION') !== false) { ?>
 <div class="row">
 <a class="col btn btn-primary" data-bs-target="#v-pills-sharing" data-bs-toggle="collapse"  aria-expanded="true"
             type="button" aria-controls="v-pills-sharing">Sharing</a>
@@ -182,6 +199,7 @@ else {
         </div>
       </div>
 </div>
+<?php  if (strpos($cap, 'MOTION') !== false) { ?>
 <div class="row">
 
         <a class="col-2 btn btn-primary" data-bs-target="#v-pills-motion" data-bs-toggle="collapse"  aria-expanded="false"
@@ -194,6 +212,7 @@ else {
         </div>
       </div>
 </div>
+<?php } ?>
 <div class="row">
         <a class="col-2 btn btn-primary" data-bs-target="#v-pills-alert" data-bs-toggle="collapse"  aria-expanded="false"
                     type="button" aria-controls="v-pills-alert">Alert Config</a>
@@ -216,7 +235,6 @@ else {
         </div>
       </div>
 </div>
-<?php } ?>
 
 
 

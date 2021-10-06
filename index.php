@@ -5,15 +5,6 @@ define ( '__ROOT__',  dirname ( __FILE__ ));
 // include the config
 require_once(__ROOT__.'/config/config.php');
 
-// check for minimum PHP version
-if (version_compare(PHP_VERSION, '5.3.7', '<')) {
-    exit('Sorry, this script does not run on a PHP version smaller than 5.3.7 !');
-} else if (version_compare(PHP_VERSION, '5.5.0', '<')) {
-    // if you are using PHP 5.3 or PHP 5.4 you have to include the password_api_compatibility_library.php
-    // (this library adds the PHP 5.5 password hashing functions to older versions of PHP)
-    require_once(__ROOT__.'/libraries/password_compatibility_library.php');
-}
-
 // load the login class
 require_once(__ROOT__.'/classes/Login.php');
 require_once(__ROOT__.'/classes/utils/Mobile_detect.php');
@@ -795,7 +786,7 @@ else if  ($login->getView() == LOGOUT_VIEW){
 else {
     // the user is not logged in. you can do whatever you want here.
     // for demonstration purposes, we simply show the "you are not logged in" view.
-    include("index.html");
+    include("login.php");
 }
 
 ?>
