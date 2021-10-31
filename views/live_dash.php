@@ -49,6 +49,9 @@ $profile = new CamProfile();
 ?>
 <?php include('_header.php'); ?>
 <div class="container-fluid top">
+	<div class="row" style="background: var(--pc);height: 60px;">
+	  <h2><font color="white">Live</font></h2>
+	</div>
     <div class="row">
         <?php
         foreach ( $devices as $device ) {
@@ -128,61 +131,71 @@ $profile = new CamProfile();
 
                 <div class="card-body ">
                     <div class="flex-container justify-content-space-around">
-                        <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $device->uuid; ?>").src="<?php echo $url; ?>&reload=true"'><small class="text-muted after1"><?php echo $device->device_name; ?>(<?php echo $device->uuid; ?>)</small>
-                        </a>
-                         &nbsp;&nbsp;&nbsp;&nbsp;<small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
-                                  ?>&uuid=<?php echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
-                                  ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
-                                            echo $device->deviceip; } else { echo "None";
-                                        }
-                                    ?>">
-                            <img src="/img/settings.png" width="20"/></a>
-                            </small>
+                         <div class="row" style="width: 100%">
+                             <div class="col-6">
+                                <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $device->uuid; ?>").src="<?php echo $url; ?>&reload=true"'>
+                                  <font size=5 color="var(--pcd)" ><?php echo $device->device_name; ?></font>&nbsp;<font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
+                                </a>
+                             </div>
+
+                             <div class="col-2">
+                                 <a style="cursor: pointer;text-decoration:none;" href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                          ?>&uuid=<?php echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
+                                          ?>&local=<?php
+                                                if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                                    echo $device->deviceip; } else { echo "None";
+                                                }
+                                            ?>">
+                                    <span class="material-icons md-48 primary">settings</span></a>
+
+                             </div>
+                             <div class="col-2">
 
 
-                        <span class="mr-auto">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <a style="cursor: pointer;text-decoration:none;" href="//app.ibeyonde.com/index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo LIVE_DASH; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW;
+                                 ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
+                                 if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                     echo $device->deviceip; } else { echo "None";
+                                 }
+                                 ?>"><span class="material-icons md-48 primary">ondemand_video</span>
+                                 </a>
 
-
-                        <a style="cursor: pointer;text-decoration:none;" href="//app.ibeyonde.com/index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo LIVE_DASH; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW;
-                         ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
-                         if (strcmp($device->visibleip, $remoteip) == 0 ) {
-                             echo $device->deviceip; } else { echo "None";
-                         }
-                         ?>"><small class="text-muted after2 mr-3">Live</small>
-                         </a>
-						&nbsp;&nbsp;&nbsp;&nbsp;
-                        <form id="default1" name=deviceSnapAction method=GET action="//<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>"/>
-                            <input type=hidden name=view value="<?php echo LIVE_DASH; ?>" />
-                            <input type=hidden name=action value="Snap" />
-                            <input type=hidden name=box value="<?php echo $thisbox; ?>" />
-                            <input type=hidden name=uuid value="<?php echo $device->uuid; ?>" />
-                            <input type=hidden name=device_name value="<?php echo $device->device_name; ?>" />
-                            <input type=hidden name=port value="<?php echo $port; ?>" />
-                            <input type=hidden name=tk value="<?php echo $device->token; ?>" />
-                            <input type=hidden name=local value="<?php
-                             if (strcmp($device->visibleip, $remoteip) == 0 ) {
-                                 echo $device->deviceip; } else { echo "None";
-                             }
-                             ?>" />
-                            <input type=hidden name=loc value="<?php echo LIVE_DASH; ?>" />
-                            <input type=hidden name=timezone value="<?php echo $device->timezone; ?>" />
-                            <input type=hidden name=user_id value="<?php echo $user_id; ?>" />
-                            <input type=hidden name=user_name value="<?php echo $user_name; ?>" />
-                            <input type=hidden name=role value="<?php echo $role; ?>" />
-                            <a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("default1").submit();'><small class="text-muted after2 mr-3">Snap</small></a>
-                        </form>
+                             </div>
+                             <div class="col-2">
+                                <form id="default1" name=deviceSnapAction method=GET action="//<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>"/>
+                                    <input type=hidden name=view value="<?php echo LIVE_DASH; ?>" />
+                                    <input type=hidden name=action value="Snap" />
+                                    <input type=hidden name=box value="<?php echo $thisbox; ?>" />
+                                    <input type=hidden name=uuid value="<?php echo $device->uuid; ?>" />
+                                    <input type=hidden name=device_name value="<?php echo $device->device_name; ?>" />
+                                    <input type=hidden name=port value="<?php echo $port; ?>" />
+                                    <input type=hidden name=tk value="<?php echo $device->token; ?>" />
+                                    <input type=hidden name=local value="<?php
+                                     if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                         echo $device->deviceip; } else { echo "None";
+                                     }
+                                     ?>" />
+                                    <input type=hidden name=loc value="<?php echo LIVE_DASH; ?>" />
+                                    <input type=hidden name=timezone value="<?php echo $device->timezone; ?>" />
+                                    <input type=hidden name=user_id value="<?php echo $user_id; ?>" />
+                                    <input type=hidden name=user_name value="<?php echo $user_name; ?>" />
+                                    <input type=hidden name=role value="<?php echo $role; ?>" />
+                                    <a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("default1").submit();'>
+                                    <span class="material-icons md-48 primary">add_a_photo</span>
+                                    </a>
+                                </form>
+                             </div>
+                       </div><!--  row -->
                    </div>
                  </div>
-                 </div>
-                 </div>
+             </div>
+         </div>
 
 
         <?php }?>
       </div>
 
-     </div>
-</div>
+ </div>
 
 <?php include('common/box_bar.php'); ?>
 

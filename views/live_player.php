@@ -108,122 +108,67 @@ function getRecordingColor($uuid, $video_mode){
 }
 
 function getRecordingState($uuid, $video_mode){
-    return $video_mode == 1 ?  (Mjpeg::isRecording($uuid) ? "&nbsp;Stop" : "&nbsp;Record") : (Mp4::isRecording($uuid) ? "&nbsp;Stop" : "&nbsp;Record");
+    return $video_mode == 1 ?  (Mjpeg::isRecording($uuid) ? "<span class='material-icons md-48 red'>radio_button_checked</span>" : "<span class='material-icons md-48 primary'>radio_button_checked</span>") :
+    (Mp4::isRecording($uuid) ? "<span class='material-icons md-48 red'>radio_button_checked</span>" : "<span class='material-icons md-48 primary'>radio_button_checked</span>");
 }
 ?>
 
 <div class="container-fluid top">
 
+	<div class="row" style="background: var(--pc);height: 60px;">
+	  <h2><font color="white">Live</font></h2>
+	</div>
 <div class="row">
 
     <div class="col-md-1 col-sm-0 col-0 col-lg-2">
     </div>
     <div class="col-md-10 col-sm-12 col-12 col-lg-8">
+		<div class="card mb-4 box-shadow">
+           <div style="cursor: pointer;" class="card-image" data-toggle="collapse" data-target="#zoom">
+               <iframe name="donothing" style="display:none;"></iframe>
+               <?php echo $elem; ?>
+            </div>
 
-					<div class="card mb-4 box-shadow">
-                       <div style="cursor: pointer;" class="card-image" data-toggle="collapse" data-target="#zoom">
-                           <iframe name="donothing" style="display:none;"></iframe>
-                           <?php echo $elem; ?>
-                        </div>
+        	<div class="card-body">
 
-                        <div class="card-body">
-
-                            <div class="flex-container">
-
-                                <small class="mb-2 after1" style="cursor: pointer;" class="text-muted"><?php echo $device_name; ?> : <?php echo $uuid; ?></small>
-                                 <small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
-                                    ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
-                                    ?>&local=<?php
-                                        if (strcmp($device->visibleip, $remoteip) == 0 ) {
-                                            echo $device->deviceip; } else { echo "None";
-                                        }
-                                    ?>">
-                                    <img src="/img/settings.png" width="20"/></a>
-                               </small>
-
-                        <span class="mr-auto"></span>
-
-                        <small style="cursor: pointer;" class="text-muted fa fa-arrows fa-1x" data-toggle="collapse" data-target="#zoom"></small>
-
-                            </div>
-
-                        <div class="flex-container1">
-                            <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $uuid; ?>").src="<?php echo $url; ?>&reload=true"'><small class="after2 text-muted mr-3">Reload</small>
-                            </a>
+                   <div class="row" style="width: 100%">
+                     <div class="col-5">
+                      <font size=5 color="var(--pcd)" ><?php echo $device->device_name; ?></font>&nbsp;<font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
+                     </div>
+                     <div class="col-2">
+                             <a style="cursor: pointer;text-decoration:none;" href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                                ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token; ?>&box=<?php echo $thisbox;
+                                ?>&local=<?php
+                                    if (strcmp($device->visibleip, $remoteip) == 0 ) {
+                                        echo $device->deviceip; } else { echo "None";
+                                    }
+                                ?>">
+                                 <span class="material-icons md-48 primary">settings</span></a>
+                     </div>
+                     <div class="col-2">
+                            <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $uuid; ?>").src="<?php echo $url; ?>&reload=true"'>
+                            <span class="material-icons md-48 primary">refresh</span></a>
+                     </div>
+                     <div class="col-2">
                             <form id="recordform" name=RecordToggleAction method=GET action="https://<?php echo $ip; ?>/udp/device_action.php"  target="donothing">
-                        <input type=hidden name=action value="RecordToggle" />
-                        <?php include('common/live_player_input.php'); ?>
-                                <a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("recordform").submit(); recordToggle();'><small id="RecordToggleSpan" class="text-muted after2 mr-3"><?php echo getRecordingState($uuid, $video_mode); ?></small></a>
-
-                        </form>
-
-                       <a style="cursor: pointer;text-decoration:none;" href="index.php?view=<?php echo RECORD_MANAGE; ?>&uuid=<?php echo $uuid; ?>&video_mode=<?php echo $video_mode;?>&device_name=<?php $device_name; ?>"><small class="after1 text-muted mr-3">Manage Recording</small>
+                        		<input type=hidden name=action value="RecordToggle" />
+                        		<?php include('common/live_player_input.php'); ?>
+                                	<a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("recordform").submit(); recordToggle();'>
+                                	<small id="RecordToggleSpan"><?php echo getRecordingState($uuid, $video_mode); ?></small></a>
+                        	</form>
+                     </div>
+                     <div class="col-1">
+                       <a style="cursor: pointer;text-decoration:none;" href="index.php?view=<?php echo RECORD_MANAGE; ?>&uuid=<?php echo $uuid; ?>&video_mode=<?php echo $video_mode;?>&device_name=<?php $device_name; ?>">
+                       	<span class="material-icons md-48 primary">list</span>
                         </a>
-                    </div>
+                	 </div>
+                </div>
 
-
-
-                        <?php if ($zoom != "notset") { ?>
-
-
-                            <div class="grid collapse" id="zoom">
-                                         <form style="margin-bottom: 0px;" class="up" name=moveUp method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" />
-                                            <input type=hidden name=area value="moveUp" />
-                                            <?php include('common/live_player_input.php'); ?>
-                                            <button type="submit" class="btn btn-sm remote-button1" name="moveUp" value="moveUp"><span class="fa fa-arrow-up"></span>
-                                            </button>
-                                        </form>
-
-
-
-                                         <form style="margin-bottom: 0px;" class="left" name="moveLeft" method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" />
-                                            <input type=hidden name=area value="moveLeft" />
-                                            <?php include('common/live_player_input.php'); ?>
-                                            <button type="submit" class="btn btn-sm remote-button1" name="moveLeft" value="moveLeft"><span class="fa fa-arrow-left"></span>
-                                            </button>
-                                        </form>
-
-
-
-                                         <form style="margin-bottom: 0px;" class="plus" name=zoomIn method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" />
-                                            <input type=hidden name=area value="zoomIn" />
-                                            <?php include('common/live_player_input.php'); ?>
-                                            <button type="submit" class="btn btn-sm remote-button1" name="zoomIn" value="zoomIn"><span style="font-weight: 2" class="fa fa-plus"></span>
-                                            </button>
-                                        </form>
-
-                                        <form style="margin-bottom: 0px;" class="minus" name=zoomOut method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                                <input type=hidden name=action value="Zoom" />
-                                                <input type=hidden name=area value="zoomOut" />
-                                                <?php include('common/live_player_input.php'); ?>
-                                                <button type="submit" class="btn btn-sm remote-button1" name="zoomOut" value="zoomOut"><span class="fa fa-minus"></span>
-                                                </button>
-                                            </form>
-                                        <form style="margin-bottom: 0px;" class="right" name=moveRight method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" />
-                                            <input type=hidden name=area value="moveRight" />
-                                            <?php include('common/live_player_input.php'); ?>
-                                            <button type="submit" class="btn btn-sm remote-button1" name="moveRight" value="moveRight"><span class="fa fa-arrow-right"></span>
-                                            </button>
-                                        </form>
-
-                                         <form style="margin-bottom: 0px;" class="down" name=moveDown method=GET action="https://<?php echo $ip; ?>/udp/device_action.php" target="donothing">
-                                            <input type=hidden name=action value="Zoom" />
-                                            <input type=hidden name=area value="moveDown" />
-                                            <?php include('common/live_player_input.php'); ?>
-                                            <button type="submit" class="btn btn-sm remote-button1" name="moveDown" value="moveDown"><span class="fa fa-arrow-down"></span>
-                                            </button>
-                                        </form>
-                                    </div>
-                        </div>
+            </div>
         </div>
 
-    <?php } ?>
 
-    <?php if (strpos($device->capabilities, "SPEAKER") !== false) { ?>
+ <?php if (strpos($device->capabilities, "SPEAKER") !== false) { ?>
 
 
 <script src="js/audiodisplay.js"></script>
@@ -286,7 +231,7 @@ function announceToggle(context) {
         <br /> <br />
         <br /> <br />
     </div>
-
+</div>
 
 <?php include('common/add_space.php'); ?>
 

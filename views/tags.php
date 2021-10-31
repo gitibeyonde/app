@@ -11,14 +11,11 @@ $utils = new Utils();
 $aws = new Aws ();
 ?>
 
-<main>
-<div class="container-fluid">
- 
-    <div class="row">
-        <div class="col-sm-12 col-md-3">
-         <h5>Tags</h5>
-       </div>
-    </div>
+<div class="container-fluid top">
+
+	<div class="row" style="background: var(--pc);height: 60px;">
+	  <h2><font color="white">Tags</font></h2>
+	</div>
     <div class="row">
     <?php
 
@@ -27,7 +24,7 @@ $aws = new Aws ();
             ?>
             <div class="col-sm-6 col-md-3">
                 <br/>
-                 <?php 
+                 <?php
                  if (count($tv)==0){
                      echo "<font color=orange>No tags ".$device->device_name."</font>";
                  }
@@ -53,5 +50,4 @@ $aws = new Aws ();
         <br /> <br />
     </div>
  </div>
- </main>
 <?php include('_footer.php'); ?>

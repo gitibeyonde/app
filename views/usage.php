@@ -25,13 +25,13 @@ $usage = new Usage ();
 $aws = new Aws ();
 $total_net = 0;
 ?>
-<main>
-    <div class="container">
+  <div class="container-fluid top">
+	<div class="row" style="background: var(--pc);height: 60px;">
+	  <h2><font color="white">Usage: <?php echo date("jS F, Y", strtotime('first day of this month', time()))?> - <?php echo date("jS F, Y", strtotime('now')); ?></font></h2>
+	</div>
+
     <div class="row">
         <div class="col-md-12 col-sm-12 col-12 col-lg-12">
-            <h5>Usage: <?php echo date("jS F, Y", strtotime('first day of this month', time()))?> - <?php echo date("jS F, Y", strtotime('now')); ?></h5>
-            <br/>
-            <hr/>
             <br/>
             <p class="text-info">*You are provided $<?php echo count($devices) * 2; ?>  worth of download and storage free every month.*</p>
             <br/>
@@ -66,7 +66,7 @@ foreach ( $devices as $device ) {
             $total_data = $total_data + $data;
         }
         ?>
-       
+
                        <tr>
                            <td style="font-size: 16px;"><?php echo $device->device_name; ?></td>
                            <td style="font-size: 16px;"><?php echo Utils::formatSizeUnits($net); ?></td>
@@ -79,23 +79,21 @@ foreach ( $devices as $device ) {
  <?php }?>
                    </tbody>
              </table>
- 
 
 
-  
+
+
 
 
     <p style="margin-top: 5px; margin-bottom: 1rem; font-size: 16px; margin-left: 5px; margin-right: 5px;"><strong>Total Network Usage = <?php echo Utils::formatSizeUnits($total_net);?></strong> | <strong>Total Storage Used = <?php echo Utils::formatSizeUnits($total_data); ?></strong> | <strong>Forecast for current month = $<?php echo Utils::forecast($total_net) + Utils::forecast($total_data); ?></strong></p>
 
         </div>
     </div>
-    </div>
-    
-</main>
+</div>
 
 
 <script src="js/master.js"></script>
-  
+
 <?php include('common/add_space.php'); ?>
 <?php include('_footer.php'); ?>
 

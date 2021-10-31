@@ -94,6 +94,10 @@ if (strpos($cap, 'CAMERA') !== false) {
 
 <body>
 <div class="container-fluid top">
+	<div class="row" style="background: var(--pc);height: 60px;">
+	  <h2><font color="white">Device List</font></h2>
+	</div>
+
 	<div class="row">
 
        <?php
@@ -111,34 +115,40 @@ if (strpos($cap, 'CAMERA') !== false) {
                     </div>
 
                     <div class="card-body ">
-                      <div class="flex-container">
-                          	<small style="cursor: pointer;" class="after1 text-muted"><?php echo $device->device_name; ?>(<?php echo $device->uuid; ?>)</small>
-                          	&nbsp;&nbsp;&nbsp;&nbsp;
-                          	<small style="cursor: pointer;"><a href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
+                       <div class="row" style="width: 100%">
+                         <div class="col-6">
+                          <font size=5 color="var(--pcd)" ><?php echo $device->device_name; ?></font>&nbsp;<font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
+                         </div>
+                         <div class="col-2">
+                          	<a style="cursor: pointer;text-decoration:none;" href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;
                                     ?>&uuid=<?php  echo $device->uuid; ?>&device_name=<?php echo $device->device_name; ?>&tk=<?php echo $device->token;
                                     ?>&box=<?php echo $thisbox; ?>&local=<?php
                                         if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                             echo $device->deviceip; } else { echo "None";
                                         }
                                     ?>">
-                                    <img src="/img/settings.png" width="20"/></a>
-                             </small>
+                                    <span class="material-icons md-48 primary">settings</span></a>
 
+                         </div>
+                         <div class="col-2">
 
-                             &nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>">
-                                    <small class="after2 text-muted mr-3">History</small>
+                             <a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>">
+                                    <span class="material-icons md-48 primary">image_search</span>
                              </a>
 
+                         </div>
+                         <div class="col-2">
                             <?php if ($profile->getProfileParamValue($device->profile, CamProfile::video_mode) != "none" ){ ?>
-                               &nbsp;&nbsp;&nbsp;&nbsp;<a style="cursor: pointer;text-decoration:none;" href="index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW
+                               <a style="cursor: pointer;text-decoration:none;" href="index.php?timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc; ?>&uuid=<?php echo $device->uuid; ?>&view=<?php echo LIVE_VIEW
                                  ?>&device_name=<?php echo $device->device_name; ?>&quality=HINI&box=<?php echo $thisbox; ?>&tk=<?php echo $device->token; ?>&local=<?php
                                     if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                         echo $device->deviceip; } else { echo "None";
                                     }
-                                ?>"><small class="after2 text-muted mr-3">Live</small>
+                                ?>"><span class="material-icons md-48 primary">ondemand_video</span>
                                </a>
                             <?php } ?>
-                     </div>
+                         </div>
+                       </div>
                   </div>
                 </div>
             </div>

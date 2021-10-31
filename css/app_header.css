@@ -578,3 +578,7 @@ a {
 .material-icons.green, .material-icons-two-tone.green, .material-icons-outlined.green, .material-icons-sharp.green, .material-icons-round.green   {
 	color: var(--bs-green);
 }
+
+.material-icons.primary, .material-icons-two-tone.primary, .material-icons-outlined.primary, .material-icons-sharp.primary, .material-icons-round.primary   {
+	color: var(--pc);
+}

@@ -18,9 +18,11 @@ $face = new Face();
 $devices = $user->getDevices();
 $ar = new AlertRaised();
 ?>
-<main>
-<div class="container">
+<div class="container-fluid top">
 
+	<div class="row" style="background: var(--pc);height: 60px;">
+	  <h2><font color="white">Alerts</font></h2>
+	</div>
 
  <div class="row" text-align="right">
     <div class="col-md-6 text-right"></div>
@@ -169,6 +171,5 @@ $ar = new AlertRaised();
     </div>
 
 </div>
-</main>
 <?php
 include('_footer.php'); ?>
