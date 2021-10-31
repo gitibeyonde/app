@@ -221,7 +221,7 @@ class Aws {
         if (!isset($uuid)){
             throw new Exception("AWS Invalid uuid ".$uuid);
         }
-        $result = self::$s3->deleteMatchingObjects(self::bucket, $uuid.'/');
+        self::$s3->deleteMatchingObjects(self::bucket, $uuid.'/');
     }
     
     public function loadRecording($uuid, $key) // format 2016/06/02

@@ -117,9 +117,9 @@ $profile = new CamProfile();
                 }
             }
             ?>
-             <div class="col-md-4 col-sm-6 col-12 col-lg-4">
+			<div class="col-md-8 col-sm-12 col-12 col-lg-6">
                 <div class="card mb-4 box-shadow">
-                 <div class="card-image">
+                 <div class="card-image video-wrapper">
                      <div class="embed-responsive embed-responsive-4by3">
                        <?php echo $elem; ?>
                      </div>
@@ -149,7 +149,7 @@ $profile = new CamProfile();
                          if (strcmp($device->visibleip, $remoteip) == 0 ) {
                              echo $device->deviceip; } else { echo "None";
                          }
-                         ?>"><small class="text-muted after2 mr-3">Live(HD)</small>
+                         ?>"><small class="text-muted after2 mr-3">Live</small>
                          </a>
 						&nbsp;&nbsp;&nbsp;&nbsp;
                         <form id="default1" name=deviceSnapAction method=GET action="//<?php echo $ip; ?>/udp/device_action.php"><input type=hidden name=server value="<?php echo $_SERVER['SERVER_NAME']; ?>"/>

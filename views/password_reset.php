@@ -63,7 +63,7 @@ include ('_header.php');
 						</div>
 
 						<div class="form-group m-0">
-							<button type="submit" name="request_password_reset" class="btn btn-warning btn-block">
+							<button type="submit" name="request_password_reset" class="btn btn-info btn-block">
 								Reset Password
 							</button>
 						</div>

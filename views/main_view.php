@@ -102,12 +102,12 @@ if (strpos($cap, 'CAMERA') !== false) {
                 continue;
             }
         ?>
-			<div class="col-md-4 col-sm-6 col-12 col-lg-4">
+			<div class="col-md-8 col-sm-12 col-12 col-lg-6">
                 <div class="card mx-auto mb-4 box-shadow">
-                    <div class="card-image">
-                        <iframe class="embed-responsive-item" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>0" style="display: block"
+                    <div class="card-image video_wrapper">
+                        <iframe class="embed-responsive-item"  style="width:100%;height:100%;position:absolute;left:0px;top:0px;" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>0" style="display: block"
                                     src="views/motion.php?muted=false&timezone=<?php echo $device->timezone; ?>&uuid=<?php echo $device->uuid; ?>&animate=<?php echo $animate; ?>"> </iframe>
-                        <iframe class="embed-responsive-item" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>1" style="display: none"></iframe>
+                        <iframe class="embed-responsive-item"  style="width:100%;height:100%;position:absolute;left:0px;top:0px;" frameborder="0" width="640" height="480" id="<?php echo $device->uuid; ?>1" style="display: none"></iframe>
                     </div>
 
                     <div class="card-body ">
@@ -135,7 +135,7 @@ if (strpos($cap, 'CAMERA') !== false) {
                                     if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                         echo $device->deviceip; } else { echo "None";
                                     }
-                                ?>"><small class="after2 text-muted mr-3">Live(HD)</small>
+                                ?>"><small class="after2 text-muted mr-3">Live</small>
                                </a>
                             <?php } ?>
                      </div>

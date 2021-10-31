@@ -112,120 +112,13 @@ function getRecordingState($uuid, $video_mode){
 }
 ?>
 
-
-<style>
-
-.box-shadow {
-
-            transition: 1s;
-    box-shadow: 4px 4px 10px 1px #ccc;
-
-        }
-
-
-.card:hover{
-
-    box-shadow: 8px 8px 10px 1px #ccc;
-        }
-
-.card .card-image{
-    overflow: hidden;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
-
-
-.remote-button1{
-        color: white;
-        background: #02ccba;
-        border-radius: .2rem !important;
-        border: 1px solid #02ccba !important;
-        transition: 1s;
-        box-shadow: 8px 8px 10px 1px #ccc;
-        margin: 1px;
-    }
-
-    .remote-button1:hover{
-        color: white;
-        transition: 1s;
-        box-shadow: 4px 4px 10px 1px #ccc;
-        margin: 1px;
-
-    }
-
-    .link-button2{
-        color: #365e88;
-        background: transparent;
-        outline: none;
-        font-size: 14px;
-    }
-
-        .after1:after{
-        content:'';
-        display: block;
-        width: 130px;
-        height: 3px;
-        background: linear-gradient(to right, #6f6f09, orange) !important;
-        text-align: center;
-        margin-top: 5px;
-
-        }
-
-        .after2:after{
-        content:'';
-        display: block;
-        width: 54px;
-        height: 3px;
-        background: linear-gradient(to right, #6f6f09, orange) !important;
-        text-align: center;
-        margin-top: 5px;
-
-        }
-
-    .flex-container1{
-        display: flex;
-        flex-direction: row;
-        flex-flow: wrap;
-        justify-content: flex-start;
-    }
-
-.grid {
-  display: flex;           /* 1 */
-  flex-flow: row wrap;
-  justify-content: center;
-
-}
-
-.up, .down {
-  flex: 0 0 100%;                 /* 2 */
-  text-align: center;             /* 2 */
-}
-
-.left, .right {
-  flex: 1 0 1%;                   /* 3 */
-  display: flex;
-}
-
-.left  { justify-content: flex-end; }
-.right { justify-content: flex-start; }
-
-.plus {}
-.minus {}
-
-
-
-</style>
-
 <div class="container-fluid top">
 
 <div class="row">
 
-    <div class="col-md-2 col-sm-0 col-0 col-lg-3">
+    <div class="col-md-1 col-sm-0 col-0 col-lg-2">
     </div>
-    <div class="col-md-8 col-sm-12 col-12 col-lg-6">
+    <div class="col-md-10 col-sm-12 col-12 col-lg-8">
 
 					<div class="card mb-4 box-shadow">
                        <div style="cursor: pointer;" class="card-image" data-toggle="collapse" data-target="#zoom">
@@ -328,14 +221,7 @@ function getRecordingState($uuid, $video_mode){
                         </div>
         </div>
 
-    <?php }
-    else { ?>
-
-      <p> Zoom is available in version 1.0.6 and above, please update your device from Settings</p>
-
-    <?php }
-    ?>
-
+    <?php } ?>
 
     <?php if (strpos($device->capabilities, "SPEAKER") !== false) { ?>
 

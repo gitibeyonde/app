@@ -2,20 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP&family=Barlow&display=swap');
    
 :root {
-  --tc1: #343d46;
-  --tc2: #4f5b66;
-  --tc3: #65737e;
-  --tc4: #a7adba;
+    --pc: #3949ab;
+    --pcl:#6f74dd;
+    --pcd: #00227b;
+    --sc: #d81b60;
+    --scl: #ff5c8d;
+    --scd: #a00037;
+    --tc1: #343d46;
+    --tc2: #4f5b66;
+    --tc3: #65737e;
+    --tc4: #a7adba;
   
-  --tp1: #2e003e;
-  --tp2: #3d2352;
-  --tp3: #3d1e6d;
-  --tp4: #8874a3;
+    --tp1: #2e003e;
+    --tp2: #3d2352;
+    --tp3: #3d1e6d;
+    --tp4: #8874a3;
   
-  --tb1: #ffe7c7;
-  --tb2: #fbeaea;
-  --tb3: #fff5ee;
-  --tb4: #fffafa;
+    --tb1: #ffe7c7;
+    --tb2: #fbeaea;
+    --tb3: #fff5ee;
+    --tb4: #fffafa;
 }
 body {
 	background: #fafafa;
@@ -295,6 +301,111 @@ img.shake:hover {
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+
+.video_wrapper {
+	position: relative;
+	padding-bottom: 76%; 
+}
+
+.box-shadow {
+
+            transition: 1s;
+    box-shadow: 4px 4px 10px 1px #ccc;
+
+        }
+
+
+.card:hover{
+
+    box-shadow: 8px 8px 10px 1px #ccc;
+        }
+
+.card .card-image{
+    overflow: hidden;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+
+.remote-button1{
+        color: white;
+        background: #02ccba;
+        border-radius: .2rem !important;
+        border: 1px solid #02ccba !important;
+        transition: 1s;
+        box-shadow: 8px 8px 10px 1px #ccc;
+        margin: 1px;
+    }
+
+    .remote-button1:hover{
+        color: white;
+        transition: 1s;
+        box-shadow: 4px 4px 10px 1px #ccc;
+        margin: 1px;
+
+    }
+
+    .link-button2{
+        color: #365e88;
+        background: transparent;
+        outline: none;
+        font-size: 14px;
+    }
+
+        .after1:after{
+        content:'';
+        display: block;
+        width: 130px;
+        height: 3px;
+        background: linear-gradient(to right, #6f6f09, orange) !important;
+        text-align: center;
+        margin-top: 5px;
+
+        }
+
+        .after2:after{
+        content:'';
+        display: block;
+        width: 54px;
+        height: 3px;
+        background: linear-gradient(to right, #6f6f09, orange) !important;
+        text-align: center;
+        margin-top: 5px;
+
+        }
+
+    .flex-container1{
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        justify-content: flex-start;
+    }
+
+.grid {
+  display: flex;           /* 1 */
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.up, .down {
+  flex: 0 0 100%;                 /* 2 */
+  text-align: center;             /* 2 */
+}
+
+.left, .right {
+  flex: 1 0 1%;                   /* 3 */
+  display: flex;
+}
+
+.left  { justify-content: flex-end; }
+.right { justify-content: flex-start; }
+
+.plus {}
+.minus {}
 
 
 
