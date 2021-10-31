@@ -49,10 +49,10 @@ if (isset ( $_SESSION ['message'] ) && $_SESSION ['message'] != "") {
                 <a href="/privacy_policy.html" class="footer-text">Privacy</a>
             </div>
             <div class="col-6 footer-social">
-                <a href="https://twitter.com/agneya2001"><span class="material-icons md-24 blue">tap_and_play</span></a>
-                <a href="https://fb.me/ibeyonde"><span class="material-icons md-24 blue">facebook</span></a>
-                <a href="https://www.linkedin.com/company/ibeyonde-cloud/"><span class="material-icons md-24 blue">workspace_premium</span></a>
-                <a href="https://github.com/gitibeyonde"><span class="material-icons md-24 blue">folder</span></a>
+                <a href="https://twitter.com/agneya2001"><span class="material-icons md-24 prim">tap_and_play</span></a>
+                <a href="https://fb.me/ibeyonde"><span class="material-icons md-24 prim">facebook</span></a>
+                <a href="https://www.linkedin.com/company/ibeyonde-cloud/"><span class="material-icons md-24 prim">workspace_premium</span></a>
+                <a href="https://github.com/gitibeyonde"><span class="material-icons md-24 prim">folder</span></a>
             </div>
         </div>
   </div>

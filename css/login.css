@@ -12,7 +12,7 @@
 	box-shadow: 0 4px 8px var(--bs-gray-dark);
 	position: relative;
 	z-index: 1;
-	background: linear-gradient(45deg, var(--bs-white), var(--bs-blue));
+	background: linear-gradient(45deg, var(--bs-white), var(--pcl));
 	display: block;
 }
 

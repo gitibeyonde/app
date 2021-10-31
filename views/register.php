@@ -54,7 +54,7 @@ include('_header.php');
 							</div>
 
 							<div class="form-group m-0">
-								<button name="register" type="submit" class="btn btn-info btn-block">
+								<button name="register" type="submit" class="btn btn-prim btn-block">
 									Register
 								</button>
 							</div>

@@ -46,7 +46,7 @@ require_once(__ROOT__ . '/config/config.php');
                             </div>
 
                             <div class="form-group m-0">
-                                <button type="submit" name="login" value="login" class="btn btn-info btn-block">
+                                <button type="submit" name="login" value="login" class="btn btn-prim btn-block">
                                     Login
                                 </button>
                             </div>

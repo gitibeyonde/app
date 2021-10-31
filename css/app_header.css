@@ -119,12 +119,10 @@ p {
 }
 
 .footer-social {
-	color: black;
 	text-align: right;
 }
 	
 .footer-text {
-    color: black;
     text-align: left;
 }
 .typewriter {
@@ -425,8 +423,24 @@ border-color:var(--tc4);
 color: var(--tp4) !important;
 }
 
+
+.btn-prim
+{
+background-color: var(--pc) !important;
+background-image: linear-gradient(var(--pcl), var(--pcd));
+border-color: var(--pcd);
+color: white !important;
+}
+ 
+.btn-prim:hover, .btn-prim:focus, .btn-prim:active, .btn-prim.active, .open .dropdown-toggle.btn-prim {
+background-color: var(--pcd) !important;
+background-image: linear-gradient(var(--pcd), var(--pcl));
+border-color:var(--pcl);
+color: white !important;
+}
+
 a {
-  color: var(--tp2);
+  color: var(--scd);
 }
 
 .login-card {
@@ -455,37 +469,6 @@ a {
     right: 38%;
 }
 
-
-/*	Themify ICONS */
-.icon-blue {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--blue);
-}
-
-.icon-red {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--red);
-}
-
-.icon-green {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--green);
-}
-
-.icon-yellow {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--yellow);
-}
-
-.icon-orange {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--orange);
-}
 .my-cards .card {
     height: 25vh;
     background-image: linear-gradient(to bottom right, white, #f5f5f5);

@@ -42,7 +42,7 @@ include ('_header.php');
 							</div>
 						</div>
 						<div class="form-group m-0">
-							<button type="submit" name="submit_new_password" value="Submit new password" class="btn btn-warning btn-block">
+							<button type="submit" name="submit_new_password" value="Submit new password" class="btn btn-prim btn-block">
 								Reset Password
 							</button>
 						</div>
@@ -63,7 +63,7 @@ include ('_header.php');
 						</div>
 
 						<div class="form-group m-0">
-							<button type="submit" name="request_password_reset" class="btn btn-info btn-block">
+							<button type="submit" name="request_password_reset" class="btn btn-prim btn-block">
 								Reset Password
 							</button>
 						</div>
