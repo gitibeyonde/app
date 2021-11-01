@@ -313,9 +313,9 @@ class Registration
     
         $link = EMAIL_VERIFICATION_URL.'?id='.urlencode($user_id).'&verification_code='.urlencode($user_activation_hash);
         
-        $msg['Source'] = "no_reply@deltacatalog.com";//EMAIL_VERIFICATION_FROM;
+        $msg['Source'] = "no_reply@ibeyonde.com";//EMAIL_VERIFICATION_FROM;
         $msg['Message']['Body']['Html']['Data'] = EMAIL_VERIFICATION_CONTENT.'<br/><br/> <a href='.$link.'>'.$link.
-        '</a><br/><br/><hr/><br/><a href="https://deltacatalog.com/catalog-maker/terms&conditions.html">Terms of Use</a><br/>';
+        '</a><br/><br/><hr/><br/><a href="https://app.ibeyonde.com/catalog-maker/terms&conditions.html">Terms of Use</a><br/>';
         
     
         $msg['Message']['Body']['Html']['Charset'] = "UTF-8";
@@ -327,7 +327,7 @@ class Registration
             error_log("MessageId: $msg_id");
             error_log(print_r($result, true));
         } catch (Exception $e) {
-            error_log($e->getMessage().print_r($e, true));
+            error_log($e->getMessage());
             return false;
         }
         error_log($user_email." Msg id=".$msg_id. " sent from ".EMAIL_VERIFICATION_FROM);
