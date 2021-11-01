@@ -15,6 +15,14 @@ include('_header.php');
 						<form method="POST" class="my-login-validation" action="/register.php">
 
 							<div class="form-group">
+								<label for="username">Username</label>
+								<input id="username" type="name" name="user_name" value="<?php echo (isset($_POST['user_name']) ? $_POST['user_name'] : ""); ?>" class="form-control" placeholder="User's Name" aria-label="User Name" aria-describedby="basic-addon2" required>
+								<div class="invalid-feedback">
+									Your username is invalid
+								</div>
+							</div>
+							
+							<div class="form-group">
 								<label for="email">E-Mail Address</label>
 								<input id="email" type="email" name="user_email" value="<?php echo (isset($_POST['user_email']) ? $_POST['user_email'] : ""); ?>" class="form-control" placeholder="User's Email" aria-label="User Email" aria-describedby="basic-addon2" required>
 								<div class="invalid-feedback">
@@ -22,6 +30,14 @@ include('_header.php');
 								</div>
 							</div>
 
+							<div class="form-group">
+								<label for="phone">Phone Number</label>
+								<input id="phone" type="phone" name="user_phone" value="<?php echo (isset($_POST['user_phone']) ? $_POST['user_phone'] : ""); ?>" class="form-control" placeholder="User's Phone Number" aria-label="User Phone" aria-describedby="basic-addon2" required>
+								<div class="invalid-feedback">
+									Your phone number is invalid
+								</div>
+							</div>
+							
 							<div class="form-group">
 								<label for="password">Password</label>
 								<input id="password" type="password" name="user_password_new" pattern=".{6,}" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon3" autocomplete="off" required data-eye>

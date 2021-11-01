@@ -46,11 +46,7 @@ class Registration
         session_start();
 
         // if we have such a POST request, call the registerNewUser() method 
-        if (isset($_POST["register"]) && $_SERVER['SERVER_NAME']=="app.ibeyonde.com") {
-            $this->registerNewUser($_POST['user_name'], $_POST['user_email'], "", $_POST['user_password_new'], $_POST['user_password_repeat'], $_POST["captcha"]);
-        // if we have such a GET request, call the verifyNewUser() method
-        }  
-        else if (isset($_POST["register"])) {
+        if (isset($_POST["register"])) {
             $this->registerNewUser($_POST['user_name'], $_POST['user_email'], $_POST['user_phone'], $_POST['user_password_new'], $_POST['user_password_repeat'], $_POST["captcha"]);
             // if we have such a GET request, call the verifyNewUser() method
         }
