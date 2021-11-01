@@ -17,7 +17,7 @@ include ('_header.php');
 					<h4 class="card-title">Reset Password</h4>
 
             		<form role="form" class="my-login-validation" method="post" action="/password_reset.php" name="new_password_form">
-                        <input type='hidden' name='user_email' value='<?php echo $_GET['user_email']; ?>'>
+                        <input type='hidden' name='user_name' value='<?php echo $_GET['user_name']; ?>'>
                         <input type='hidden' name='user_password_reset_hash' value='<?php echo $_GET['verification_code']; ?>'>
 						<div class="form-group">
 							<label for="new-password">New Password</label>

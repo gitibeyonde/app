@@ -127,8 +127,8 @@ class Login
         }
 
         // checking if user requested a password reset mail
-        if (isset($_POST["request_password_reset"]) && isset($_POST['user_name'])) {
-            $this->setPasswordResetDatabaseTokenAndSendMail($_POST['user_name']);
+        if (isset($_POST["request_password_reset"]) && isset($_POST['user_email'])) {
+            $this->setPasswordResetDatabaseTokenAndSendMail($_POST['user_email']);
         } elseif (isset($_GET["user_name"]) && isset($_GET["verification_code"])) {
             $this->checkIfEmailVerificationCodeIsValid($_GET["user_name"], $_GET["verification_code"]);
         } elseif (isset($_POST["submit_new_password"])) {
@@ -182,6 +182,20 @@ class Login
             // database query, getting all the info of the selected user
             $query_user = $this->db_connection->prepare('SELECT * FROM users WHERE user_name = :user_name');
             $query_user->bindValue(':user_name', $user_name, PDO::PARAM_STR);
+            $query_user->execute();
+            // get result row (as an object)
+            return $query_user->fetchObject();
+        } else {
+            return false;
+        }
+    }
+    private function getUserDataByEmail($user_email)
+    {
+        // if database connection opened
+        if ($this->databaseConnection()) {
+            // database query, getting all the info of the selected user
+            $query_user = $this->db_connection->prepare('SELECT * FROM users WHERE user_email = :user_email');
+            $query_user->bindValue(':user_email', $user_email, PDO::PARAM_STR);
             $query_user->execute();
             // get result row (as an object)
             return $query_user->fetchObject();
@@ -585,11 +599,11 @@ class Login
      * Sets a random token into the database (that will verify the user when he/she comes back via the link
      * in the email) and sends the according email.
      */
-    public function setPasswordResetDatabaseTokenAndSendMail($user_name)
+    public function setPasswordResetDatabaseTokenAndSendMail($user_email)
     {
-        $user_name = trim($user_name);
+        $user_email = trim($user_email);
 
-        if (empty($user_name)) {
+        if (empty($user_email)) {
             $this->errors[] = MESSAGE_USERNAME_EMPTY;
 
         } else {
@@ -599,7 +613,7 @@ class Login
             // generate random hash for email password reset verification (40 char string)
             $user_password_reset_hash = sha1(uniqid(mt_rand(), true));
             // database query, getting all the info of the selected user
-            $result_row = $this->getUserData($user_name);
+            $result_row = $this->getUserDataByEmail($user_email);
 
             // if this user exists
             if (isset($result_row->user_id)) {
@@ -607,16 +621,16 @@ class Login
                 // database query:
                 $query_update = $this->db_connection->prepare('UPDATE users SET user_password_reset_hash = :user_password_reset_hash,
                                                                user_password_reset_timestamp = :user_password_reset_timestamp
-                                                               WHERE user_name = :user_name');
+                                                               WHERE user_email = :user_email');
                 $query_update->bindValue(':user_password_reset_hash', $user_password_reset_hash, PDO::PARAM_STR);
                 $query_update->bindValue(':user_password_reset_timestamp', $temporary_timestamp, PDO::PARAM_INT);
-                $query_update->bindValue(':user_name', $user_name, PDO::PARAM_STR);
+                $query_update->bindValue(':user_email', $user_email, PDO::PARAM_STR);
                 $query_update->execute();
 
                 // check if exactly one row was successfully changed:
                 if ($query_update->rowCount() == 1) {
                     // send a mail to the user, containing a link with that token hash string
-                    $this->sendPasswordResetMail($user_name, $result_row->user_email, $user_password_reset_hash);
+                    $this->sendPasswordResetMail($result_row->user_name, $result_row->user_email, $user_password_reset_hash);
                     $this->messages[] = MESSAGE_PASSWORD_RESET_MAIL_SUCCESSFULLY_SENT;
                     return true;
                 } else {

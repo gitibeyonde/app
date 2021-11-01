@@ -32,7 +32,7 @@ try {
             ));
         
             $msg = array();
-            $msg['Source'] = "SafeKey@ibeyonde.com";
+            $msg['Source'] = "no_reply@ibeyonde.com";
             $msg['Destination']['ToAddresses'][] = $email;
 
             $msg['Message']['Subject']['Data'] = "validate email for alerts from your device";
