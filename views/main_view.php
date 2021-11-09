@@ -117,7 +117,7 @@ if (strpos($cap, 'CAMERA') !== false) {
                     <div class="card-body ">
                        <div class="row" style="width: 100%">
                          <div class="col-6">
-                          <font size=5 color="var(--pcd)" ><?php echo $device->device_name; ?></font>&nbsp;<font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
+                          <font size=4 color="var(--pcd)" ><?php echo $device->device_name; ?></font><br/><font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
                          </div>
                          <div class="col-2">
                           	<a style="cursor: pointer;text-decoration:none;" href="/index.php?view=<?php echo SETTINGS_DASH; ?>&timezone=<?php echo $device->timezone; ?>&loc=<?php echo $loc;

@@ -134,7 +134,7 @@ $profile = new CamProfile();
                          <div class="row" style="width: 100%">
                              <div class="col-6">
                                 <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $device->uuid; ?>").src="<?php echo $url; ?>&reload=true"'>
-                                  <font size=5 color="var(--pcd)" ><?php echo $device->device_name; ?></font>&nbsp;<font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
+                                  <font size=4 color="var(--pcd)" ><?php echo $device->device_name; ?></font><br/><font size=1 color="var(--sc)" ><?php echo $device->uuid; ?></font>
                                 </a>
                              </div>
 
