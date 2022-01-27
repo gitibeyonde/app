@@ -18,7 +18,7 @@ class Aws {
             ],
     );
     
-    const bucket = 'data.ibeyonde';
+    const bucket = 'com.ibeyonde.cam';
     public function __construct() {
         if (self::$s3 == null) {
             self::$s3 = Aws\S3\S3Client::factory ( self::$credentials  );
