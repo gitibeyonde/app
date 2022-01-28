@@ -30,30 +30,6 @@ if  ($login->getView() == MAIN_VIEW){
         include("login.php");
     }
 }
-else if  ($login->getView() == FORUM_LISTING){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/forum/forum_listing.php");
-    }
-    else {
-        include("views/forum/forum_readonly.php");
-    }
-}
-else if  ($login->getView() == FORUM_CREATE_TOPIC){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/forum/forum_create.php");
-    }
-    else {
-        include("views/forum/forum_readonly.php");
-    }
-}
-else if  ($login->getView() == FORUM_TOPIC){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/forum/forum_topic.php");
-    }
-    else {
-        include("views/forum/forum_readonly_topic.php");
-    }
-}
 else if  ($login->getView() == MOTION_DASH){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
         include("views/main_view.php");
@@ -312,14 +288,6 @@ else if  ($login->getView() == RECORD_MANAGE){
         include("login.php");
     }
 }
-else if  ($login->getView() == SIP_VIEW){
-    if (isset($_GET['uuid']) && isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sip.php");
-    }
-    else {
-        include("login.php");
-    }
-}
 else if  ($login->getView() == DEVICE_ALERTS){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
         include("views/device_alert.php");
@@ -352,6 +320,14 @@ else if  ($login->getView() == DEVICE_TAGS){
         include("login.php");
     }
 }
+else if  ($login->getView() == USER_ACCOUNT){
+    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
+        include("views/user_account.php");
+    }
+    else {
+        include("login.php");
+    }
+}
 else if  ($login->getView() == USAGE_DASH){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
         include("views/usage.php");
@@ -371,137 +347,6 @@ else if  ($login->getView() == USAGE_DETAILS){
 else if  ($login->getView() == USER_HOST_KEY){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
         include("views/sms/user_host_key.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_AUDIENCE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_audience.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == AUDIENCE_DB_TABLE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_audience_table.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_MESSAGE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_menu.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-
-else if  ($login->getView() == MESSAGE_TEMPLATE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_template.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-
-else if  ($login->getView() == MESSAGE_TEMPLATE_SMS){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_template_sms.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-
-else if  ($login->getView() == MESSAGE_TEMPLATE_EMAIL){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_template_email.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_TRIGGER){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_trigger.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_SURVEY){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_survey.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == PAYMENT_SETUP){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/dash_wf_payment.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == DELIVER_MICROAPP){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/messaging_microapp.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == URL_MINIFY){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/url_minify.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_DETAIL){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/main_detail.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == ADD_NUMBER){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/main_number.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == ASSIGN_NUMBER){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wf_assign_number.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_PAY){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/sms_buy.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == SMS_COMPOSE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/main_compose.php");
     }
     else {
         include("login.php");
@@ -587,46 +432,6 @@ else if  ($login->getView() == ADMIN_CHATDB){
         include("login.php");
     }
 }
-else if  ($login->getView() == WORKFLOW_LISTING){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/main_view.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WORKFLOW_NODE || $login->getView() == WORKFLOW_ACTION || $login->getView() == WORKFLOW_HELP){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_node.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WORKFLOW_CONNECT){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/agent_wf_connect.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WORKFLOW_MESSAGES){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/dash_message_log.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WORKFLOW_PLAYER){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/agent_wf_player.php");
-    }
-    else {
-        include("login.php");
-    }
-}
 else if  ($login->getView() == USER_DATA){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
         include("views/sms/dash_user_data.php");
@@ -646,134 +451,6 @@ else if  ($login->getView() == USER_REPORT){
 else if  ($login->getView() == USER_DATA_TABLE){
     if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
         include("views/sms/dash_user_data_table.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == MOBILE_USER_DATA){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/dash_mobile_data_view.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == MOBILE_USER_SCANNER){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/mobile_data_scanner.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == MOBILE_KB){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/mobile_kb.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_CATEGORY){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_category.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_DEMO){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_category_demo.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_DESC){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_header.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_LOGO){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_logo.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_IMAGES){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_body_images.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_KB){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_body_kb.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_KB_ADD){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_kb_add.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_KB_TABLE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_kb_table.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_PUBLISH){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_publish.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_GRAPH){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_body_graph.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_WF_PAGES){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_wf_body_pages.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_FORM_CREATE){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_form_create.php");
-    }
-    else {
-        include("login.php");
-    }
-}
-else if  ($login->getView() == WIZ_FORM_UI){
-    if (isset( $_SESSION ['user_id']) && isset( $_SESSION ['user_name'])){
-        include("views/sms/wiz/wiz_form_ui.php");
     }
     else {
         include("login.php");

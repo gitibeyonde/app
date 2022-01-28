@@ -126,14 +126,14 @@ if (strpos($cap, 'CAMERA') !== false) {
                                         if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                             echo $device->deviceip; } else { echo "None";
                                         }
-                                    ?>">
-                                    <span class="material-icons md-48 primary">settings</span></a>
+                                    ?>"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Settings">
+                                    <span class="material-icons md-36 primary">settings</span></a>
 
                          </div>
                          <div class="col-2">
 
-                             <a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>">
-                                    <span class="material-icons md-48 primary">image_search</span>
+                             <a style="cursor: pointer;text-decoration:none;" href="index.php?uuid=<?php echo $device->uuid; ?>&view=<?php echo HISTORY_VIEW; ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="History">
+                                    <span class="material-icons md-36 primary">image_search</span>
                              </a>
 
                          </div>
@@ -144,7 +144,8 @@ if (strpos($cap, 'CAMERA') !== false) {
                                     if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                         echo $device->deviceip; } else { echo "None";
                                     }
-                                ?>"><span class="material-icons md-48 primary">ondemand_video</span>
+                                ?>"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Realtime">
+                                <span class="material-icons md-36 primary">ondemand_video</span>
                                </a>
                             <?php } ?>
                          </div>

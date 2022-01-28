@@ -36,7 +36,7 @@
 
 </head>
 <?php
-$logo_img = "/img/logo_light.png";
+$logo_img = "/img/ico192.png";
 
 if (isset($_GET['view'])){
     $view = $_GET['view'];
@@ -48,51 +48,49 @@ else {
 <header>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
      <div class="container-fluid">
-        <a class="navbar-brand" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><img src="<?php echo $logo_img;?>" width="200"></a>
+        <a class="navbar-brand" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><img src="<?php echo $logo_img;?>" width="80px"></a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-top: 10px;padding-left: 50px;">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
             <?php if (isset($_SESSION['user_name'])) {
                 $login = new Login();
                 ?>
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default"><?php if ($view == MAIN_VIEW ) { echo "<h1 class='sel'>Motion</h1>";} else { echo "<h1>Motion</h1>"; }?></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index.php?view=<?php echo LIVE_DASH ?>&box=default"><?php if ($view == LIVE_DASH ) { echo "<h1 class='sel'>Live</h1>";} else { echo "<h1>Live</h1>"; }?></a>
+                        <a class="nav-link" href="/index.php?view=<?php echo MAIN_VIEW ?>&box=default" data-bs-toggle="tooltip" data-bs-placement="bottom" title="History"><?php if ($view == MAIN_VIEW ) { echo "<h1 class='sel'><span class='material-icons-two-tone md-48  var(--logoBlue)'>image_search</span></h1>";} 
+                            else { echo "<h1><span class='material-icons-outlined md-48 var(--logoBlue)'>image_search</span></h1>"; }?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/index.php?view=<?php echo TAGS ?>"><?php if ($view == TAGS ) { echo "<h1 class='sel'>Tags</h1>";} else { echo "<h1>Tags</h1>"; }?></a>
+                        <a class="nav-link" href="/index.php?view=<?php echo LIVE_DASH ?>&box=default" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Realtime"><?php if ($view == LIVE_DASH ) { echo "<h1 class='sel'><span class='material-icons-two-tone md-48  var(--logoBlue)'>ondemand_video</span></h1>";} 
+                        else { echo "<h1><span class='material-icons-outlined md-48  var(--logoBlue)'>ondemand_video</span></h1>"; }?></a>
                     </li>
-                        <?php if ($_SESSION['role'] == 'SUBS' || $_SESSION['role'] == 'ADMIN') { ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/index.php?view=<?php echo ALERT_DASH ?>"><?php if ($view == ALERT_DASH ) { echo "<h1 class='sel'>Alerts</h1>";} else { echo "<h1>Alerts</h1>"; }?></a>
-                            </li>
-
-                        <?php } else { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/index.php?view=<?php echo ALERT_DASH ?>"><?php if ($view == ALERT_DASH ) { echo "<h1 class='sel'>Alerts</h1>";} else { echo "<h1>Alerts</strike></h1>"; }?></a>
-                        </li>
-
-                        <?php } ?>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?view=<?php echo TAGS ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tags"><?php if ($view == TAGS ) { echo "<h1 class='sel'><span class='material-icons-two-tone md-48  var(--logoBlue)'>label</span></h1>";} 
+                        else { echo "<h1><span class='material-icons-outlined md-48  var(--logoBlue)'>label</span></h1>"; }?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?view=<?php echo ALERT_DASH ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Notifications"><?php if ($view == ALERT_DASH ) { echo "<h1 class='sel'><span class='material-icons-two-tone md-48  var(--logoBlue)'>notifications_active</span></h1>";} 
+                        else { echo "<h1><span class='material-icons-outlined md-48  var(--logoBlue)'>notifications_active</span></strike></h1>"; }?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.php?view=<?php echo USAGE_DASH ?>"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Usage"><?php if ($view == USAGE_DASH ) { echo "<h1 class='sel'><span class='material-icons-two-tone md-48  var(--logoBlue)'>data_usage</span></h1>";} 
+                        else { echo "<h1><span class='material-icons-outlined md-48  var(--logoBlue)'>data_usage</span></h1>"; }?></a>
+                    </li>
             </ul>
 
             <!-- div class="hidden-xs" -->
             <ul class="d-flex" style="list-style-type: none;">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php?view=<?php echo USAGE_DASH ?>"><?php if ($view == USAGE_DASH ) { echo "<h1 class='sel'>Usage</h1>";} else { echo "<h1>Usage</h1>"; }?></a>
+                    <a class="nav-link" href="/index.php?view=<?php echo USER_ACCOUNT ?>"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Account"><?php if ($view == USER_ACCOUNT ) { echo "<h1 class='sel'><span class='material-icons-two-tone md-48  var(--logoBlue)'>account_circle</span></h1>";} 
+                    else { echo "<h1><span class='material-icons-outlined md-48  var(--logoBlue)'>account_circle</span></h1>"; }?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php?view=<?php echo LOGOUT_VIEW ?>"><span class="material-icons md-48 red">logout</span></a></li>
+                    <a class="nav-link" href="/index.php?view=<?php echo LOGOUT_VIEW ?>"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Logout"><span class="material-icons md-48 red">logout</span></a></li>
             </ul>
          <?php } ?>
           </div>
         </div>
    </nav>
  </header>
-
 

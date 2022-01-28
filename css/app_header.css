@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP&family=Barlow&display=swap');
    
 :root {
+	--logoBlue: #15417e;
+	--logoRed: #a81f2c;
+	
     --pc: #3949ab;
     --pcl:#6f74dd;
     --pcd: #00227b;
@@ -164,7 +167,7 @@ main {
 }
 
 .sel {
-    border-bottom: 5px solid var(--tc4);
+    border-bottom: 5px solid var(--logoRed);
     padding-bottom: 10px;
 }
 

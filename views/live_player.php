@@ -108,8 +108,8 @@ function getRecordingColor($uuid, $video_mode){
 }
 
 function getRecordingState($uuid, $video_mode){
-    return $video_mode == 1 ?  (Mjpeg::isRecording($uuid) ? "<span class='material-icons md-48 red'>radio_button_checked</span>" : "<span class='material-icons md-48 primary'>radio_button_checked</span>") :
-    (Mp4::isRecording($uuid) ? "<span class='material-icons md-48 red'>radio_button_checked</span>" : "<span class='material-icons md-48 primary'>radio_button_checked</span>");
+    return $video_mode == 1 ?  (Mjpeg::isRecording($uuid) ? "<span class='material-icons md-36 red'>radio_button_checked</span>" : "<span class='material-icons md-36 primary'>radio_button_checked</span>") :
+    (Mp4::isRecording($uuid) ? "<span class='material-icons md-36 red'>radio_button_checked</span>" : "<span class='material-icons md-36 primary'>radio_button_checked</span>");
 }
 ?>
 
@@ -142,24 +142,25 @@ function getRecordingState($uuid, $video_mode){
                                     if (strcmp($device->visibleip, $remoteip) == 0 ) {
                                         echo $device->deviceip; } else { echo "None";
                                     }
-                                ?>">
-                                 <span class="material-icons md-48 primary">settings</span></a>
+                                ?>"   data-bs-toggle="tooltip" data-bs-placement="bottom" title="Settings">
+                                 <span class="material-icons md-36 primary">settings</span></a>
                      </div>
                      <div class="col-2">
                             <a style="cursor: pointer;text-decoration:none;" onclick='document.getElementById("live<?php echo $uuid; ?>").src="<?php echo $url; ?>&reload=true"'>
-                            <span class="material-icons md-48 primary">refresh</span></a>
+                            <span class="material-icons md-36 primary"   data-bs-toggle="tooltip" data-bs-placement="bottom" title="Reload">refresh</span></a>
                      </div>
                      <div class="col-2">
                             <form id="recordform" name=RecordToggleAction method=GET action="https://<?php echo $ip; ?>/udp/device_action.php"  target="donothing">
                         		<input type=hidden name=action value="RecordToggle" />
                         		<?php include('common/live_player_input.php'); ?>
-                                	<a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("recordform").submit(); recordToggle();'>
+                                	<a style="cursor: pointer;text-decoration:none;" onClick='document.getElementById("recordform").submit(); recordToggle();'   data-bs-toggle="tooltip" data-bs-placement="bottom" title="Record">
                                 	<small id="RecordToggleSpan"><?php echo getRecordingState($uuid, $video_mode); ?></small></a>
                         	</form>
                      </div>
                      <div class="col-1">
-                       <a style="cursor: pointer;text-decoration:none;" href="index.php?view=<?php echo RECORD_MANAGE; ?>&uuid=<?php echo $uuid; ?>&video_mode=<?php echo $video_mode;?>&device_name=<?php $device_name; ?>">
-                       	<span class="material-icons md-48 primary">list</span>
+                       <a style="cursor: pointer;text-decoration:none;" href="index.php?view=<?php echo RECORD_MANAGE; ?>&uuid=<?php echo $uuid; ?>&video_mode=<?php echo $video_mode;?>&device_name=<?php $device_name; ?>"
+                          data-bs-toggle="tooltip" data-bs-placement="bottom" title="Recordings">
+                       	<span class="material-icons md-36 primary">list</span>
                         </a>
                 	 </div>
                 </div>

@@ -53,7 +53,7 @@ error_log("Date= $date Time=$time");
 
 <div class="row align-items-center">
     <div class="col-md-2 col-lg-3 col-xl-4">
-       <a class="nav-link" href="/index.php?view=<?php echo HISTORY_VIEW ?>&uuid=<?php echo $device->uuid; ?>&action=delete"><h1><span class="material-icons md-48 red">delete_forever</span></h1></a>
+       <a class="nav-link" href="/index.php?view=<?php echo HISTORY_VIEW ?>&uuid=<?php echo $device->uuid; ?>&action=delete"   data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete History"><h1><span class="material-icons md-48 red">delete_forever</span></h1></a>
     </div>
     <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
     <form action="index.php" method=GET>

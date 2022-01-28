@@ -2,7 +2,7 @@
 // include the config
 require_once (__ROOT__ . '/config/config.php');
 require_once(__ROOT__.'/classes/core/Log.php');
-require_once(__ROOT__.'/classes/wf/SmsWfUtils.php');
+require_once(__ROOT__.'/classes/core/Utils.php');
 
 class Mysql {
     
@@ -41,10 +41,10 @@ class Mysql {
         if ($this->databaseConnection()) {
             $sth = $this->db_connection->prepare($sql);
             $sth->execute();
-            $this->log->trace("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
+            $this->log->trace("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
             if ( $sth->errorInfo()[0] != "0000"){
-                $this->log->fatal("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
-                $_SESSION['message'] = SmsWfUtils::flatten($sth->errorInfo());
+                $this->log->fatal("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
+                $_SESSION['message'] = Utils::flatten($sth->errorInfo());
             }
             return $sth->fetch()[0];
         }
@@ -54,7 +54,7 @@ class Mysql {
         if ($this->databaseConnection()) {
             $sth = $this->db_connection->prepare($sql);
             $sth->execute();
-            $this->log->trace("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
+            $this->log->trace("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
             if ( $sth->errorInfo()[0] != "0000"){
                 $this->log->fatal("ERR=".print_r($sth->errorInfo(), true)." SQL=".$sql);
                 $_SESSION['message'] = print_r($sth->errorInfo(), true);
@@ -68,10 +68,10 @@ class Mysql {
             $res=array();
             $sth = $this->db_connection->prepare($sql);
             $sth->execute();
-            $this->log->trace("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
+            $this->log->trace("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
             if ( $sth->errorInfo()[0] != "0000"){
-                $this->log->fatal("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
-                $_SESSION['message'] = SmsWfUtils::flatten($sth->errorInfo());
+                $this->log->fatal("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
+                $_SESSION['message'] = Utils::flatten($sth->errorInfo());
             }
             while($obj =  $sth->fetch(PDO::FETCH_ASSOC)){
                 $res[]=$obj;
@@ -86,10 +86,10 @@ class Mysql {
             // database query, getting all the info of the selected user
             $sth = $this->db_connection->prepare($sql);
             $sth->execute();
-            $this->log->trace("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
+            $this->log->trace("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
             if ( $sth->errorInfo()[0] != "0000"){
-                $this->log->fatal("ERR=".SmsWfUtils::flatten($sth->errorInfo())." SQL=".$sql);
-                $_SESSION['message'] = SmsWfUtils::flatten($sth->errorInfo());
+                $this->log->fatal("ERR=".Utils::flatten($sth->errorInfo())." SQL=".$sql);
+                $_SESSION['message'] = Utils::flatten($sth->errorInfo());
                 return false;
             }
         }
