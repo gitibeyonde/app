@@ -104,6 +104,20 @@ class Device
         }
     }
 
+
+
+    public function resetDevice($uuid)
+    {
+        error_log("Resetting device =".$uuid);
+        if ($this->databaseConnection()) {
+            $query_device = $this->db_connection->prepare('update device set type="RESET" WHERE uuid = :uuid');
+            $query_device->bindValue(':uuid', $uuid, PDO::PARAM_STR);
+            $query_device->execute();
+
+            error_log("Error=".implode(",", $query_device->errorInfo()));
+        }
+    }
+
     public function alert($state)
     {
         $this->email_alerts=$state;
